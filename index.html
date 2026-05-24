@@ -186,7 +186,7 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
   <a href="#" class="brand"><div class="crest"><span>भा</span></div>
     <div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></div></a>
   <nav class="main">
-    <a href="#schemes">Schemes</a><a href="#gujarat">Gujarat</a><a href="#engine">Check Eligibility</a>
+    <a href="#schemes">Schemes</a><a href="#states">States</a><a href="#engine">Check Eligibility</a>
     <a href="#process">How It Works</a><a href="#engine" class="cta-sm">Book a Consultation</a>
   </nav>
 </div></header>
@@ -247,13 +247,13 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
   </div>
   <div class="cards reveal" id="central-cards"></div>
 </div></section>
-<div class="gj-band" id="gujarat"><section><div class="wrap">
+<div class="gj-band" id="states"><section><div class="wrap">
   <div class="sec-head reveal">
-    <div class="gj-flag"><span class="stripe"><i class="s1"></i><i class="s2"></i><i class="s3"></i></span> Deep Coverage · Gujarat</div>
-    <h2>Gujarat state incentives — where the real subsidy money is.</h2>
-    <p>Gujarat runs some of India's most generous industrial and MSME incentive policies. We cover them deeper than anyone — sector by sector — with advisors on the ground.</p>
+    <div class="gj-flag"><span class="stripe"><i class="s1"></i><i class="s2"></i><i class="s3"></i></span> State Depth</div>
+    <h2>Pick your state — where the real subsidy money is.</h2>
+    <p>Central schemes are nationwide. The largest incentives are at the state level, and they're hyper-local. We go deep state by state, with advisors on the ground. Gujarat is live now; more states are rolling out.</p>
   </div>
-  <div class="cards reveal" id="gujarat-cards"></div>
+  <div class="cards reveal" id="state-cards"></div>
 </div></section></div>
 <section id="process"><div class="wrap">
   <div class="sec-head reveal">
@@ -279,8 +279,8 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
       <p style="margin-top:11px;max-width:290px;line-height:1.6">Government scheme, subsidy and incentive advisory for Indian startups, MSMEs and industries. Central coverage, Gujarat depth.</p>
       <div class="fbrand"><span class="handoff">Advisory delivered by <b style="font-size:13px">CONSULT.IN</b></span></div>
     </div>
-    <div><h5>Schemes</h5><a href="#">CGTMSE</a><a href="#">PMEGP</a><a href="#">Mudra Yojana</a><a href="#">Startup India</a><a href="#">CLCSS</a></div>
-    <div><h5>Gujarat</h5><a href="#">Aatmanirbhar Gujarat</a><a href="#">Textile Policy</a><a href="#">Large Industry</a><a href="#">Startup Scheme</a></div>
+    <div><h5>Schemes</h5><a href="schemes/cgtmse.html">CGTMSE</a><a href="schemes/pmegp.html">PMEGP</a><a href="schemes/mudra-yojana.html">Mudra Yojana</a><a href="schemes/dpiit-startup-india.html">Startup India</a><a href="schemes/index.html">All schemes →</a></div>
+    <div><h5>Gujarat</h5><a href="states/gujarat.html">All Gujarat schemes</a><a href="schemes/aatmanirbhar-gujarat-msme.html">Aatmanirbhar Gujarat</a><a href="schemes/gujarat-textile-policy.html">Textile Policy</a><a href="schemes/gujarat-large-industry-incentive.html">Large Industry</a></div>
     <div><h5>Firm</h5><a href="#">Advisory Desk</a><a href="#process">How It Works</a><a href="#engine">Consultation</a></div>
   </div>
   <div class="disc">BHARAT.LOAN is an independent advisory service. We are not a government body and do not represent any ministry or agency. Scheme details are compiled from official sources and verified regularly; applicants should confirm current terms with the relevant authority. Subsidy and loan approvals are at the sole discretion of the respective government bodies and lending institutions. © 2026 BHARAT.LOAN.</div>
@@ -305,9 +305,24 @@ gujarat:[
 ]};
 const vIcon='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
 const arrow='<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-function cardHTML(s){return `<div class="card" data-cat="${s.cat||''}"><div class="tierflag">TIER ${s.tier}</div><div class="type">${s.type}</div><h4>${s.name}</h4><div class="full">${s.full}</div><div class="quantum">${s.quantum}</div><div class="body-tag">${s.body}</div><div class="verified">${vIcon} Verified ${s.verified}</div><a href="#engine" class="card-link">Check my eligibility ${arrow}</a></div>`;}
+const pageMap={cgtmse:'schemes/cgtmse.html',pmegp:'schemes/pmegp.html',clcss:'schemes/clcss.html',pmmy:'schemes/mudra-yojana.html',sisfs:'schemes/startup-india-seed-fund.html',dpiit:'schemes/dpiit-startup-india.html',msme59:'schemes/msme-loan-59-minutes.html',sidbi:'schemes/sidbi-direct.html',gj1:'schemes/aatmanirbhar-gujarat-msme.html',gj2:'schemes/gujarat-textile-policy.html',gj3:'schemes/gujarat-large-industry-incentive.html',gj4:'schemes/gujarat-startup-scheme.html'};
+function cardHTML(s){const link=pageMap[s.id]||'#engine';return `<div class="card" data-cat="${s.cat||''}"><div class="tierflag">TIER ${s.tier}</div><div class="type">${s.type}</div><h4>${s.name}</h4><div class="full">${s.full}</div><div class="quantum">${s.quantum}</div><div class="body-tag">${s.body}</div><div class="verified">${vIcon} Verified ${s.verified}</div><a href="${link}" class="card-link">View scheme &amp; eligibility ${arrow}</a></div>`;}
 document.getElementById('central-cards').innerHTML=data.central.map(cardHTML).join('');
-document.getElementById('gujarat-cards').innerHTML=data.gujarat.map(cardHTML).join('');
+const states=[
+{name:'Gujarat',status:'live',href:'states/gujarat.html',tag:"India's most incentive-dense industrial state — capital subsidy, interest subvention, SGST benefits.",count:'4 schemes'},
+{name:'Uttar Pradesh',status:'coming',href:'#',tag:"India's largest market — ODOP, PMEGP volume, district depth.",count:'Coming soon'},
+{name:'Maharashtra',status:'coming',href:'#',tag:'Industrial heartland coverage rolling out next.',count:'Coming soon'}
+];
+document.getElementById('state-cards').innerHTML=states.map(st=>{
+  const live=st.status==='live';
+  return `<a class="card" href="${st.href}" style="text-decoration:none;${live?'':'opacity:.6;pointer-events:none'}">
+    <div class="tierflag" style="${live?'color:var(--green);background:var(--green-wash)':'color:var(--muted);background:var(--wash)'}">${live?'LIVE':'SOON'}</div>
+    <div class="type">${st.count}</div>
+    <h4 style="font-size:21px">${st.name}</h4>
+    <div class="full" style="min-height:auto">${st.tag}</div>
+    <div class="card-link" style="margin-top:14px">${live?'Explore '+st.name+' schemes':'Coming soon'} ${arrow}</div>
+  </a>`;
+}).join('');
 document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.remove('on'));t.classList.add('on');const f=t.dataset.tab;document.querySelectorAll('#central-cards .card').forEach(c=>{c.style.display=(f==='all'||c.dataset.cat===f)?'flex':'none';});});});
 const Q=[
 {key:'stage',label:'Question 1 of 4',title:"What stage is your business at?",opts:[["new","Idea / New (pre-launch or <1 yr)"],["growing","Growing (1–5 yrs, scaling up)"],["established","Established (5+ yrs)"],["startup","DPIIT-registered Startup"]]},
