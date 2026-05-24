@@ -35,7 +35,7 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 nav.main{display:flex;gap:30px;align-items:center}nav.main a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;font-weight:500}nav.main a:hover{color:var(--blue)}
 .cta-sm{background:var(--blue);color:#fff!important;padding:10px 18px;border-radius:9px;font-weight:600!important;font-size:14px!important;box-shadow:0 4px 12px rgba(20,86,230,.22)}
 .crumb{padding:24px 0 0;font-size:13px;color:var(--muted)}.crumb a{color:var(--blue);text-decoration:none}.crumb a:hover{text-decoration:underline}
-.gjflag{display:inline-flex;width:22px;height:15px;border-radius:2px;overflow:hidden;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.15);vertical-align:middle;margin-right:6px}.gjflag i{flex:1}.gjflag .a{background:var(--amber)}.gjflag .b{background:#fff}.gjflag .c{background:var(--green)}
+.gjflag,.stateflag{display:inline-flex;width:22px;height:15px;border-radius:2px;overflow:hidden;flex-direction:column;box-shadow:0 1px 2px rgba(0,0,0,.15);vertical-align:middle;margin-right:6px}.gjflag i,.stateflag i{flex:1}.gjflag .a,.stateflag .a{background:var(--amber)}.gjflag .b,.stateflag .b{background:#fff}.gjflag .c,.stateflag .c{background:var(--green)}
 .shead{padding:26px 0 30px}
 .stags{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap;align-items:center}
 .stag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
@@ -121,6 +121,9 @@ const STAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-
 const WARN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>';
 const GJFLAG = '<span class="gjflag"><i class="a"></i><i class="b"></i><i class="c"></i></span>';
 
+const flagFor = (stateId) => (stateById[stateId] && stateById[stateId].flag) ? '<span class="stateflag"><i class="a"></i><i class="b"></i><i class="c"></i></span>' : '';
+const scopeLabel = (scope) => (scope !== 'central' && stateById[scope]) ? ' \u00b7 ' + stateById[scope].name : '';
+
 const NAVBAR = `<header><div class="wrap">
   <a href="/" class="brand"><div class="crest"><span>\u092d\u093e</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></div></a>
   <nav class="main"><a href="/#schemes">Schemes</a><a href="/#states">States</a><a href="/#engine">Check Eligibility</a><a href="/#engine" class="cta-sm">Book a Consultation</a></nav>
@@ -144,7 +147,7 @@ document.getElementById('leadBtn').addEventListener('click',async function(){
 function related(current, all) {
   const same = all.filter(s => s.id !== current.id && s.scope === current.scope);
   const pool = (same.length >= 3 ? same : all.filter(s => s.id !== current.id)).slice(0, 3);
-  return pool.map(s => `<a class="rel-card" href="${s.slug}.html"><div class="rc-cat">${s.cat}${s.scope==='gujarat'?' \u00b7 Gujarat':''}</div><div class="rc-name">${s.name}</div><div class="rc-q">${s.oneLiner}</div></a>`).join('');
+  return pool.map(s => `<a class="rel-card" href="${s.slug}.html"><div class="rc-cat">${s.cat}${scopeLabel(s.scope)}</div><div class="rc-name">${s.name}</div><div class="rc-q">${s.oneLiner}</div></a>`).join('');
 }
 
 function schemePage(s, all) {
@@ -163,7 +166,7 @@ ${NAVBAR}
     <div class="stags">
       <span class="stag cat">${s.cat}</span>
       <span class="stag tier">Tier ${s.tier}</span>
-      ${isState ? `<span class="stag state">${GJFLAG}${st.name}</span>` : `<span class="stag body">Central</span>`}
+      ${isState ? `<span class="stag state">${flagFor(s.scope)}${st.name}</span>` : `<span class="stag body">Central</span>`}
     </div>
     <h1>${s.name}</h1>
     <div class="full">${s.full}${s.estd ? ` \u00b7 Est. ${s.estd}` : ''} \u00b7 ${s.body}</div>
@@ -223,7 +226,7 @@ ${NAVBAR}
 <div class="wrap">
   <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/#states">States</a> &nbsp;/&nbsp; ${state.name}</div>
   <div class="shead">
-    <div class="stags"><span class="stag state">${state.id==='gujarat'?GJFLAG:''}${state.name}</span><span class="stag body">State coverage</span></div>
+    <div class="stags"><span class="stag state">${flagFor(state.id)}${state.name}</span><span class="stag body">State coverage</span></div>
     <h1>${state.name} schemes &amp; incentives</h1>
     <p class="lede">${state.intro}</p>
     ${schemes.some(s=>s.verifyPending) ? `<div class="verifybanner">${WARN}<p><strong>State figures pending verification.</strong> ${state.name} incentive rates and caps are set by the current government resolution and are being confirmed by our advisory desk. Amounts marked * are indicative until verified.</p></div>` : ''}
@@ -258,7 +261,7 @@ ${NAVBAR}
   </div>
   <div style="padding:8px 0 18px"><h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:600">State coverage</h2></div>
   <div class="rel-grid" style="padding-bottom:60px">
-    ${data.states.map(st => `<a class="rel-card" href="${st.status==='live'?'../states/'+st.id+'.html':'#'}" ${st.status!=='live'?'style="opacity:.55;pointer-events:none"':''}><div class="rc-cat">${st.status==='live'?'Live':'Coming soon'}</div><div class="rc-name">${st.id==='gujarat'?GJFLAG:''}${st.name}</div><div class="rc-q">${st.tagline||'Coverage coming soon.'}</div></a>`).join('')}
+    ${data.states.map(st => `<a class="rel-card" href="${st.status==='live'?'../states/'+st.id+'.html':'#'}" ${st.status!=='live'?'style="opacity:.55;pointer-events:none"':''}><div class="rc-cat">${st.status==='live'?'Live':'Coming soon'}</div><div class="rc-name">${flagFor(st.id)}${st.name}</div><div class="rc-q">${st.tagline||'Coverage coming soon.'}</div></a>`).join('')}
   </div>
 </div>
 ${FOOTER}
