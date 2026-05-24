@@ -1,0 +1,18 @@
+{
+  "central": [
+    {"id":"cgtmse","name":"CGTMSE","full":"Credit Guarantee Fund Trust for Micro & Small Enterprises","type":"Credit Guarantee","quantum":"Collateral-free loans up to ₹10 Cr (₹20 Cr for startups)","body":"Ministry of MSME + SIDBI","sectors":["Manufacturing","Service","Trading"],"verified":"2026-05-20","tier":"S"},
+    {"id":"pmegp","name":"PMEGP","full":"Prime Minister's Employment Generation Programme","type":"Margin Money Subsidy","quantum":"15–35% subsidy; project up to ₹25L (mfg) / ₹10L (service)","body":"KVIC / Ministry of MSME","sectors":["Manufacturing","Service"],"verified":"2026-05-18","tier":"S"},
+    {"id":"clcss","name":"CLCSS","full":"Credit Linked Capital Subsidy Scheme","type":"Capital Subsidy","quantum":"15% capital subsidy on tech upgrade up to ₹1 Cr","body":"Ministry of MSME","sectors":["Manufacturing"],"verified":"2026-05-15","tier":"A"},
+    {"id":"pmmy","name":"PM Mudra Yojana","full":"Pradhan Mantri Mudra Yojana","type":"Term + Working Capital Loan","quantum":"Shishu / Kishore / Tarun tiers up to ₹20L","body":"MUDRA / Member Lending Institutions","sectors":["Micro-enterprise","Service","Trading"],"verified":"2026-05-21","tier":"A"},
+    {"id":"sisfs","name":"Startup India Seed Fund","full":"Startup India Seed Fund Scheme","type":"Grant + Convertible Debt","quantum":"Up to ₹20L grant (non-dilutive) / up to ₹50L convertible","body":"DPIIT","sectors":["Startup (DPIIT-recognised)"],"verified":"2026-05-19","tier":"S"},
+    {"id":"dpiit","name":"DPIIT Recognition","full":"Startup India DPIIT Recognition + 80-IAC","type":"Tax + Regulatory","quantum":"100% income-tax exemption (3 of 10 yrs), angel-tax exemption, IP rebates","body":"DPIIT","sectors":["Startup"],"verified":"2026-05-19","tier":"S"},
+    {"id":"msme59","name":"MSME Loan in 59 Minutes","full":"PSB Loans in 59 Minutes","type":"Term + Working Capital Loan","quantum":"In-principle approval up to ₹1 Cr","body":"SIDBI / PSBs","sectors":["MSME"],"verified":"2026-05-12","tier":"B"},
+    {"id":"sidbi","name":"SIDBI Direct","full":"Small Industries Development Bank of India","type":"Direct + Refinance Loan","quantum":"Direct loans + refinance for MSME growth","body":"SIDBI","sectors":["MSME"],"verified":"2026-05-10","tier":"B"}
+  ],
+  "gujarat": [
+    {"id":"gj-aatmanirbhar","name":"Aatmanirbhar Gujarat (MSME)","full":"Aatmanirbhar Gujarat Scheme for Assistance to MSMEs","type":"Capital + Interest Subsidy","quantum":"Interest subvention up to 7% + capital subsidy on fixed assets","body":"Industries Commissionerate, Gujarat","sectors":["Manufacturing","Service"],"verified":"2026-05-20","tier":"S"},
+    {"id":"gj-textile","name":"Gujarat Textile Policy","full":"Gujarat Textile Policy — Interest & Capital Subsidy","type":"Sector Capital + Interest Subsidy","quantum":"Interest subsidy + capital subsidy for spinning/weaving/processing","body":"Commissioner of Textiles, Gujarat","sectors":["Textile"],"verified":"2026-05-17","tier":"S"},
+    {"id":"gj-largeind","name":"Gujarat Large Industry Incentive","full":"Scheme for Incentive to Large Industries","type":"State GST-linked + Capital Subsidy","quantum":"Net SGST reimbursement + capital subsidy by taluka category","body":"Industries & Mines Dept, Gujarat","sectors":["Large Industry","Manufacturing"],"verified":"2026-05-16","tier":"A"},
+    {"id":"gj-startup","name":"Gujarat Startup Scheme","full":"Student Startup & Innovation Policy / Gujarat Startup Assistance","type":"Seed + Sustenance Assistance","quantum":"Seed support, sustenance allowance, mentorship","body":"Industries Commissionerate, Gujarat","sectors":["Startup"],"verified":"2026-05-14","tier":"A"}
+  ]
+}
