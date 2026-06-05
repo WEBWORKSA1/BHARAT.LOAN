@@ -3,16 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BHARAT.LOAN — Government Scheme & Subsidy Advisory for Indian Business</title>
+<title>BHARAT.LOAN — Government Scheme &amp; Subsidy Advisory for Indian Business</title>
 <meta name="description" content="Map every central and state government scheme your Indian business qualifies for — subsidies, collateral-free credit, capital incentives, tax exemptions. Advisory by a 25-year finance professional.">
 <link rel="canonical" href="https://bharat.loan/">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BHARAT.LOAN">
-<meta property="og:title" content="BHARAT.LOAN — Government Scheme & Subsidy Advisory for Indian Business">
+<meta property="og:title" content="BHARAT.LOAN — Government Scheme &amp; Subsidy Advisory for Indian Business">
 <meta property="og:description" content="Map every central and state government scheme your business qualifies for. Advisory by a 25-year finance professional.">
 <meta property="og:url" content="https://bharat.loan/">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://bharat.loan/og-image.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="BHARAT.LOAN — Government funding advisory for Indian business">
+<meta name="twitter:image" content="https://bharat.loan/og-image.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3216322039296830" crossorigin="anonymous"></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://bharat.loan/#org","name":"BHARAT.LOAN","url":"https://bharat.loan/","description":"Government scheme, subsidy and incentive advisory for Indian startups, MSMEs and industries.","areaServed":"IN"},{"@type":"WebSite","@id":"https://bharat.loan/#website","url":"https://bharat.loan/","name":"BHARAT.LOAN","publisher":{"@id":"https://bharat.loan/#org"}},{"@type":"ProfessionalService","name":"BHARAT.LOAN Advisory Desk","description":"Government funding, subsidy and incentive advisory for Indian businesses — eligibility mapping, application filing and disbursement support.","areaServed":"IN","priceRange":"Complimentary first assessment"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What does BHARAT.LOAN do?","acceptedAnswer":{"@type":"Answer","text":"We map every central and state government scheme an Indian business qualifies for — subsidies, collateral-free credit, capital incentives and tax exemptions — then structure and file the applications end-to-end."}},{"@type":"Question","name":"How much does an assessment cost?","acceptedAnswer":{"@type":"Answer","text":"The initial eligibility assessment is complimentary. Our advisory desk reviews your business profile and maps the schemes you qualify for at no charge."}},{"@type":"Question","name":"Which states are covered?","acceptedAnswer":{"@type":"Answer","text":"Central schemes are nationwide. State depth currently covers Gujarat and Uttar Pradesh, including all 75 UP districts under the One District One Product (ODOP) scheme, with more states rolling out."}}]}]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -286,17 +294,32 @@ document.querySelectorAll('.opt').forEach(b=>{b.addEventListener('click',()=>{an
 const back=document.getElementById('backbtn');if(back)back.addEventListener('click',()=>{qi--;renderQ();setProgress(qi,false);});}
 function setProgress(idx,done){document.querySelectorAll('#progress .pdot').forEach((d,i)=>{d.className='pdot';if(i<idx)d.classList.add('done');else if(i===idx)d.classList.add(done?'done':'on');});}
 function matchSchemes(){const all=[...data.central,...data.gujarat.map(s=>({...s,gj:true}))];const{stage,sector,state,need}=answers;return all.filter(s=>{if(s.gj&&!(state==='gujarat'||state==='multi'))return false;const stageOk=stage==='startup'?(s.sector.includes('startup')||s.stage.includes('new')):s.stage.includes(stage);const sectorOk=s.sector.includes(sector)||(sector==='startup'&&s.sector.includes('startup'));const needOk=need==='all'?true:s.need.includes(need);return stageOk&&sectorOk&&needOk;}).sort((a,b)=>({S:0,A:1,B:2}[a.tier]-{S:0,A:1,B:2}[b.tier]));}
-function showResults(){const m=matchSchemes();document.getElementById('ehead-title').textContent="Your matched schemes";document.getElementById('ehead-sub').textContent="Based on your answers. Ranked by value. An advisor can take any of these end-to-end.";document.getElementById('qpanel').style.display='none';document.querySelectorAll('#progress .pdot').forEach(d=>d.className='pdot done');const r=document.getElementById('results');r.classList.add('show');
-const list=m.length?m.slice(0,6).map(s=>`<div class="rmatch"><div class="rl"><b>${s.name}${s.gj?' · Gujarat':''}</b><small>${s.type} · ${s.body}</small></div><div class="rq">${s.quantum}</div></div>`).join(''):`<div class="rmatch"><div class="rl"><b>Let's talk directly</b><small>Your profile needs a tailored assessment — our advisor will map it personally.</small></div></div>`;
-r.innerHTML=`<div class="rtop"><span class="rcount">${m.length||'1:1'}</span><span style="color:#aebfd2">${m.length?'schemes match your business':'personalised assessment'}</span></div><div class="rsub">Showing your strongest matches first.</div>${list}<div class="capture"><h4>Get your full funding strategy</h4><p>Our advisor reviews these matches, finds what this tool can't, and handles the filing. Complimentary first assessment.</p><div class="cfields"><input type="text" id="cn" placeholder="Your name"><input type="text" id="cb" placeholder="Business / company"></div><div class="cfields"><input type="tel" id="cp" placeholder="Phone / WhatsApp"><input type="email" id="ce" placeholder="Email"></div><button class="btn btn-primary" id="submitlead">Book My Free Consultation →</button></div><button class="eback" id="restart">← Start over</button>`;
-document.getElementById('restart').addEventListener('click',()=>{qi=0;for(const k in answers)delete answers[k];r.classList.remove('show');r.innerHTML='';document.getElementById('qpanel').style.display='block';document.getElementById('ehead-title').textContent="Which schemes does your business qualify for?";document.getElementById('ehead-sub').textContent="Four quick questions. See your matched central, Gujarat & UP schemes instantly — then talk to an advisor who can act on them.";renderQ();setProgress(0,false);});
-document.getElementById('submitlead').addEventListener('click',async()=>{const n=document.getElementById('cn').value.trim();const p=document.getElementById('cp').value.trim();if(!n||!p){alert('Please add your name and phone so an advisor can reach you.');return;}
-const btn=document.getElementById('submitlead');btn.textContent='Sending…';btn.disabled=true;
-const m=matchSchemes();const lead={name:n,business:document.getElementById('cb').value,phone:p,email:document.getElementById('ce').value,
-profile:[answers.stage,answers.sector,answers.state,answers.need].filter(Boolean).join(' / '),
-matched_schemes:m.map(s=>s.name).join(', ')||'1:1 assessment',_subject:'New BHARAT.LOAN lead: '+n};
-try{await fetch('https://formsubmit.co/ajax/webworksa1@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});}catch(e){}
-document.getElementById('results').innerHTML=`<div class="rtop"><span class="rcount">✓</span><span style="color:#aebfd2">Request received</span></div><div class="rsub" style="margin-bottom:0">Thank you, ${n}. Our advisory desk will reach out on ${p} within one business day with your funding strategy.</div>`;});}
+function showResults(){
+  const m=matchSchemes();
+  document.getElementById('ehead-title').textContent="Your matches are ready";
+  document.getElementById('ehead-sub').textContent="Unlock your matched schemes + a complimentary advisor consultation.";
+  document.getElementById('qpanel').style.display='none';
+  document.querySelectorAll('#progress .pdot').forEach(d=>d.className='pdot done');
+  const r=document.getElementById('results');
+  r.classList.add('show');
+  // Build the match list but keep it gated — only render after lead capture.
+  const lockedList=m.length?m.slice(0,6).map(s=>`<div class="rmatch"><div class="rl"><b>${s.name}${s.gj?' · Gujarat':''}</b><small>${s.type} · ${s.body}</small></div><div class="rq">${s.quantum}</div></div>`).join(''):`<div class="rmatch"><div class="rl"><b>Let's talk directly</b><small>Your profile needs a tailored assessment — our advisor will map it personally.</small></div></div>`;
+  // Show the COUNT (hook) + capture form. Specifics stay locked until submit.
+  r.innerHTML=`<div class="rtop"><span class="rcount">${m.length||'1:1'}</span><span style="color:#aebfd2">${m.length?'schemes match your business':'personalised assessment'}</span></div><div class="rsub">Enter your details to reveal your matches &amp; book a free consultation.</div><div class="capture"><h4>See your matches \u00b7 Get your free strategy call</h4><p>Our advisor reveals the full match list, confirms eligibility, and handles the filing end-to-end. Complimentary first assessment.</p><div class="cfields"><input type="text" id="cn" placeholder="Your name"><input type="text" id="cb" placeholder="Business / company"></div><div class="cfields"><input type="tel" id="cp" placeholder="Phone / WhatsApp"><input type="email" id="ce" placeholder="Email"></div><button class="btn btn-primary" id="submitlead">Reveal My Matches \u2192</button></div><button class="eback" id="restart">\u2190 Start over</button>`;
+  document.getElementById('restart').addEventListener('click',()=>{qi=0;for(const k in answers)delete answers[k];r.classList.remove('show');r.innerHTML='';document.getElementById('qpanel').style.display='block';document.getElementById('ehead-title').textContent="Which schemes does your business qualify for?";document.getElementById('ehead-sub').textContent="Four quick questions. See your matched central, Gujarat & UP schemes instantly — then talk to an advisor who can act on them.";renderQ();setProgress(0,false);});
+  document.getElementById('submitlead').addEventListener('click',async()=>{
+    const n=document.getElementById('cn').value.trim();
+    const p=document.getElementById('cp').value.trim();
+    if(!n||!p){alert('Please add your name and phone so an advisor can reach you.');return;}
+    const btn=document.getElementById('submitlead');btn.textContent='Sending\u2026';btn.disabled=true;
+    const lead={name:n,business:document.getElementById('cb').value,phone:p,email:document.getElementById('ce').value,profile:[answers.stage,answers.sector,answers.state,answers.need].filter(Boolean).join(' / '),matched_schemes:m.map(s=>s.name).join(', ')||'1:1 assessment',_subject:'New BHARAT.LOAN lead: '+n};
+    try{await fetch('https://formsubmit.co/ajax/webworksa1@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});}catch(e){}
+    // GA4 conversion event — fires when lead is captured.
+    if(window.gtag){try{window.gtag('event','generate_lead',{source:'homepage_engine',matches:m.length,profile:lead.profile});}catch(e){}}
+    // NOW unlock the match list (post-capture reveal).
+    r.innerHTML=`<div class="rtop"><span class="rcount">\u2713</span><span style="color:#aebfd2">Request received \u00b7 Your matches below</span></div><div class="rsub">Thank you, ${n}. Our advisory desk will reach out on ${p} within one business day.</div>${lockedList}<div class="capture" style="margin-top:24px;background:rgba(20,86,230,.12);border-color:rgba(20,86,230,.3)"><h4>Want it filed end-to-end?</h4><p>Our advisor handles eligibility confirmation, documentation, bank liaison and disbursement \u2014 we'll cover all of this on your consultation call.</p></div>`;
+  });
+}
 renderQ();
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
