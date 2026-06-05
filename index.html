@@ -18,46 +18,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
 <style>
-:root{
-  --ink:#0b1b2b; --ink-soft:#3a4a5c; --muted:#6b7a8a;
-  --bg:#fbfcfd; --surface:#ffffff; --wash:#f1f5f9; --wash2:#e8eef4;
-  --line:#e3e9f0; --line-soft:#eef2f6;
-  --blue:#1456e6; --blue-deep:#0d3fb5; --blue-wash:#eef3ff;
-  --teal:#0e9d8a; --amber:#e08a1e;
-  --green:#0e9f6e; --green-wash:#e7f7f0;
-  --shadow-sm:0 1px 3px rgba(11,27,43,.05),0 1px 2px rgba(11,27,43,.04);
-  --shadow:0 4px 16px rgba(11,27,43,.06),0 1px 4px rgba(11,27,43,.04);
-  --shadow-lg:0 24px 60px rgba(13,63,181,.13),0 4px 12px rgba(11,27,43,.06);
-  --r:14px;
-}
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
-.serif{font-family:'Fraunces',serif}
-.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
-.util{background:var(--ink);color:#aebccb;font-size:12.5px;letter-spacing:.02em}
-.util .wrap{display:flex;justify-content:space-between;align-items:center;height:40px}
-.util .gov{display:flex;align-items:center;gap:9px}
-.util .dot{width:6px;height:6px;border-radius:50%;background:#3ddc97;box-shadow:0 0 0 3px rgba(61,220,151,.22)}
-.util a{color:#e2eaf2;text-decoration:none;font-weight:500}
-header{background:rgba(251,252,253,.85);backdrop-filter:blur(14px);position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line)}
-header .wrap{display:flex;align-items:center;justify-content:space-between;height:74px}
-.brand{display:flex;align-items:center;gap:13px;text-decoration:none}
-.crest{width:40px;height:40px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(150deg,var(--blue),var(--blue-deep));box-shadow:0 6px 16px rgba(20,86,230,.28)}
-.crest span{font-family:'Fraunces',serif;font-weight:600;font-size:19px;color:#fff}
-.brand-tx b{font-family:'Fraunces',serif;font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--ink);display:block;line-height:1}
-.brand-tx small{font-size:10px;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;font-weight:600}
-nav.main{display:flex;gap:32px;align-items:center}
-nav.main a{color:var(--ink-soft);text-decoration:none;font-size:14.5px;font-weight:500;transition:color .2s}
-nav.main a:hover{color:var(--blue)}
-.cta-sm{background:var(--blue);color:#fff!important;padding:10px 18px;border-radius:9px;font-weight:600!important;font-size:14px!important;box-shadow:0 4px 12px rgba(20,86,230,.22);transition:transform .15s,box-shadow .2s}
-.cta-sm:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(20,86,230,.3)}
-.cta-partner{position:relative;background:linear-gradient(135deg,var(--amber),#f0a93e);color:#fff!important;padding:10px 20px;border-radius:9px;font-weight:700!important;font-size:14.5px!important;letter-spacing:.01em;box-shadow:0 4px 14px rgba(224,138,30,.34);overflow:hidden;animation:partnerGlow 2.8s ease-in-out infinite;text-decoration:none}
-.cta-partner::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(110deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-20deg);animation:partnerSheen 3.2s ease-in-out infinite}
-@keyframes partnerGlow{0%,100%{box-shadow:0 4px 14px rgba(224,138,30,.34)}50%{box-shadow:0 6px 22px rgba(224,138,30,.6)}}
-@keyframes partnerSheen{0%{left:-120%}55%,100%{left:140%}}
-.cta-partner:hover{transform:translateY(-1px)}
+.wrap{max-width:1180px}
 .ad-slot{margin:34px 0;min-height:90px;text-align:center;overflow:hidden}
 .ad-slot::before{content:"Advertisement";display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;opacity:.6}
 .hero{position:relative;overflow:hidden;background:radial-gradient(900px 480px at 85% -5%,var(--blue-wash),transparent 65%),radial-gradient(700px 400px at 5% 110%,rgba(14,157,138,.07),transparent 60%),var(--bg)}
@@ -176,38 +139,18 @@ section{padding:82px 0}
 .final .wrap{position:relative}
 .final h2{font-family:'Fraunces',serif;font-size:clamp(28px,3.6vw,42px);font-weight:600;margin-bottom:15px;line-height:1.1}
 .final p{font-size:18px;color:#aebfd2;max-width:540px;margin:0 auto 30px}
-footer{background:var(--bg);color:var(--muted);padding:54px 0 30px;font-size:13.5px;border-top:1px solid var(--line)}
-footer .grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
-footer h5{color:var(--ink);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:15px;font-weight:700}
-footer a{color:var(--ink-soft);text-decoration:none;display:block;margin-bottom:9px;transition:color .2s}
-footer a:hover{color:var(--blue)}
-footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;line-height:1.6;color:var(--muted)}
-.fbrand b{font-family:'Fraunces',serif;color:var(--ink);font-size:20px}
-.fbrand .handoff{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.5px;color:var(--ink-soft);background:var(--wash);padding:7px 12px;border-radius:8px}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:900px){
   .hero .wrap{grid-template-columns:1fr;gap:38px;padding:46px 22px 60px}
   .cards{grid-template-columns:1fr}.steps{grid-template-columns:1fr 1fr}
   .engine-inner{padding:30px 24px 34px}.opts{grid-template-columns:1fr}.cfields{grid-template-columns:1fr}
-  footer .grid{grid-template-columns:1fr 1fr}nav.main{display:none}.wrap{padding:0 20px}
   .engine .ehead{flex-direction:column;align-items:flex-start}
 }
 </style>
 </head>
 <body>
-<div class="util"><div class="wrap">
-  <div class="gov"><span class="dot"></span> Tracking 50+ Central &amp; State Government Schemes · Verified Continuously</div>
-  <div><a href="#engine">Check Your Eligibility →</a></div>
-</div></div>
-<header><div class="wrap">
-  <a href="#" class="brand"><div class="crest"><span>भा</span></div>
-    <div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></div></a>
-  <nav class="main">
-    <a href="#schemes">Schemes</a><a href="#states">States</a><a href="#engine">Check Eligibility</a>
-    <a href="#process">How It Works</a><a href="acquisition.html" class="cta-partner">Partnership / Sponsorship</a><a href="#engine" class="cta-sm">Book a Consultation</a>
-  </nav>
-</div></header>
+<div id="site-header"></div>
 <div class="hero"><div class="wrap">
   <div>
     <div class="pill"><span class="spark"></span> Government Funding · Subsidies · Incentives</div>
@@ -230,7 +173,7 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
       <p>We assess your business, map eligible schemes, and handle the paperwork. You run the business.</p>
     </div>
     <div class="body">
-      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span>Full eligibility mapping — central + Gujarat state schemes</span></div>
+      <div class="row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div><span>Full eligibility mapping — central + Gujarat + Uttar Pradesh schemes</span></div>
       <div class="row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/></svg></div><span>End-to-end application filing &amp; documentation</span></div>
       <div class="row"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><span>Subsidy disbursement &amp; bank liaison support</span></div>
       <a href="#engine" class="full">Request Your Consultation</a>
@@ -243,7 +186,7 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
     <div class="ehead">
       <div>
         <h3 id="ehead-title">Which schemes does your business qualify for?</h3>
-        <p id="ehead-sub">Four quick questions. See your matched central &amp; Gujarat schemes instantly — then talk to an advisor who can act on them.</p>
+        <p id="ehead-sub">Four quick questions. See your matched central, Gujarat &amp; UP schemes instantly — then talk to an advisor who can act on them.</p>
       </div>
       <div class="progress" id="progress"><div class="pdot on"></div><div class="pdot"></div><div class="pdot"></div><div class="pdot"></div></div>
     </div>
@@ -270,7 +213,7 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
   <div class="sec-head reveal">
     <div class="gj-flag"><span class="stripe"><i class="s1"></i><i class="s2"></i><i class="s3"></i></span> State Depth</div>
     <h2>Pick your state — where the real subsidy money is.</h2>
-    <p>Central schemes are nationwide. The largest incentives are at the state level, and they're hyper-local. We go deep state by state, with advisors on the ground. Gujarat is live now; more states are rolling out.</p>
+    <p>Central schemes are nationwide. The largest incentives are at the state level, and they're hyper-local. We go deep state by state, with advisors on the ground. Gujarat and Uttar Pradesh are live now; more states are rolling out.</p>
   </div>
   <div class="cards reveal" id="state-cards"></div>
 </div></section></div>
@@ -291,19 +234,7 @@ footer .disc{border-top:1px solid var(--line);padding-top:24px;font-size:12px;li
   <p>A complimentary assessment with our advisory desk. No obligation — just clarity on the government funding you qualify for.</p>
   <a href="#engine" class="btn btn-primary">Start Your Eligibility Check →</a>
 </div></section></div>
-<footer><div class="wrap">
-  <div class="grid">
-    <div>
-      <div class="fbrand"><b>BHARAT.LOAN</b></div>
-      <p style="margin-top:11px;max-width:290px;line-height:1.6">Government scheme, subsidy and incentive advisory for Indian startups, MSMEs and industries. Central coverage, Gujarat depth.</p>
-      <div class="fbrand"><span class="handoff">Advisory delivered by <b style="font-size:13px">CONSULT.IN</b></span></div>
-    </div>
-    <div><h5>Schemes</h5><a href="schemes/cgtmse.html">CGTMSE</a><a href="schemes/pmegp.html">PMEGP</a><a href="schemes/mudra-yojana.html">Mudra Yojana</a><a href="schemes/dpiit-startup-india.html">Startup India</a><a href="schemes/index.html">All schemes →</a></div>
-    <div><h5>Gujarat</h5><a href="states/gujarat.html">All Gujarat schemes</a><a href="schemes/aatmanirbhar-gujarat-msme.html">Aatmanirbhar Gujarat</a><a href="schemes/gujarat-textile-policy.html">Textile Policy</a><a href="schemes/gujarat-large-industry-incentive.html">Large Industry</a></div>
-    <div><h5>Firm</h5><a href="#">Advisory Desk</a><a href="#process">How It Works</a><a href="#engine">Consultation</a></div>
-  </div>
-  <div class="disc">BHARAT.LOAN is an independent advisory service. We are not a government body and do not represent any ministry or agency. Scheme details are compiled from official sources and verified regularly; applicants should confirm current terms with the relevant authority. Subsidy and loan approvals are at the sole discretion of the respective government bodies and lending institutions. © 2026 BHARAT.LOAN.</div>
-</div></footer>
+<div id="site-footer"></div>
 <script>
 const data={
 central:[
@@ -329,7 +260,7 @@ function cardHTML(s){const link=pageMap[s.id]||'#engine';return `<div class="car
 document.getElementById('central-cards').innerHTML=data.central.map(cardHTML).join('');
 const states=[
 {name:'Gujarat',status:'live',href:'states/gujarat.html',tag:"India's most incentive-dense industrial state — capital subsidy, interest subvention, SGST benefits.",count:'4 schemes'},
-{name:'Uttar Pradesh',status:'coming',href:'#',tag:"India's largest market — ODOP, PMEGP volume, district depth.",count:'Coming soon'},
+{name:'Uttar Pradesh',status:'live',href:'states/up.html',tag:"India's largest market — 6 schemes including ODOP across all 75 districts, PMEGP volume, district depth.",count:'6 schemes + 75 districts'},
 {name:'Maharashtra',status:'coming',href:'#',tag:'Industrial heartland coverage rolling out next.',count:'Coming soon'}
 ];
 document.getElementById('state-cards').innerHTML=states.map(st=>{
@@ -346,7 +277,7 @@ document.querySelectorAll('.tab').forEach(t=>{t.addEventListener('click',()=>{do
 const Q=[
 {key:'stage',label:'Question 1 of 4',title:"What stage is your business at?",opts:[["new","Idea / New (pre-launch or <1 yr)"],["growing","Growing (1–5 yrs, scaling up)"],["established","Established (5+ yrs)"],["startup","DPIIT-registered Startup"]]},
 {key:'sector',label:'Question 2 of 4',title:"What's your primary sector?",opts:[["mfg","Manufacturing / Industry"],["service","Services"],["trade","Trading / Retail"],["startup","Tech / Innovation Startup"]]},
-{key:'state',label:'Question 3 of 4',title:"Where is your business based?",opts:[["gujarat","Gujarat"],["other","Another state"],["planning","Still deciding"],["multi","Multiple states"]]},
+{key:'state',label:'Question 3 of 4',title:"Where is your business based?",opts:[["gujarat","Gujarat"],["up","Uttar Pradesh"],["other","Another state"],["multi","Multiple states"]]},
 {key:'need',label:'Question 4 of 4',title:"What do you need most?",opts:[["subsidy","Capital / subsidy (free money)"],["credit","A loan / working capital"],["upgrade","Tech or capacity upgrade"],["all","Not sure — show me everything"]]}
 ];
 const answers={};let qi=0;
@@ -354,11 +285,11 @@ function renderQ(){const q=Q[qi];document.getElementById('qpanel').innerHTML=`<d
 document.querySelectorAll('.opt').forEach(b=>{b.addEventListener('click',()=>{answers[q.key]=b.dataset.v;setProgress(qi,true);if(qi<Q.length-1){qi++;setTimeout(()=>{renderQ();setProgress(qi,false);},180);}else{setTimeout(showResults,180);}});});
 const back=document.getElementById('backbtn');if(back)back.addEventListener('click',()=>{qi--;renderQ();setProgress(qi,false);});}
 function setProgress(idx,done){document.querySelectorAll('#progress .pdot').forEach((d,i)=>{d.className='pdot';if(i<idx)d.classList.add('done');else if(i===idx)d.classList.add(done?'done':'on');});}
-function matchSchemes(){const all=[...data.central,...data.gujarat.map(s=>({...s,gj:true}))];const{stage,sector,state,need}=answers;return all.filter(s=>{if(s.gj&&!(state==='gujarat'||state==='multi'||state==='planning'))return false;const stageOk=stage==='startup'?(s.sector.includes('startup')||s.stage.includes('new')):s.stage.includes(stage);const sectorOk=s.sector.includes(sector)||(sector==='startup'&&s.sector.includes('startup'));const needOk=need==='all'?true:s.need.includes(need);return stageOk&&sectorOk&&needOk;}).sort((a,b)=>({S:0,A:1,B:2}[a.tier]-{S:0,A:1,B:2}[b.tier]));}
+function matchSchemes(){const all=[...data.central,...data.gujarat.map(s=>({...s,gj:true}))];const{stage,sector,state,need}=answers;return all.filter(s=>{if(s.gj&&!(state==='gujarat'||state==='multi'))return false;const stageOk=stage==='startup'?(s.sector.includes('startup')||s.stage.includes('new')):s.stage.includes(stage);const sectorOk=s.sector.includes(sector)||(sector==='startup'&&s.sector.includes('startup'));const needOk=need==='all'?true:s.need.includes(need);return stageOk&&sectorOk&&needOk;}).sort((a,b)=>({S:0,A:1,B:2}[a.tier]-{S:0,A:1,B:2}[b.tier]));}
 function showResults(){const m=matchSchemes();document.getElementById('ehead-title').textContent="Your matched schemes";document.getElementById('ehead-sub').textContent="Based on your answers. Ranked by value. An advisor can take any of these end-to-end.";document.getElementById('qpanel').style.display='none';document.querySelectorAll('#progress .pdot').forEach(d=>d.className='pdot done');const r=document.getElementById('results');r.classList.add('show');
 const list=m.length?m.slice(0,6).map(s=>`<div class="rmatch"><div class="rl"><b>${s.name}${s.gj?' · Gujarat':''}</b><small>${s.type} · ${s.body}</small></div><div class="rq">${s.quantum}</div></div>`).join(''):`<div class="rmatch"><div class="rl"><b>Let's talk directly</b><small>Your profile needs a tailored assessment — our advisor will map it personally.</small></div></div>`;
 r.innerHTML=`<div class="rtop"><span class="rcount">${m.length||'1:1'}</span><span style="color:#aebfd2">${m.length?'schemes match your business':'personalised assessment'}</span></div><div class="rsub">Showing your strongest matches first.</div>${list}<div class="capture"><h4>Get your full funding strategy</h4><p>Our advisor reviews these matches, finds what this tool can't, and handles the filing. Complimentary first assessment.</p><div class="cfields"><input type="text" id="cn" placeholder="Your name"><input type="text" id="cb" placeholder="Business / company"></div><div class="cfields"><input type="tel" id="cp" placeholder="Phone / WhatsApp"><input type="email" id="ce" placeholder="Email"></div><button class="btn btn-primary" id="submitlead">Book My Free Consultation →</button></div><button class="eback" id="restart">← Start over</button>`;
-document.getElementById('restart').addEventListener('click',()=>{qi=0;for(const k in answers)delete answers[k];r.classList.remove('show');r.innerHTML='';document.getElementById('qpanel').style.display='block';document.getElementById('ehead-title').textContent="Which schemes does your business qualify for?";document.getElementById('ehead-sub').textContent="Four quick questions. See your matched central & Gujarat schemes instantly — then talk to an advisor who can act on them.";renderQ();setProgress(0,false);});
+document.getElementById('restart').addEventListener('click',()=>{qi=0;for(const k in answers)delete answers[k];r.classList.remove('show');r.innerHTML='';document.getElementById('qpanel').style.display='block';document.getElementById('ehead-title').textContent="Which schemes does your business qualify for?";document.getElementById('ehead-sub').textContent="Four quick questions. See your matched central, Gujarat & UP schemes instantly — then talk to an advisor who can act on them.";renderQ();setProgress(0,false);});
 document.getElementById('submitlead').addEventListener('click',async()=>{const n=document.getElementById('cn').value.trim();const p=document.getElementById('cp').value.trim();if(!n||!p){alert('Please add your name and phone so an advisor can reach you.');return;}
 const btn=document.getElementById('submitlead');btn.textContent='Sending…';btn.disabled=true;
 const m=matchSchemes();const lead={name:n,business:document.getElementById('cb').value,phone:p,email:document.getElementById('ce').value,
@@ -370,5 +301,6 @@ renderQ();
 const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
+<script src="/partials.js"></script>
 </body>
 </html>
