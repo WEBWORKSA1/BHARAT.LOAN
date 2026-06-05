@@ -1,7 +1,44 @@
-/* BHARAT.LOAN shared chrome — single source of truth for header + footer.
+/* BHARAT.LOAN shared chrome — single source of truth for header + footer + analytics.
    Change this file once; every page that includes it updates instantly.
    No build step, no Node. Pure browser JS. */
 (function () {
+  // ============================================================
+  // ANALYTICS — Web, paste real IDs after creating accounts.
+  // Until the IDs are real (still contain XXX), trackers stay off.
+  //   GA4:     analytics.google.com → Admin → Data Streams → Web → Measurement ID
+  //   Clarity: clarity.microsoft.com → New project → Project ID
+  // ============================================================
+  var GA4_ID     = 'G-XXXXXXXXXX';   // <-- paste GA4 Measurement ID here
+  var CLARITY_ID = 'XXXXXXXXXX';     // <-- paste Microsoft Clarity Project ID here
+
+  function loadGA4(id) {
+    if (!id || id.indexOf('XXX') > -1) return;
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ window.dataLayer.push(arguments); }
+    window.gtag = gtag;
+    gtag('js', new Date());
+    gtag('config', id, { anonymize_ip: true });
+  }
+
+  function loadClarity(id) {
+    if (!id || id.indexOf('XXX') > -1) return;
+    (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", id);
+  }
+
+  loadGA4(GA4_ID);
+  loadClarity(CLARITY_ID);
+
+  // ============================================================
+  // HEADER + FOOTER
+  // ============================================================
   var HEADER =
     '<div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Verified scheme reference \u00b7 BHARAT.LOAN</div><div><a href="/#engine">Check Your Eligibility \u2192</a></div></div></div>' +
     '<header><div class="wrap">' +
