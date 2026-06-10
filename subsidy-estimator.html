@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subsidy Estimator — How Much Government Money Your Project Qualifies For | BHARAT.LOAN</title>
+<meta name="description" content="Estimate the total Indian government subsidy your business qualifies for across PMEGP, CLCSS, ODOP, Aatmanirbhar Gujarat and other central + state schemes. Free, no registration.">
+<link rel="canonical" href="https://bharat.loan/subsidy-estimator">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BHARAT.LOAN">
+<meta property="og:title" content="Subsidy Estimator | BHARAT.LOAN">
+<meta property="og:description" content="Estimate the total Indian government subsidy your business qualifies for across PMEGP, CLCSS, ODOP, state schemes and more.">
+<meta property="og:url" content="https://bharat.loan/subsidy-estimator">
+<meta property="og:image" content="https://bharat.loan/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bharat.loan/og-image.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3216322039296830" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Government Subsidy Estimator for Indian Business","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free tool to estimate the total Indian government subsidy a business qualifies for across PMEGP, CLCSS, ODOP, Aatmanirbhar Gujarat and other central and state schemes, with anti-double-dipping rules applied.","url":"https://bharat.loan/subsidy-estimator","publisher":{"@type":"Organization","name":"BHARAT.LOAN","url":"https://bharat.loan/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these subsidy estimates guaranteed?","acceptedAnswer":{"@type":"Answer","text":"No. These are indicative estimates based on scheme rules as currently published. Actual subsidy approval depends on document verification, budget availability with the disbursing agency, project viability assessment by the lending bank, and category-specific guidelines that change from time to time. Always confirm with the relevant authority before acting."}},{"@type":"Question","name":"Can I claim multiple subsidies for the same project?","acceptedAnswer":{"@type":"Answer","text":"Some can stack, some cannot. PMEGP and CLCSS cannot be combined for the same unit. PMEGP and ODOP UP cannot be combined for the same unit. State-level capital subsidy and central CLCSS can sometimes stack. The estimator applies the main anti-double-dipping rules; an advisor confirms the legal maximum stack for your specific case."}},{"@type":"Question","name":"How is the PMEGP subsidy disbursed?","acceptedAnswer":{"@type":"Answer","text":"PMEGP releases the margin-money subsidy as a grant adjusted against the bank loan after a lock-in period of three years, provided the unit remains operational and EDP training is completed. The bank initially disburses the full loan; the subsidy reduces the outstanding after lock-in."}},{"@type":"Question","name":"Does CLCSS apply to my industry?","acceptedAnswer":{"@type":"Answer","text":"CLCSS applies to 51 notified manufacturing sub-sectors including bio-tech, drugs, food processing, textiles, glass and ceramics, plastics, leather and footwear, and many engineering categories. It is upgrade-only — the subsidy is on plant and machinery for technology upgrade, not new units. Check the latest 51-sector list on the Ministry of MSME site."}},{"@type":"Question","name":"How long does subsidy approval take?","acceptedAnswer":{"@type":"Answer","text":"Timelines vary by scheme and state. PMEGP typically 45 to 120 days from application to in-principle approval, plus the three-year lock-in for subsidy adjustment. CLCSS 90 to 180 days. State capital subsidies often 60 to 180 days from production start. Realistic plan: budget 6 to 12 months from project filing to subsidy actually adjusted."}},{"@type":"Question","name":"What documents do I need to claim these subsidies?","acceptedAnswer":{"@type":"Answer","text":"Typical core set: Udyam registration, GST registration, PAN, Aadhaar of all promoters, project report with technical and financial details, bank loan sanction letter, land or premises proof, NOCs as applicable, EDP training certificate for PMEGP, and category proof certificates where claiming special-category benefits. Scheme-specific docs are detailed on each scheme page on this site."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.wrap{max-width:1180px}
+.ad-slot{margin:34px 0;min-height:90px;text-align:center;overflow:hidden}
+.ad-slot::before{content:"Advertisement";display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;opacity:.6}
+.calc-hero{position:relative;overflow:hidden;background:radial-gradient(900px 480px at 85% -5%,var(--blue-wash),transparent 65%),radial-gradient(700px 400px at 5% 110%,rgba(14,157,138,.07),transparent 60%),var(--bg);padding:46px 0 60px}
+.calc-hero .wrap{position:relative;display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;padding:0 32px;align-items:start}
+.ch-left{position:sticky;top:92px}
+.ch-left .crumb{padding:0 0 18px;font-size:13px;color:var(--muted)}
+.ch-left .crumb a{color:var(--blue);text-decoration:none}
+.ch-left h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px;color:var(--ink)}
+.ch-left h1 em{font-style:italic;color:var(--teal)}
+.ch-left .lede{font-size:17px;line-height:1.55;color:var(--ink-soft);margin-bottom:24px;max-width:460px}
+.ch-trust{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:24px}
+.ch-trust div b{font-family:'Fraunces',serif;font-size:23px;font-weight:600;color:var(--ink);display:block;line-height:1}
+.ch-trust div small{font-size:12.5px;color:var(--muted);font-weight:500}
+.ch-emi-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--blue);font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;transition:all .15s}
+.ch-emi-link:hover{border-color:var(--blue);box-shadow:var(--shadow)}
+.calc-card{background:linear-gradient(165deg,var(--ink),#13314c);border-radius:20px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;padding:34px 36px 36px;color:#fff}
+.calc-card::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(14,157,138,.28),transparent 70%);pointer-events:none}
+.calc-card::before{content:"";position:absolute;left:-60px;bottom:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(20,86,230,.2),transparent 70%);pointer-events:none}
+.calc-card h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:22px;position:relative;color:#fff}
+.calc-row{position:relative;margin-bottom:18px}
+.calc-row .crow-label,.calc-grid2 label{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#aebfd2;font-weight:500;margin-bottom:0}
+.calc-row .crow-label strong{color:#fff;font-weight:600}
+.calc-row .num-wrap{display:flex;align-items:center;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:9px;padding:0 12px;margin-top:9px}
+.calc-row .num-wrap .pfx{color:#aebfd2;font-size:13px;font-weight:600;margin-right:4px}
+.calc-row .num-wrap input.num{background:transparent;border:none;color:#fff;font-size:15px;font-family:inherit;font-weight:600;padding:11px 0;width:100%;outline:none;-moz-appearance:textfield}
+.calc-row .num-wrap input.num::-webkit-outer-spin-button,.calc-row .num-wrap input.num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-row input[type=range]{width:100%;margin-top:11px;-webkit-appearance:none;appearance:none;background:transparent;height:22px;cursor:pointer}
+.calc-row input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(to right,var(--teal),var(--blue));border-radius:2px}
+.calc-row input[type=range]::-moz-range-track{height:4px;background:linear-gradient(to right,var(--teal),var(--blue));border-radius:2px}
+.calc-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--teal);margin-top:-8px;cursor:grab;box-shadow:0 4px 12px rgba(14,157,138,.4)}
+.calc-row input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--teal);cursor:grab;box-shadow:0 4px 12px rgba(14,157,138,.4)}
+.calc-row .crow-range-marks{display:flex;justify-content:space-between;font-size:10.5px;color:#6c7d92;margin-top:4px;font-weight:500}
+.calc-grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}
+.calc-sel{width:100%;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:9px;padding:11px 36px 11px 14px;color:#fff;font-size:14px;font-family:inherit;font-weight:500;outline:none;appearance:none;-webkit-appearance:none;margin-top:9px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23aebfd2' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;cursor:pointer}
+.calc-sel option{color:#000;background:#fff}
+.calc-sel:focus{border-color:var(--teal)}
+.calc-toggle{display:flex;gap:0;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:9px;padding:3px;margin-top:9px}
+.ct-opt{flex:1;background:transparent;border:none;color:#aebfd2;font-size:13.5px;font-family:inherit;font-weight:600;padding:8px 6px;border-radius:6px;cursor:pointer;transition:all .15s}
+.ct-opt.active{background:var(--teal);color:#fff;box-shadow:0 2px 6px rgba(14,157,138,.35)}
+.ct-opt:hover:not(.active){color:#fff}
+.calc-out{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:24px;margin-top:24px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center}
+.calc-out .co-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:6px}
+.calc-out .co-emi{font-family:'Fraunces',serif;font-size:42px;font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em}
+.calc-out .co-emi-sub{font-size:12.5px;color:#aebfd2;margin-top:6px}
+.co-rt{display:flex;flex-direction:column;gap:12px;border-left:1px solid rgba(255,255,255,.12);padding-left:24px}
+.co-rt .co-secondary small{display:block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#8298ad;font-weight:700;margin-bottom:3px}
+.co-rt .co-secondary b{font-family:'Fraunces',serif;font-size:18px;color:#fff;font-weight:600;line-height:1}
+.calc-foot{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap;align-items:center}
+.calc-foot .cf-cta{flex:1;min-width:200px;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:14px;font-weight:600;font-size:14.5px;font-family:inherit;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 6px 16px rgba(20,86,230,.3);transition:transform .15s}
+.calc-foot .cf-cta:hover{transform:translateY(-1px)}
+.calc-foot .cf-emi-link{font-size:12.5px;color:#aebfd2;text-decoration:none;font-weight:500}
+.calc-foot .cf-emi-link:hover{color:#fff}
+.breakdown-band{padding:64px 0 24px;background:var(--bg)}
+.breakdown-band .sec-head{max-width:880px;margin:0 auto 36px;padding:0 32px}
+.breakdown-band .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.breakdown-band .kicker .bar{width:26px;height:2px;background:var(--teal);border-radius:2px}
+.breakdown-band h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.1;letter-spacing:-.015em;margin-bottom:13px;color:var(--ink)}
+.breakdown-band .sec-head>p{font-size:16px;color:var(--muted);line-height:1.55}
+.breakdown-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:880px;margin:0 auto;padding:0 32px}
+.scheme-result{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;display:grid;grid-template-columns:170px 1fr 110px;gap:22px;align-items:center;transition:all .2s;text-decoration:none;color:inherit}
+.scheme-result:hover{border-color:#c5d6f5;box-shadow:var(--shadow);transform:translateY(-1px)}
+.scheme-result.conflict{background:linear-gradient(180deg,var(--amber-wash),var(--surface));border-color:#f2d9a8}
+.scheme-result .sr-amount{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--teal);line-height:1;letter-spacing:-.015em}
+.scheme-result.conflict .sr-amount{color:#8a5a14}
+.scheme-result .sr-amount small{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif}
+.scheme-result .sr-meta h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.scheme-result .sr-meta p{font-size:14px;color:var(--ink-soft);line-height:1.5;margin-bottom:5px}
+.scheme-result .sr-meta .sr-cav{font-size:12px;color:var(--muted);line-height:1.4;font-style:italic}
+.scheme-result .sr-link{font-size:13px;font-weight:600;color:var(--blue);text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.scheme-result .sr-link .sr-go{display:inline-flex;align-items:center;gap:5px}
+.scheme-result .sr-link .sr-flag{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);background:var(--amber-wash);border-radius:5px;padding:3px 7px;font-weight:700}
+.scheme-result .sr-link .sr-flag.included{color:var(--green);background:var(--green-wash)}
+.no-match{background:var(--wash);border:1px dashed var(--line);border-radius:var(--r);padding:32px 28px;text-align:center;max-width:880px;margin:0 auto;color:var(--muted);font-size:15px}
+.no-match strong{color:var(--ink);font-weight:600;display:block;font-family:'Fraunces',serif;font-size:18px;margin-bottom:6px}
+.stacking-note{max-width:880px;margin:24px auto 0;padding:18px 22px;background:var(--blue-wash);border:1px solid #d7e3ff;border-left:3px solid var(--blue);border-radius:11px;font-size:13.5px;color:var(--ink-soft);line-height:1.55}
+.stacking-note strong{color:var(--blue-deep)}
+.explain{background:var(--wash);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0}
+.explain .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1040px;margin:0 auto;padding:0 32px}
+.explain h2{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin-bottom:14px;color:var(--ink)}
+.explain p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin-bottom:12px}
+.explain .ex-eg{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.explain .ex-eg b{color:var(--ink)}
+.faq-band{padding:60px 0}
+.faq-band .wrap{max-width:820px;padding:0 32px}
+.faq-band h2{font-family:'Fraunces',serif;font-size:28px;font-weight:600;line-height:1.1;margin-bottom:26px;color:var(--ink)}
+.final{background:linear-gradient(165deg,var(--ink),#13314c);color:#fff;text-align:center;position:relative;overflow:hidden;padding:60px 0}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 50% 0%,rgba(14,157,138,.25),transparent 65%);pointer-events:none}
+.final .wrap{position:relative}
+.final h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,36px);font-weight:600;margin-bottom:14px;line-height:1.1}
+.final p{font-size:17px;color:#aebfd2;max-width:540px;margin:0 auto 26px}
+.final .btn{padding:15px 26px;border-radius:11px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#fff;box-shadow:0 8px 22px rgba(14,157,138,.32);transition:transform .15s,box-shadow .2s}
+.final .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(14,157,138,.4)}
+@media(max-width:900px){
+  .calc-hero{padding:32px 0 52px}
+  .calc-hero .wrap{grid-template-columns:1fr;gap:28px;padding:0 22px}
+  .ch-left{position:static}
+  .calc-card{padding:26px 22px 26px}
+  .calc-grid2{grid-template-columns:1fr;gap:14px}
+  .calc-out{grid-template-columns:1fr;text-align:center;padding:20px}
+  .calc-out .co-emi{font-size:36px}
+  .co-rt{border-left:none;border-top:1px solid rgba(255,255,255,.12);padding-left:0;padding-top:16px;text-align:left}
+  .scheme-result{grid-template-columns:1fr;gap:10px;padding:20px}
+  .scheme-result .sr-amount{font-size:26px}
+  .scheme-result .sr-link{text-align:left;flex-direction:row;justify-content:space-between;align-items:center}
+  .breakdown-grid,.breakdown-band .sec-head,.stacking-note{padding-left:22px;padding-right:22px}
+  .explain .ex-grid{grid-template-columns:1fr;gap:28px;padding:0 22px}
+}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<div class="calc-hero"><div class="wrap">
+  <div class="ch-left">
+    <div class="crumb"><a href="/">Home</a> · <a href="/#schemes">Schemes</a> · Subsidy Estimator</div>
+    <h1>How much <em>government money</em> does your project qualify for?</h1>
+    <p class="lede">Estimate the total subsidy your Indian business is eligible to claim across central + state schemes — with anti-double-dipping rules applied so the headline number reflects what you can actually stack.</p>
+    <div class="ch-trust">
+      <div><b>10+</b><small>Schemes mapped</small></div>
+      <div><b>Free</b><small>No registration</small></div>
+      <div><b>Live</b><small>Updates as you adjust inputs</small></div>
+    </div>
+    <a href="/emi-calculator" class="ch-emi-link">→ Then check your EMI on the net loan amount</a>
+  </div>
+  <div class="ch-right">
+    <div class="calc-card">
+      <h2>Estimate your subsidy</h2>
+
+      <div class="calc-row">
+        <div class="crow-label">Project cost <strong id="pc-display">₹15,00,000</strong></div>
+        <div class="num-wrap"><span class="pfx">₹</span><input class="num" type="number" id="pc" value="1500000" min="50000" max="50000000" step="10000"></div>
+        <input type="range" id="pc-s" min="50000" max="50000000" step="10000" value="1500000" aria-label="Project cost slider">
+        <div class="crow-range-marks"><span>₹50K</span><span>₹5 Cr</span></div>
+      </div>
+
+      <div class="calc-grid2">
+        <div>
+          <label>Sector</label>
+          <select class="calc-sel" id="sector">
+            <option value="manufacturing">Manufacturing / Industry</option>
+            <option value="service">Service</option>
+            <option value="trading">Trading / Retail</option>
+          </select>
+        </div>
+        <div>
+          <label>State</label>
+          <select class="calc-sel" id="state">
+            <option value="other">Other state (Central schemes only)</option>
+            <option value="gujarat">Gujarat</option>
+            <option value="up">Uttar Pradesh</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-grid2">
+        <div>
+          <label>Business stage</label>
+          <div class="calc-toggle" data-k="stage">
+            <button class="ct-opt active" data-v="new">New unit</button>
+            <button class="ct-opt" data-v="existing">Existing</button>
+          </div>
+        </div>
+        <div>
+          <label>Location</label>
+          <div class="calc-toggle" data-k="location">
+            <button class="ct-opt active" data-v="urban">Urban</button>
+            <button class="ct-opt" data-v="rural">Rural</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-row">
+        <label class="crow-label">Applicant category</label>
+        <select class="calc-sel" id="category">
+          <option value="general">General</option>
+          <option value="women">Women</option>
+          <option value="sc-st">SC / ST</option>
+          <option value="obc">OBC</option>
+          <option value="minority">Minority</option>
+          <option value="ex-servicemen">Ex-servicemen</option>
+          <option value="differently-abled">Differently-abled</option>
+          <option value="ner">North-East region</option>
+        </select>
+      </div>
+
+      <div class="calc-out">
+        <div>
+          <div class="co-label">Estimated stackable subsidy</div>
+          <div class="co-emi" id="sub-total">₹0</div>
+          <div class="co-emi-sub" id="sub-meta">across 0 schemes · 0% of project cost</div>
+        </div>
+        <div class="co-rt">
+          <div class="co-secondary"><small>Largest single subsidy</small><b id="sub-largest">—</b></div>
+          <div class="co-secondary"><small>Effective project cost</small><b id="sub-effective">—</b></div>
+        </div>
+      </div>
+
+      <div class="calc-foot">
+        <a href="/#engine" class="cf-cta">Get this verified by an advisor →</a>
+        <a href="/emi-calculator" class="cf-emi-link">Check EMI on net amount →</a>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<section class="breakdown-band"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker"><span class="bar"></span> Scheme-by-scheme breakdown</div>
+    <h2>Where the money comes from.</h2>
+    <p>Each scheme has its own eligibility rules, application path, and anti-double-dipping constraints. Schemes flagged <strong>INCLUDED IN TOTAL</strong> are the ones combined into the headline above. Schemes flagged <strong>ALTERNATIVE</strong> conflict with one already included — you'd pick one or the other.</p>
+  </div>
+  <div class="breakdown-grid" id="breakdown-grid"></div>
+  <p class="stacking-note"><strong>How the total is computed.</strong> The estimator applies the main anti-double-dipping rules — PMEGP cannot stack with CLCSS or with ODOP-UP margin money for the same unit; central and state capital subsidies sometimes stack, sometimes don't depending on scheme guidelines and unit details. The headline is the maximum legal stack we can compute from your inputs. An advisor confirms the actual stack and files for it.</p>
+</div></section>
+
+<section><div class="wrap" style="padding:0 32px"><div class="ad-slot"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3216322039296830" data-ad-format="fluid" data-ad-layout="in-article"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div></div></section>
+
+<section class="explain"><div class="ex-grid">
+  <div>
+    <h2>How subsidies are calculated</h2>
+    <p>Most Indian government subsidies fall into three families: <strong>margin-money grants</strong> (PMEGP, ODOP UP) — a % of project cost adjusted against your bank loan after a lock-in period; <strong>capital subsidies</strong> (CLCSS, state schemes) — a % of plant and machinery cost paid out after commissioning; and <strong>interest subventions</strong> (Aatmanirbhar Gujarat) — the government pays part of your loan interest each year.</p>
+    <p>The estimator computes the rupee value of each based on scheme rules currently published. State-level interest subventions are quantified as a one-time-equivalent assuming a 5-year loan tenure for comparability.</p>
+    <div class="ex-eg"><b>PMEGP rate logic:</b><br>• Urban · General: 15% of project cost<br>• Urban · Special category: 25%<br>• Rural · General: 25%<br>• Rural · Special category: 35%<br><br>"Special category" = women, SC/ST, OBC, minorities, ex-servicemen, differently-abled, NER.</div>
+  </div>
+  <div>
+    <h2>Why stacking rules matter</h2>
+    <p>If you naively sum every scheme you match for, you'll dramatically overstate your subsidy. The big anti-double-dipping rules in current MSME funding:</p>
+    <ul style="font-size:15px;color:var(--ink-soft);line-height:1.65;margin:0 0 14px 22px">
+      <li><strong>PMEGP</strong> cannot be combined with CLCSS or with ODOP-UP margin money for the same unit.</li>
+      <li><strong>CLCSS</strong> is upgrade-only — for new units choose PMEGP or a state new-unit subsidy instead.</li>
+      <li><strong>State capital subsidies</strong> typically stack with CGTMSE (which is a guarantee, not a subsidy) and with central interest subventions, but not with central capital subsidies for the same fixed-asset line item.</li>
+      <li><strong>SISFS</strong> (Startup Seed Fund) is for DPIIT-recognised startups only and follows separate rules.</li>
+    </ul>
+    <div class="ex-eg"><b>Worked example:</b> ₹20L manufacturing project, new unit, rural, general category, in UP. Matched: PMEGP rural-general at 25% = ₹5L; ODOP-UP at 25% = ₹5L; UP MSME Policy capital subsidy at 15% = ₹3L. <br><br>PMEGP and ODOP-UP both target margin money for the same unit — you pick the higher. PMEGP wins at ₹5L. UP MSME Policy capital subsidy is on a different line item and may stack — net stackable ₹8L (~40%).</div>
+  </div>
+</div></section>
+
+<section class="faq-band"><div class="wrap">
+  <h2>Subsidy questions, answered</h2>
+  <details class="faq">
+    <summary>Are these estimates guaranteed amounts?</summary>
+    <div class="fa">No. These are indicative estimates based on scheme rules as currently published. Actual subsidy approval depends on document verification, budget availability with the disbursing agency, project viability assessment by the lending bank, and category-specific guidelines that change from time to time. Always confirm with the relevant authority before acting.</div>
+  </details>
+  <details class="faq">
+    <summary>Can I really claim multiple subsidies for the same project?</summary>
+    <div class="fa">Some can stack, some cannot. PMEGP and CLCSS cannot be combined for the same unit. PMEGP and ODOP UP cannot be combined for the same unit. State-level capital subsidy and central CLCSS can sometimes stack on different line items. The estimator applies the main anti-double-dipping rules; an advisor confirms the legal maximum stack for your specific case.</div>
+  </details>
+  <details class="faq">
+    <summary>How is the PMEGP subsidy actually disbursed?</summary>
+    <div class="fa">PMEGP releases the margin-money subsidy as a grant adjusted against the bank loan after a lock-in period of three years, provided the unit remains operational and EDP training is completed. The bank initially disburses the full loan; the subsidy reduces the outstanding after lock-in.</div>
+  </details>
+  <details class="faq">
+    <summary>Does CLCSS apply to my industry?</summary>
+    <div class="fa">CLCSS applies to 51 notified manufacturing sub-sectors including bio-tech, drugs, food processing, textiles, glass and ceramics, plastics, leather and footwear, and many engineering categories. It is upgrade-only — the subsidy is on plant and machinery for technology upgrade, not new units. Check the latest 51-sector list on the Ministry of MSME site.</div>
+  </details>
+  <details class="faq">
+    <summary>How long does subsidy approval take?</summary>
+    <div class="fa">Timelines vary by scheme and state. PMEGP typically 45 to 120 days from application to in-principle approval, plus the three-year lock-in for subsidy adjustment. CLCSS 90 to 180 days. State capital subsidies often 60 to 180 days from production start. Realistic plan: budget 6 to 12 months from project filing to subsidy actually adjusted.</div>
+  </details>
+  <details class="faq">
+    <summary>What documents do I need to claim these subsidies?</summary>
+    <div class="fa">Typical core set: Udyam registration, GST registration, PAN, Aadhaar of all promoters, project report with technical and financial details, bank loan sanction letter, land or premises proof, NOCs as applicable, EDP training certificate for PMEGP, and category proof certificates where claiming special-category benefits. Scheme-specific docs are detailed on each scheme page on this site.</div>
+  </details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Estimate is just the start.</h2>
+  <p>The headline number above is the legal max stack our model can compute from your inputs. An advisor confirms eligibility, files the applications and pursues the disbursement — end-to-end.</p>
+  <a href="/#engine" class="btn">Get Your Stack Verified →</a>
+</div></section>
+
+<div id="site-footer"></div>
+
+<script>
+function inr(n){return Math.round(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
+function inrCompact(n){
+  if(n>=10000000) return '\u20b9'+(n/10000000).toFixed(n%10000000===0?0:2).replace(/\.0+$/,'')+' Cr';
+  if(n>=100000) return '\u20b9'+(n/100000).toFixed(n%100000===0?0:2).replace(/\.0+$/,'')+' L';
+  if(n>=1000) return '\u20b9'+(n/1000).toFixed(0)+'K';
+  return '\u20b9'+inr(n);
+}
+
+const state={pc:1500000,sector:'manufacturing',state:'other',stage:'new',location:'urban',category:'general'};
+
+function bind(slider,input,key,onChange){
+  const s=document.getElementById(slider);const i=document.getElementById(input);
+  s.addEventListener('input',()=>{i.value=s.value;state[key]=Number(s.value);onChange(true);});
+  i.addEventListener('input',()=>{
+    let v=Number(i.value);if(isNaN(v))return;
+    if(v<Number(s.min))v=Number(s.min);
+    if(v>Number(s.max))v=Number(s.max);
+    s.value=v;state[key]=v;onChange(true);
+  });
+}
+
+// Scheme matching logic
+function computeSubsidies(s){
+  const matches=[];
+  const isSpecial=s.category!=='general';
+  const pmegpCap=s.sector==='manufacturing'?2500000:1000000;
+
+  // PMEGP: new units only, mfg or service, project within cap
+  if(s.stage==='new' && s.sector!=='trading' && s.pc<=pmegpCap){
+    let rate;
+    if(s.location==='urban' && !isSpecial) rate=0.15;
+    else if(s.location==='urban' && isSpecial) rate=0.25;
+    else if(!isSpecial) rate=0.25;
+    else rate=0.35;
+    matches.push({
+      scheme:'PMEGP',
+      slug:'pmegp',
+      amount:s.pc*rate,
+      rate:rate,
+      group:'mfg-margin-money',
+      reason:Math.round(rate*100)+'% margin-money subsidy ('+s.location+' · '+(isSpecial?'special category':'general')+')',
+      caveat:'Cap ₹'+(pmegpCap/100000)+'L project · EDP training required · 3-yr lock-in'
+    });
+  } else if(s.stage==='new' && s.sector!=='trading' && s.pc>pmegpCap){
+    // Show why not eligible if just over cap
+    if(s.pc<=pmegpCap*2){
+      matches.push({
+        scheme:'PMEGP',slug:'pmegp',amount:0,rate:0,group:'mfg-margin-money',
+        reason:'Project cost ₹'+inrCompact(s.pc)+' exceeds the PMEGP cap of ₹'+inrCompact(pmegpCap)+' for '+s.sector,
+        caveat:'Split project below the cap or choose CLCSS/state subsidies instead',ineligible:true
+      });
+    }
+  }
+
+  // CLCSS: manufacturing only, existing/upgrade only
+  if(s.sector==='manufacturing' && s.stage==='existing'){
+    const amount=Math.min(s.pc*0.15,10000000);
+    matches.push({
+      scheme:'CLCSS',slug:'clcss',amount:amount,rate:0.15,group:'mfg-upgrade',
+      reason:'15% capital subsidy on technology upgrade',
+      caveat:'Capped at ₹1 Cr · one of 51 notified sub-sectors · plant & machinery only'
+    });
+  }
+
+  // ODOP UP: only UP, projects within ₹25L
+  if(s.state==='up' && s.pc<=2500000){
+    const amount=Math.min(s.pc*0.25,625000);
+    matches.push({
+      scheme:'ODOP (UP)',slug:'odop-up',amount:amount,rate:0.25,group:'mfg-margin-money',
+      reason:'25% margin-money grant on ODOP-tagged district product',
+      caveat:'Project must match your district\'s ODOP product · cap ₹6.25L'
+    });
+  } else if(s.state==='up' && s.pc<=5000000){
+    // Tier 2 ODOP slab (₹25L-₹50L): tiered grant
+    const amount=625000+(s.pc-2500000)*0.20;
+    matches.push({
+      scheme:'ODOP (UP) — Tier 2',slug:'odop-up',amount:amount,rate:amount/s.pc,group:'mfg-margin-money',
+      reason:'Tiered margin money for projects ₹25L–₹50L',
+      caveat:'\u20b96.25L base + 20% of slab above ₹25L · ODOP product required'
+    });
+  }
+
+  // UP MSME Promotion Policy: UP, new manufacturing
+  if(s.state==='up' && s.sector==='manufacturing' && s.stage==='new'){
+    const amount=Math.min(s.pc*0.15,2500000);
+    matches.push({
+      scheme:'UP MSME Promotion Policy 2022',slug:'up-msme-policy',amount:amount,rate:0.15,group:'state-capital-up',
+      reason:'Up to 15% capital subsidy on fixed assets',
+      caveat:'Region- and sector-tiered · verified per UP MSME portal'
+    });
+  }
+
+  // Aatmanirbhar Gujarat: Gujarat-located mfg/service
+  if(s.state==='gujarat' && s.sector!=='trading'){
+    const baseRate=isSpecial?0.12:0.08;
+    const amount=Math.min(s.pc*baseRate,3500000);
+    matches.push({
+      scheme:'Aatmanirbhar Gujarat MSME',slug:'aatmanirbhar-gujarat-msme',amount:amount,rate:baseRate,group:'state-capital-gj',
+      reason:'Capital subsidy '+(baseRate*100).toFixed(0)+'% + interest subvention up to 7%',
+      caveat:'Taluka-tiered · interest subvention not quantified above'
+    });
+  }
+
+  // Gujarat Textile Policy (only if mfg + gujarat + small subset — we apply optimistically)
+  if(s.state==='gujarat' && s.sector==='manufacturing'){
+    const amount=Math.min(s.pc*0.10,2500000);
+    matches.push({
+      scheme:'Gujarat Textile Policy',slug:'gujarat-textile-policy',amount:amount,rate:0.10,group:'state-capital-gj',
+      reason:'10% capital subsidy + interest subsidy if textile-sector',
+      caveat:'Applies only if textile value-chain unit · verify sub-sector'
+    });
+  }
+
+  return matches.filter(m=>m.amount>=0);
+}
+
+// Apply anti-stacking: pick max from each conflicting group
+function applyStacking(matches){
+  const groups={};
+  matches.forEach(m=>{
+    if(m.ineligible)return;
+    if(!groups[m.group])groups[m.group]=[];
+    groups[m.group].push(m);
+  });
+  // For each group, mark all but the highest as "alternative"
+  Object.values(groups).forEach(grp=>{
+    grp.sort((a,b)=>b.amount-a.amount);
+    grp.forEach((m,i)=>{m.included=(i===0);});
+  });
+  // Schemes not in any group are automatically included
+  matches.forEach(m=>{if(m.included===undefined && !m.ineligible)m.included=true;});
+  return matches;
+}
+
+function render(matches){
+  const grid=document.getElementById('breakdown-grid');
+  if(matches.length===0){
+    grid.innerHTML='<div class="no-match"><strong>No central or state subsidy match in our database for these inputs.</strong>You may still be eligible for credit guarantees (CGTMSE), term loans (Mudra, MSME-59 minutes) or DPIIT Startup recognition benefits. Talk to an advisor.</div>';
+    return;
+  }
+  grid.innerHTML=matches.map(m=>{
+    if(m.ineligible){
+      return '<div class="scheme-result conflict" style="opacity:.85">'+
+        '<div class="sr-amount">—<small>Not eligible</small></div>'+
+        '<div class="sr-meta"><h3>'+m.scheme+'</h3><p>'+m.reason+'</p><div class="sr-cav">'+m.caveat+'</div></div>'+
+        '<a class="sr-link" href="/schemes/'+m.slug+'.html"><span class="sr-go">View scheme →</span></a></div>';
+    }
+    const flag=m.included?'<span class="sr-flag included">Included in total</span>':'<span class="sr-flag">Alternative</span>';
+    return '<a class="scheme-result" href="/schemes/'+m.slug+'.html">'+
+      '<div class="sr-amount">₹'+inr(m.amount)+'<small>'+(m.rate*100).toFixed(0)+'% of project</small></div>'+
+      '<div class="sr-meta"><h3>'+m.scheme+'</h3><p>'+m.reason+'</p><div class="sr-cav">'+m.caveat+'</div></div>'+
+      '<div class="sr-link">'+flag+'<span class="sr-go">View scheme →</span></div>'+
+    '</a>';
+  }).join('');
+}
+
+let calcFiredAt=0;
+function calc(fromUser){
+  // Pull state
+  state.sector=document.getElementById('sector').value;
+  state.state=document.getElementById('state').value;
+  state.category=document.getElementById('category').value;
+  // Update displays
+  document.getElementById('pc-display').textContent='\u20b9'+inr(state.pc);
+
+  const matches=applyStacking(computeSubsidies(state));
+  const eligible=matches.filter(m=>!m.ineligible);
+  const stackedTotal=eligible.filter(m=>m.included).reduce((s,m)=>s+m.amount,0);
+  const largest=eligible.length?Math.max(...eligible.map(m=>m.amount)):0;
+  const effectiveCost=state.pc-stackedTotal;
+  const stackedCount=eligible.filter(m=>m.included).length;
+  const stackedPct=stackedTotal/state.pc*100;
+
+  document.getElementById('sub-total').textContent='\u20b9'+inr(stackedTotal);
+  document.getElementById('sub-meta').textContent='across '+stackedCount+' scheme'+(stackedCount===1?'':'s')+' · '+stackedPct.toFixed(1)+'% of project cost';
+  document.getElementById('sub-largest').textContent=largest>0?inrCompact(largest):'\u2014';
+  document.getElementById('sub-effective').textContent=inrCompact(effectiveCost);
+
+  render(matches);
+
+  if(fromUser && window.gtag){
+    const now=Date.now();
+    if(now-calcFiredAt>3000){
+      calcFiredAt=now;
+      try{window.gtag('event','calculator_used',{calculator:'subsidy',project_cost:state.pc,sector:state.sector,state_loc:state.state,stage:state.stage,location:state.location,category:state.category,estimated_subsidy:Math.round(stackedTotal)});}catch(e){}
+    }
+  }
+}
+
+bind('pc-s','pc','pc',calc);
+['sector','state','category'].forEach(id=>{
+  document.getElementById(id).addEventListener('change',()=>calc(true));
+});
+document.querySelectorAll('.calc-toggle').forEach(group=>{
+  const key=group.dataset.k;
+  group.querySelectorAll('.ct-opt').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      group.querySelectorAll('.ct-opt').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      state[key]=btn.dataset.v;
+      calc(true);
+    });
+  });
+});
+calc(); // initial render, no GA4 fire
+</script>
+<script src="/partials.js"></script>
+</body>
+</html>
