@@ -53,17 +53,27 @@
   // ============================================================
   // HEADER + FOOTER
   // ============================================================
+  var TOOLS_DD =
+    '<div class="nav-dd">' +
+      '<a href="/emi-calculator" class="nav-dd-trigger">Tools <span class="caret">\u25BE</span></a>' +
+      '<div class="nav-dd-menu">' +
+        '<a href="/emi-calculator">EMI Calculator<small>Monthly EMI + subsidy impact</small></a>' +
+        '<a href="/subsidy-estimator">Subsidy Estimator<small>How much govt money you qualify for</small></a>' +
+        '<a href="/compare-schemes">Compare Schemes<small>Side-by-side CGTMSE / PMEGP / Mudra etc.</small></a>' +
+      '</div>' +
+    '</div>';
+
   var HEADER =
     '<div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Verified scheme reference \u00b7 BHARAT.LOAN</div><div><a href="/#engine">Check Your Eligibility \u2192</a></div></div></div>' +
     '<header><div class="wrap">' +
-    '<a href="/" class="brand"><div class="crest"><span>\u092d\u093e</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></div></a>' +
-    '<nav class="main"><a href="/#schemes">Schemes</a><a href="/#states">States</a><a href="/#engine">Check Eligibility</a><a href="/acquisition.html" class="cta-partner">Partnership / Sponsorship</a><a href="/#engine" class="cta-sm">Book a Consultation</a></nav>' +
+    '<a href="/" class="brand"><div class="crest"><span>\u092d\u093e</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></a>' +
+    '<nav class="main"><a href="/#schemes">Schemes</a><a href="/#states">States</a>' + TOOLS_DD + '<a href="/#engine">Check Eligibility</a><a href="/acquisition.html" class="cta-partner">Partnership / Sponsorship</a><a href="/#engine" class="cta-sm">Book a Consultation</a></nav>' +
     '</div></header>';
 
   var FOOTER =
     '<footer><div class="wrap"><div class="fbrand"><b>BHARAT.LOAN</b></div>' +
     '<p style="margin:10px 0 18px;max-width:360px;line-height:1.6">Government scheme, subsidy and incentive advisory for Indian startups, MSMEs and industries. Advisory delivered by CONSULT.IN.</p>' +
-    '<div class="fnav"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/#schemes">Schemes</a></div>' +
+    '<div class="fnav"><a href="/about.html">About</a><a href="/contact.html">Contact</a><a href="/emi-calculator">EMI Calculator</a><a href="/subsidy-estimator">Subsidy Estimator</a><a href="/compare-schemes">Compare Schemes</a><a href="/privacy.html">Privacy</a><a href="/terms.html">Terms</a><a href="/#schemes">Schemes</a></div>' +
     '<p class="disc">BHARAT.LOAN is an independent advisory service. We are not a government body and do not represent any ministry or agency. Scheme details are compiled from official sources and verified regularly; applicants should confirm current terms with the relevant authority. Subsidy and loan approvals are at the sole discretion of the respective government bodies and lending institutions. \u00a9 2026 BHARAT.LOAN.</p>' +
     '</div></footer>';
 
