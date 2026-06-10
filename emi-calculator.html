@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Loan EMI Calculator | BHARAT.LOAN</title>
+<meta name="description" content="Calculate your monthly EMI for any Indian business loan — and see how a PMEGP, CGTMSE or Mudra government scheme can reduce your effective EMI. Free, no registration.">
+<link rel="canonical" href="https://bharat.loan/emi-calculator">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="BHARAT.LOAN">
+<meta property="og:title" content="Business Loan EMI Calculator | BHARAT.LOAN">
+<meta property="og:description" content="Calculate your monthly EMI for any Indian business loan. See how government schemes reduce your effective EMI.">
+<meta property="og:url" content="https://bharat.loan/emi-calculator">
+<meta property="og:image" content="https://bharat.loan/og-image.svg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://bharat.loan/og-image.svg">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/favicon.svg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3216322039296830" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Business Loan EMI Calculator","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free calculator to determine the monthly EMI on any Indian business loan, with built-in awareness of how government subsidies and credit guarantees affect the EMI.","url":"https://bharat.loan/emi-calculator","publisher":{"@type":"Organization","name":"BHARAT.LOAN","url":"https://bharat.loan/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How is EMI calculated?","acceptedAnswer":{"@type":"Answer","text":"EMI uses the reducing-balance formula EMI = P × r × (1+r)^n / ((1+r)^n − 1), where P is principal, r is monthly interest rate, and n is tenure in months. This is the standard method used by all Indian banks."}},{"@type":"Question","name":"Does a PMEGP subsidy reduce my EMI?","acceptedAnswer":{"@type":"Answer","text":"Yes. PMEGP provides a 15 to 35 percent margin-money subsidy on project cost. The subsidy reduces the effective loan amount you have to repay, which directly reduces your monthly EMI. On a 25 lakh PMEGP project, a 25 percent subsidy means you only repay EMI on the remaining 18.75 lakh."}},{"@type":"Question","name":"What interest rate should I use for an MSME loan?","acceptedAnswer":{"@type":"Answer","text":"Indian MSME loan rates typically range from 9 to 16 percent. CGTMSE-backed collateral-free loans usually carry 10 to 13 percent. Public sector banks often quote lower rates than NBFCs. Use 11 to 12 percent for an indicative CGTMSE-eligible profile."}},{"@type":"Question","name":"Does CGTMSE change my EMI?","acceptedAnswer":{"@type":"Answer","text":"CGTMSE does not directly change the EMI rate, but it makes loans available to businesses that would otherwise be rejected for lack of collateral. The guarantee fee (1 to 2 percent annual on outstanding) is a separate cost not included in the EMI."}},{"@type":"Question","name":"Can I prepay an MSME loan without penalty?","acceptedAnswer":{"@type":"Answer","text":"Under RBI guidelines, banks cannot charge prepayment penalties on floating-rate loans for individual or MSE borrowers. Fixed-rate loans may carry a 2 to 4 percent prepayment penalty. Always check the sanction letter."}},{"@type":"Question","name":"What is the difference between flat and reducing-balance interest?","acceptedAnswer":{"@type":"Answer","text":"Reducing-balance interest is charged only on the outstanding principal, the standard for all Indian bank loans. Flat interest is charged on the full original principal throughout the tenure, usually quoted by some NBFCs and looks deceptively lower. A 12 percent flat rate is roughly equivalent to a 22 percent reducing-balance rate."}}]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles.css">
+<style>
+.wrap{max-width:1180px}
+.ad-slot{margin:34px 0;min-height:90px;text-align:center;overflow:hidden}
+.ad-slot::before{content:"Advertisement";display:block;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;opacity:.6}
+.calc-hero{position:relative;overflow:hidden;background:radial-gradient(900px 480px at 85% -5%,var(--blue-wash),transparent 65%),radial-gradient(700px 400px at 5% 110%,rgba(14,157,138,.07),transparent 60%),var(--bg);padding:46px 0 76px}
+.calc-hero .wrap{position:relative;display:grid;grid-template-columns:.95fr 1.05fr;gap:52px;padding:0 32px;align-items:center}
+.ch-left .crumb{padding:0 0 18px;font-size:13px;color:var(--muted)}
+.ch-left .crumb a{color:var(--blue);text-decoration:none}
+.ch-left h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(34px,4.4vw,52px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px;color:var(--ink)}
+.ch-left h1 em{font-style:italic;color:var(--blue)}
+.ch-left .lede{font-size:18px;line-height:1.55;color:var(--ink-soft);margin-bottom:28px;max-width:490px}
+.ch-trust{display:flex;gap:32px;flex-wrap:wrap}
+.ch-trust div b{font-family:'Fraunces',serif;font-size:24px;font-weight:600;color:var(--ink);display:block;line-height:1}
+.ch-trust div small{font-size:12.5px;color:var(--muted);font-weight:500}
+.calc-card{background:linear-gradient(165deg,var(--ink),#13314c);border-radius:20px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;padding:36px 38px 38px;color:#fff}
+.calc-card::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(20,86,230,.28),transparent 70%);pointer-events:none}
+.calc-card::before{content:"";position:absolute;left:-60px;bottom:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(14,157,138,.2),transparent 70%);pointer-events:none}
+.calc-card h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:24px;position:relative;color:#fff}
+.calc-row{position:relative;margin-bottom:18px}
+.calc-row .crow-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:9px;font-size:13px;color:#aebfd2;font-weight:500}
+.calc-row .crow-label strong{color:#fff;font-weight:600}
+.calc-row .num-wrap{display:flex;align-items:center;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:9px;padding:0 12px}
+.calc-row .num-wrap .pfx,.calc-row .num-wrap .sfx{color:#aebfd2;font-size:13px;font-weight:600}
+.calc-row .num-wrap .pfx{margin-right:4px}
+.calc-row .num-wrap .sfx{margin-left:4px}
+.calc-row .num-wrap input.num{background:transparent;border:none;color:#fff;font-size:15px;font-family:inherit;font-weight:600;padding:11px 0;width:100%;outline:none;-moz-appearance:textfield}
+.calc-row .num-wrap input.num::-webkit-outer-spin-button,.calc-row .num-wrap input.num::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+.calc-row input[type=range]{width:100%;margin-top:11px;-webkit-appearance:none;appearance:none;background:transparent;height:22px;cursor:pointer}
+.calc-row input[type=range]::-webkit-slider-runnable-track{height:4px;background:linear-gradient(to right,var(--teal),var(--blue));border-radius:2px}
+.calc-row input[type=range]::-moz-range-track{height:4px;background:linear-gradient(to right,var(--teal),var(--blue));border-radius:2px}
+.calc-row input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:#fff;border:3px solid var(--blue);margin-top:-8px;cursor:grab;box-shadow:0 4px 12px rgba(20,86,230,.4)}
+.calc-row input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid var(--blue);cursor:grab;box-shadow:0 4px 12px rgba(20,86,230,.4)}
+.calc-row .crow-range-marks{display:flex;justify-content:space-between;font-size:10.5px;color:#6c7d92;margin-top:4px;font-weight:500}
+.calc-out{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:22px 24px;margin-top:24px;display:grid;grid-template-columns:1fr 110px;gap:24px;align-items:center}
+.calc-out .co-l .co-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:6px}
+.calc-out .co-l .co-emi{font-family:'Fraunces',serif;font-size:38px;font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em}
+.calc-out .co-l .co-emi-sub{font-size:12.5px;color:#aebfd2;margin-top:5px}
+.calc-out .co-meta{margin-top:12px;display:flex;gap:18px;flex-wrap:wrap}
+.calc-out .co-meta div{font-size:11.5px;color:#aebfd2}
+.calc-out .co-meta div b{display:block;color:#fff;font-family:'Fraunces',serif;font-size:15px;font-weight:600;margin-bottom:2px}
+.donut{width:110px;height:110px;position:relative}
+.donut svg{transform:rotate(-90deg);width:100%;height:100%}
+.donut circle{fill:none;stroke-width:14}
+.donut .d-bg{stroke:rgba(255,255,255,.08)}
+.donut .d-p{stroke:var(--teal);transition:stroke-dasharray .3s ease}
+.donut .d-i{stroke:var(--blue);transition:stroke-dasharray .3s ease,stroke-dashoffset .3s ease}
+.donut .d-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.donut .d-center small{font-size:9.5px;letter-spacing:.05em;color:#8298ad;text-transform:uppercase;font-weight:700;display:block;line-height:1}
+.donut .d-center b{font-family:'Fraunces',serif;font-size:14px;color:#fff;font-weight:600;line-height:1.1;margin-top:3px;display:block}
+.subsidy-hints{margin-top:22px;display:flex;flex-direction:column;gap:8px;position:relative}
+.shint{background:rgba(20,86,230,.13);border:1px solid rgba(20,86,230,.3);border-radius:10px;padding:13px 15px;display:flex;gap:11px;align-items:center;text-decoration:none;color:inherit;transition:background .2s,transform .15s}
+.shint:hover{background:rgba(20,86,230,.22);transform:translateY(-1px)}
+.shint .si-ic{width:30px;height:30px;border-radius:7px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex-shrink:0;color:#fff;font-family:'Fraunces',serif;font-size:14px;font-weight:600}
+.shint .si-body{flex:1;font-size:13px;color:#dde5ef;line-height:1.4}
+.shint .si-body b{color:#fff;display:block;font-weight:600;font-size:13.5px;margin-bottom:2px;font-family:'Plus Jakarta Sans',sans-serif}
+.shint .si-arrow{color:var(--teal);font-size:16px;flex-shrink:0;font-weight:700}
+.schemes-band{padding:64px 0 24px}
+.schemes-band .sec-head{text-align:center;max-width:680px;margin:0 auto 40px;padding:0 32px}
+.schemes-band .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px;justify-content:center}
+.schemes-band .kicker .bar{width:26px;height:2px;background:var(--blue);border-radius:2px}
+.schemes-band .sec-head h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,36px);font-weight:600;line-height:1.1;letter-spacing:-.015em;margin-bottom:13px;color:var(--ink)}
+.schemes-band .sec-head p{font-size:17px;color:var(--muted);line-height:1.5}
+.sb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:0 32px}
+.sb-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;text-decoration:none;transition:all .2s;display:flex;flex-direction:column}
+.sb-card:hover{border-color:#c5d6f5;box-shadow:var(--shadow);transform:translateY(-3px)}
+.sb-card .sb-tag{font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:9px}
+.sb-card h3{font-family:'Fraunces',serif;font-size:19px;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.15}
+.sb-card .sb-quantum{font-size:14px;color:var(--ink-soft);line-height:1.5;margin-bottom:14px;flex:1}
+.sb-card .sb-emi-impact{background:var(--blue-wash);border-radius:8px;padding:11px 13px;font-size:12.5px;color:var(--ink-soft);line-height:1.5;border-left:3px solid var(--blue)}
+.sb-card .sb-emi-impact b{color:var(--blue-deep);font-weight:700}
+.sb-card .sb-link{margin-top:14px;font-size:13.5px;font-weight:600;color:var(--blue);text-decoration:none;display:flex;align-items:center;gap:6px}
+.explain{background:var(--wash);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:64px 0}
+.explain .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1040px;margin:0 auto;padding:0 32px}
+.explain h2{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin-bottom:14px;color:var(--ink)}
+.explain p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin-bottom:12px}
+.explain .formula{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-family:'Fraunces',serif;font-size:15px;color:var(--ink);margin:8px 0 12px;line-height:1.5}
+.explain .formula em{color:var(--blue);font-style:italic;font-weight:500}
+.explain .ex-eg{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
+.explain .ex-eg b{color:var(--ink)}
+.faq-band{padding:64px 0}
+.faq-band .wrap{max-width:820px;padding:0 32px}
+.faq-band h2{font-family:'Fraunces',serif;font-size:28px;font-weight:600;line-height:1.1;margin-bottom:28px;color:var(--ink)}
+.final{background:linear-gradient(165deg,var(--ink),#13314c);color:#fff;text-align:center;position:relative;overflow:hidden;padding:64px 0}
+.final::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 50% 0%,rgba(20,86,230,.25),transparent 65%);pointer-events:none}
+.final .wrap{position:relative}
+.final h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,36px);font-weight:600;margin-bottom:14px;line-height:1.1}
+.final p{font-size:17px;color:#aebfd2;max-width:520px;margin:0 auto 26px}
+.final .btn{padding:15px 26px;border-radius:11px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:var(--blue);color:#fff;box-shadow:0 8px 22px rgba(20,86,230,.26);transition:transform .15s,box-shadow .2s}
+.final .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(20,86,230,.34)}
+@media(max-width:900px){
+  .calc-hero{padding:32px 0 56px}
+  .calc-hero .wrap{grid-template-columns:1fr;gap:32px;padding:0 22px}
+  .calc-card{padding:28px 22px 28px}
+  .calc-out{grid-template-columns:1fr;text-align:center;padding:20px}
+  .calc-out .co-l .co-emi{font-size:34px}
+  .donut{margin:0 auto}
+  .sb-grid{grid-template-columns:1fr;padding:0 22px}
+  .schemes-band .sec-head{padding:0 22px}
+  .explain .ex-grid{grid-template-columns:1fr;gap:32px;padding:0 22px}
+  .calc-out .co-meta{justify-content:center}
+}
+</style>
+</head>
+<body>
+<div id="site-header"></div>
+
+<div class="calc-hero"><div class="wrap">
+  <div class="ch-left">
+    <div class="crumb"><a href="/">Home</a> · <a href="/#schemes">Schemes</a> · EMI Calculator</div>
+    <h1>Business loan <em>EMI calculator</em></h1>
+    <p class="lede">Calculate your monthly EMI for any Indian business loan — and see how a PMEGP, CGTMSE or Mudra government scheme can reduce your effective payment.</p>
+    <div class="ch-trust">
+      <div><b>Free</b><small>No registration</small></div>
+      <div><b>15+</b><small>Schemes integrated</small></div>
+      <div><b>Indian ₹</b><small>Tuned for MSME loans</small></div>
+    </div>
+  </div>
+  <div class="ch-right">
+    <div class="calc-card">
+      <h2>Calculate your EMI</h2>
+
+      <div class="calc-row">
+        <div class="crow-label">Loan amount <strong id="amt-display">₹10,00,000</strong></div>
+        <div class="num-wrap"><span class="pfx">₹</span><input class="num" type="number" id="amt" value="1000000" min="50000" max="50000000" step="10000"></div>
+        <input type="range" id="amt-s" min="50000" max="50000000" step="10000" value="1000000" aria-label="Loan amount slider">
+        <div class="crow-range-marks"><span>₹50K</span><span>₹5 Cr</span></div>
+      </div>
+
+      <div class="calc-row">
+        <div class="crow-label">Interest rate <strong id="rate-display">11.0%</strong></div>
+        <div class="num-wrap"><input class="num" type="number" id="rate" value="11" min="5" max="24" step="0.1"><span class="sfx">% p.a.</span></div>
+        <input type="range" id="rate-s" min="5" max="24" step="0.1" value="11" aria-label="Interest rate slider">
+        <div class="crow-range-marks"><span>5%</span><span>24%</span></div>
+      </div>
+
+      <div class="calc-row">
+        <div class="crow-label">Tenure <strong id="tenure-display">5 years</strong></div>
+        <div class="num-wrap"><input class="num" type="number" id="tenure" value="60" min="6" max="360" step="1"><span class="sfx">months</span></div>
+        <input type="range" id="tenure-s" min="6" max="360" step="1" value="60" aria-label="Loan tenure slider">
+        <div class="crow-range-marks"><span>6 mo</span><span>30 yrs</span></div>
+      </div>
+
+      <div class="calc-out">
+        <div class="co-l">
+          <div class="co-label">Your monthly EMI</div>
+          <div class="co-emi" id="emi-out">₹21,742</div>
+          <div class="co-emi-sub">Reducing-balance method · standard Indian banking</div>
+          <div class="co-meta">
+            <div><b id="interest-out">₹3,04,544</b><span>Total interest</span></div>
+            <div><b id="total-out">₹13,04,544</b><span>Total payable</span></div>
+          </div>
+        </div>
+        <div class="donut">
+          <svg viewBox="0 0 160 160">
+            <circle class="d-bg" cx="80" cy="80" r="64"/>
+            <circle class="d-p" id="arc-p" cx="80" cy="80" r="64" stroke-dasharray="0 403"/>
+            <circle class="d-i" id="arc-i" cx="80" cy="80" r="64" stroke-dasharray="0 403" stroke-dashoffset="0"/>
+          </svg>
+          <div class="d-center"><small>Principal</small><b id="donut-pct">77%</b></div>
+        </div>
+      </div>
+
+      <div class="subsidy-hints">
+        <a class="shint" href="/schemes/pmegp.html" id="pmegp-hint">
+          <div class="si-ic">P</div>
+          <div class="si-body"><b>PMEGP cuts this EMI</b><span id="pmegp-line">25% subsidy on this project = effective EMI of <b style="color:var(--teal);font-family:Fraunces,serif">₹16,306</b>/mo</span></div>
+          <div class="si-arrow">→</div>
+        </a>
+        <a class="shint" href="/schemes/cgtmse.html">
+          <div class="si-ic">C</div>
+          <div class="si-body"><b>Get this loan without collateral</b>CGTMSE covers up to ₹10 Cr collateral-free for eligible MSMEs</div>
+          <div class="si-arrow">→</div>
+        </a>
+        <a class="shint" href="/schemes/mudra-yojana.html" id="mudra-hint">
+          <div class="si-ic">M</div>
+          <div class="si-body"><b>Mudra: lower rates under ₹20L</b>Loans up to ₹20 lakh at sub-market rates under priority-sector lending</div>
+          <div class="si-arrow">→</div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<section class="schemes-band"><div class="wrap">
+  <div class="sec-head">
+    <div class="kicker"><span class="bar"></span> Reduce Your EMI</div>
+    <h2>Three government schemes that change this calculation.</h2>
+    <p>The EMI above is what a regular commercial loan looks like. Government schemes either reduce the principal, lower the rate, or remove the collateral requirement.</p>
+  </div>
+  <div class="sb-grid">
+    <a href="/schemes/pmegp.html" class="sb-card">
+      <div class="sb-tag">Margin Money Subsidy</div>
+      <h3>PMEGP</h3>
+      <div class="sb-quantum">15–35% margin-money subsidy on manufacturing projects up to ₹25 lakh and service projects up to ₹10 lakh. The subsidy reduces your effective principal — and therefore your EMI.</div>
+      <div class="sb-emi-impact">On a ₹25L project at 11% over 5 yrs: standard EMI <b>₹54,353</b> → with 25% subsidy <b>₹40,765</b> (saving ₹13,588/mo)</div>
+      <div class="sb-link">View PMEGP eligibility →</div>
+    </a>
+    <a href="/schemes/cgtmse.html" class="sb-card">
+      <div class="sb-tag">Credit Guarantee</div>
+      <h3>CGTMSE</h3>
+      <div class="sb-quantum">Collateral-free loans up to ₹10 Cr (₹20 Cr for DPIIT startups). Doesn't change the EMI rate directly — but unlocks loans you wouldn't otherwise qualify for.</div>
+      <div class="sb-emi-impact">Lets you borrow up to <b>₹10 Cr</b> without pledging property, plant, or equipment.</div>
+      <div class="sb-link">View CGTMSE eligibility →</div>
+    </a>
+    <a href="/schemes/mudra-yojana.html" class="sb-card">
+      <div class="sb-tag">Term + Working Capital</div>
+      <h3>PM Mudra Yojana</h3>
+      <div class="sb-quantum">Three tiers — Shishu (≤ ₹50K), Kishore (₹50K–5L), Tarun (₹5L–20L) — typically offered at sub-market rates by banks under priority-sector lending.</div>
+      <div class="sb-emi-impact">On a ₹10L Mudra Tarun loan at 9% vs 12% commercial over 5 yrs: EMI <b>₹20,758</b> vs <b>₹22,244</b> — saves ₹89,160 over the loan life</div>
+      <div class="sb-link">View Mudra Yojana →</div>
+    </a>
+  </div>
+
+  <div class="ad-slot" style="max-width:1180px;margin:48px auto 0"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-3216322039296830" data-ad-format="fluid" data-ad-layout="in-article"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script></div>
+</div></section>
+
+<section class="explain"><div class="ex-grid">
+  <div>
+    <h2>How EMI is calculated</h2>
+    <p>EMI on Indian bank loans uses the reducing-balance method — interest is charged only on the outstanding principal, which falls each month as you repay.</p>
+    <div class="formula">EMI = <em>P</em> × <em>r</em> × (1+<em>r</em>)<sup>n</sup> / ((1+<em>r</em>)<sup>n</sup> − 1)</div>
+    <p>Where <strong>P</strong> = principal, <strong>r</strong> = monthly rate (annual ÷ 12 ÷ 100), <strong>n</strong> = tenure in months.</p>
+    <div class="ex-eg"><b>Example:</b> ₹10 Lakh at 11% over 5 years (60 months). Monthly rate = 11 ÷ 12 ÷ 100 = 0.00917. EMI = ₹21,742. You pay ₹13.04 Lakh in total — ₹10L principal + ₹3.04L interest.</div>
+  </div>
+  <div>
+    <h2>How a subsidy reduces your EMI</h2>
+    <p>A subsidy reduces the effective loan amount you have to repay. Smaller principal = smaller EMI, even at the same interest rate and tenure.</p>
+    <p>The most common subsidy in MSME lending is PMEGP's margin-money component — 15% to 35% of project cost depending on category, gender and location.</p>
+    <div class="ex-eg"><b>Worked example:</b> ₹25 Lakh PMEGP manufacturing project, 25% subsidy, 11% rate, 5-yr tenure.<br><br>Without subsidy: EMI = ₹54,353/month, total payable ₹32.6L<br><br>With ₹6.25L subsidy: effective loan = ₹18.75L, EMI = ₹40,765/month, total payable ₹24.5L.<br><br><b>Lifetime saving: ₹8.15 Lakh.</b></div>
+  </div>
+</div></section>
+
+<section class="faq-band"><div class="wrap">
+  <h2>EMI questions, answered</h2>
+  <details class="faq">
+    <summary>What interest rate should I assume for an Indian MSME loan?</summary>
+    <div class="fa">Indian MSME loan rates typically range from 9% to 16% depending on lender, security, loan size and credit profile. CGTMSE-backed collateral-free loans usually carry rates of 10% to 13%. Public sector banks often quote lower rates than NBFCs. For an indicative calculation use 11% to 12% for a CGTMSE-eligible profile.</div>
+  </details>
+  <details class="faq">
+    <summary>Does a PMEGP subsidy actually reduce my EMI?</summary>
+    <div class="fa">Yes. PMEGP releases the subsidy as a margin-money grant adjusted against the loan after a lock-in period (typically 3 years). The bank disburses the full loan first; once subsidy criteria are met, your outstanding is reduced by the subsidy amount, which proportionally reduces your remaining EMIs — or your tenure if you keep the EMI constant.</div>
+  </details>
+  <details class="faq">
+    <summary>Does CGTMSE change the interest rate?</summary>
+    <div class="fa">CGTMSE does not directly change the EMI rate, but it unlocks loans for businesses that would otherwise be rejected for lack of collateral. The guarantee fee (1% to 2% annual on outstanding) is a separate cost not included in the standard EMI calculation. Some banks include it in the effective rate; some bill it separately.</div>
+  </details>
+  <details class="faq">
+    <summary>Can I prepay an MSME loan without penalty?</summary>
+    <div class="fa">Under RBI guidelines, banks cannot charge prepayment penalties on floating-rate loans for individual or MSE borrowers. Fixed-rate loans may carry a 2 to 4 percent prepayment penalty. Always confirm in the sanction letter before signing.</div>
+  </details>
+  <details class="faq">
+    <summary>What's the difference between flat-rate and reducing-balance interest?</summary>
+    <div class="fa">Reducing-balance interest is charged only on the outstanding principal — the standard for all Indian bank loans. Flat interest is charged on the full original principal throughout the tenure — usually quoted by some NBFCs and looks deceptively lower. A 12% flat rate is roughly equivalent to a 22% reducing-balance rate. This calculator uses reducing-balance.</div>
+  </details>
+  <details class="faq">
+    <summary>What hidden costs aren't in this EMI?</summary>
+    <div class="fa">Processing fee (typically 0.5% to 2% of loan, one-time), GST on processing fee, stamp duty on loan agreement (state-dependent), CGTMSE guarantee fee if applicable (1–2% annually), property insurance premium if secured, and CIBIL/credit report charges. Budget another 2–3% of loan amount as initial setup costs.</div>
+  </details>
+</div></section>
+
+<section class="final"><div class="wrap">
+  <h2>Want it scheme-funded?</h2>
+  <p>Our advisory desk maps every government scheme your business qualifies for — and how each one would reshape this EMI. Complimentary first assessment.</p>
+  <a href="/#engine" class="btn">Check Your Scheme Eligibility →</a>
+</div></section>
+
+<div id="site-footer"></div>
+
+<script>
+function inr(n){return Math.round(n).toLocaleString('en-IN',{maximumFractionDigits:0});}
+function bind(slider,input,onChange){
+  const s=document.getElementById(slider);const i=document.getElementById(input);
+  s.addEventListener('input',()=>{i.value=s.value;onChange(true);});
+  i.addEventListener('input',()=>{
+    let v=Number(i.value);if(isNaN(v))return;
+    if(v<Number(s.min))v=Number(s.min);
+    if(v>Number(s.max))v=Number(s.max);
+    s.value=v;onChange(true);
+  });
+}
+function emiOf(P,Rpct,N){
+  const r=Rpct/100/12;
+  if(r===0)return P/N;
+  return P*r*Math.pow(1+r,N)/(Math.pow(1+r,N)-1);
+}
+const CIRC=2*Math.PI*64;
+let calcFiredAt=0;
+function calc(fromUser){
+  const P=Number(document.getElementById('amt').value);
+  const R=Number(document.getElementById('rate').value);
+  const N=Number(document.getElementById('tenure').value);
+  const emi=emiOf(P,R,N);
+  const total=emi*N;
+  const interest=total-P;
+
+  document.getElementById('emi-out').textContent='\u20B9'+inr(emi);
+  document.getElementById('interest-out').textContent='\u20B9'+inr(interest);
+  document.getElementById('total-out').textContent='\u20B9'+inr(total);
+  document.getElementById('amt-display').textContent='\u20B9'+inr(P);
+  document.getElementById('rate-display').textContent=R.toFixed(1)+'%';
+  const yrs=N/12;
+  document.getElementById('tenure-display').textContent=(yrs===Math.floor(yrs))?(yrs+(yrs===1?' year':' years')):(N+' months');
+
+  const pPct=P/total;const iPct=interest/total;
+  document.getElementById('arc-p').setAttribute('stroke-dasharray',(CIRC*pPct).toFixed(2)+' '+CIRC.toFixed(2));
+  document.getElementById('arc-i').setAttribute('stroke-dasharray',(CIRC*iPct).toFixed(2)+' '+CIRC.toFixed(2));
+  document.getElementById('arc-i').setAttribute('stroke-dashoffset',(-CIRC*pPct).toFixed(2));
+  document.getElementById('donut-pct').textContent=Math.round(pPct*100)+'%';
+
+  // PMEGP hint: only show for projects within ~25L cap
+  const pmegpEligible=P<=2500000;
+  const pmegpHint=document.getElementById('pmegp-hint');
+  if(pmegpEligible){
+    const netP=P*0.75;
+    const netEmi=emiOf(netP,R,N);
+    document.getElementById('pmegp-line').innerHTML='25% subsidy on this project = effective EMI of <b style="color:var(--teal);font-family:Fraunces,serif">\u20B9'+inr(netEmi)+'</b>/mo';
+    pmegpHint.style.display='';
+  } else {
+    pmegpHint.style.display='none';
+  }
+
+  // Mudra hint: only show for loans ≤ ₹20L
+  document.getElementById('mudra-hint').style.display=(P<=2000000)?'':'none';
+
+  // GA4 debounced — only on user interaction
+  if(fromUser && window.gtag){
+    const now=Date.now();
+    if(now-calcFiredAt>3000){
+      calcFiredAt=now;
+      try{window.gtag('event','calculator_used',{calculator:'emi',loan_amount:P,interest_rate:R,tenure_months:N,monthly_emi:Math.round(emi)});}catch(e){}
+    }
+  }
+}
+bind('amt-s','amt',calc);bind('rate-s','rate',calc);bind('tenure-s','tenure',calc);
+calc(); // initial render, no GA4 fire
+</script>
+<script src="/partials.js"></script>
+</body>
+</html>
