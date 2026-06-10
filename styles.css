@@ -108,3 +108,48 @@ footer .disc{font-size:12px;line-height:1.6;color:var(--muted);max-width:780px}
 footer .fbrand b{font-family:'Fraunces',serif;color:var(--ink);font-size:18px}
 footer a{color:var(--blue);text-decoration:none}
 @media(max-width:860px){.layout{grid-template-columns:1fr;gap:30px}.aside{position:static}nav.main{display:none}.wrap{padding:0 20px}.facts{grid-template-columns:1fr 1fr}}
+
+/* === Tier 1 additions: footer nav, WhatsApp FAB, sticky mobile CTA, long-form prose, contact cards === */
+.fnav{margin:0 0 18px;display:flex;gap:20px;flex-wrap:wrap}
+.fnav a{font-size:13px;color:var(--ink-soft);font-weight:500;text-decoration:none}
+.fnav a:hover{color:var(--blue);text-decoration:underline}
+.wa-fab{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25d366;border-radius:50%;display:grid;place-items:center;box-shadow:0 8px 24px rgba(37,211,102,.45),0 2px 6px rgba(37,211,102,.2);z-index:80;color:#fff;text-decoration:none;transition:transform .2s,box-shadow .2s}
+.wa-fab:hover{transform:scale(1.08);box-shadow:0 12px 32px rgba(37,211,102,.55)}
+.wa-fab svg{width:30px;height:30px;color:#fff}
+.mcta-bar{position:fixed;bottom:0;left:0;right:0;display:none;z-index:90;background:#fff;border-top:1px solid var(--line);box-shadow:0 -4px 20px rgba(11,27,43,.08);padding:10px 12px;gap:10px}
+.mcta-bar a{flex:1;display:flex;align-items:center;justify-content:center;gap:8px;padding:13px;border-radius:10px;font-weight:700;font-size:14.5px;text-decoration:none;color:#fff}
+.mcta-bar svg{width:18px;height:18px}
+.mcta-bar .mcta-wa{background:#25d366}
+.mcta-bar .mcta-book{background:var(--blue)}
+@media(max-width:860px){.mcta-bar{display:flex}.wa-fab{display:none}body{padding-bottom:78px}}
+
+.prose{max-width:760px;margin:0 auto;padding:36px 32px 80px}
+.prose h1{font-family:'Fraunces',serif;font-size:clamp(30px,4vw,42px);font-weight:600;line-height:1.1;letter-spacing:-.015em;margin-bottom:14px;color:var(--ink)}
+.prose .lede{font-size:18px;color:var(--ink-soft);line-height:1.55;margin-bottom:8px;font-weight:500}
+.prose .updated{font-size:13px;color:var(--muted);margin-bottom:36px;padding-bottom:24px;border-bottom:1px solid var(--line)}
+.prose h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin:36px 0 12px;color:var(--ink);scroll-margin-top:90px}
+.prose h3{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin:24px 0 8px;color:var(--ink)}
+.prose p{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:14px}
+.prose ul,.prose ol{margin:0 0 18px 22px}
+.prose li{font-size:15.5px;line-height:1.65;color:var(--ink-soft);margin-bottom:6px}
+.prose a{color:var(--blue);text-decoration:underline}
+.prose strong{color:var(--ink)}
+.prose .callout{background:var(--blue-wash);border:1px solid #d7e3ff;border-radius:11px;padding:18px 22px;margin:22px 0;font-size:14.5px;color:var(--ink-soft);line-height:1.6}
+.prose .callout strong{color:var(--blue-deep)}
+
+.field{width:100%;background:var(--wash);border:1.5px solid var(--line);border-radius:9px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--ink)}
+.field:focus{outline:none;border-color:var(--blue)}
+.field::placeholder{color:var(--muted)}
+select.field{appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b7a8a' stroke-width='2.5'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 14px center;padding-right:36px}
+
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px}
+.contact-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:24px;text-decoration:none;color:inherit;transition:all .2s;display:block}
+.contact-card:hover{border-color:#c5d6f5;box-shadow:var(--shadow);transform:translateY(-2px)}
+.contact-card .ic{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;margin-bottom:14px}
+.contact-card.wa .ic{background:#dcf8e3;color:#25d366}
+.contact-card.em .ic{background:var(--blue-wash);color:var(--blue)}
+.contact-card .ic svg{width:22px;height:22px}
+.contact-card h3{font-family:'Fraunces',serif;font-size:17px;font-weight:600;margin-bottom:6px;color:var(--ink)}
+.contact-card p{font-size:14px;color:var(--muted);line-height:1.5;margin-bottom:10px}
+.contact-card .v{font-weight:600;color:var(--ink-soft);font-size:14px;word-break:break-all}
+@media(max-width:760px){.contact-grid{grid-template-columns:1fr;gap:12px}}
