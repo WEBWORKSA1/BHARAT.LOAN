@@ -14,7 +14,7 @@ Static HTML, hosted free on **GitHub Pages** from this repository (`WEBWORKSA1/b
 
 ### One-time GitHub Pages setup
 
-1. Repo **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+1. Repo **Settings → Pages → Build and deployment**: either **Deploy from a branch → main / (root)** (current setup — the workflow requests a Pages build after every refresh) or **GitHub Actions** (the workflow deploys only public files).
 2. Same page → **Custom domain: `bharat.loan`** → Save → tick **Enforce HTTPS** once the certificate is issued.
 3. At the domain registrar, point `bharat.loan` to GitHub Pages: A records `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153` (and AAAA `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`). Optional `www` CNAME → `webworksa1.github.io`.
 

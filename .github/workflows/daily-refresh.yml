@@ -20,6 +20,8 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+    outputs:
+      build_type: ${{ steps.pages.outputs.build_type }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -32,9 +34,12 @@ jobs:
       - name: Build pages, sitemap, feed and search index
         run: node scripts/build.mjs
       - name: Record GitHub Pages status
+        id: pages
         run: |
-          curl -s -H "Authorization: Bearer ${{ github.token }}" -H "Accept: application/vnd.github+json" \
-            "https://api.github.com/repos/${{ github.repository }}/pages" > data/pages-status.json || true
+          H=(-s -H "Authorization: Bearer ${{ github.token }}" -H "Accept: application/vnd.github+json")
+          curl "${H[@]}" "https://api.github.com/repos/${{ github.repository }}/pages" > /tmp/pages.json || echo '{}' > /tmp/pages.json
+          curl "${H[@]}" "https://api.github.com/repos/${{ github.repository }}/pages/builds/latest" > /tmp/build.json || echo '{}' > /tmp/build.json
+          node -e "const r=f=>{try{return JSON.parse(require('fs').readFileSync(f,'utf8'))}catch(e){return {}}};const p=r('/tmp/pages.json'),b=r('/tmp/build.json');require('fs').writeFileSync('data/pages-status.json',JSON.stringify({site:p.html_url,status:p.status,build_type:p.build_type,source:p.source,cname:p.cname,https_enforced:p.https_enforced,latest_build:{status:b.status,commit:b.commit,created_at:b.created_at,error:b.error&&b.error.message}},null,1));console.log('build_type='+(p.build_type||''))" >> "$GITHUB_OUTPUT"
       - name: Commit and push
         run: |
           git config user.name "bharat-loan-bot"
@@ -44,9 +49,18 @@ jobs:
           git commit -m "Daily refresh $(TZ=Asia/Kolkata date '+%Y-%m-%d %H:%M IST')"
           git pull --rebase --autostash origin main || true
           git push
+      # Branch-published Pages (Settings > Pages > Deploy from branch: main): bot commits don't
+      # trigger a Pages build on their own, so request one explicitly.
+      - name: Publish (branch-based Pages build)
+        if: steps.pages.outputs.build_type == 'legacy'
+        run: |
+          curl -s -X POST -H "Authorization: Bearer ${{ github.token }}" -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/pages/builds"
 
+  # Actions-published Pages (Settings > Pages > Source: GitHub Actions): upload only public files.
   deploy:
     needs: refresh
+    if: needs.refresh.outputs.build_type == 'workflow'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     environment:
