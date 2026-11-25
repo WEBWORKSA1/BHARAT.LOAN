@@ -1,9 +1,9 @@
 {
- "started": "2026-11-25T16:04:12.743Z",
+ "started": "2026-11-25T16:26:35.013Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 11
+   "n": 12
   },
   {
    "q": "PMEGP",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 8
+   "n": 9
   },
   {
    "q": "ATUFS textile",
@@ -67,11 +67,11 @@
   },
   {
    "q": "Gujarat startup scheme",
-   "n": 12
+   "n": 11
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
-   "n": 7
+   "n": 8
   },
   {
    "q": "ODOP Uttar Pradesh",
@@ -145,7 +145,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 233,
+ "news": 250,
  "videos": 6,
- "finished": "2026-11-25T16:05:48.971Z"
+ "finished": "2026-11-25T16:28:09.293Z"
 }
