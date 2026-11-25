@@ -11,7 +11,7 @@
     { k: 'stage', t: 'What stage is your business at?', o: [['idea', 'Idea / not started yet'], ['new', 'New — under 2 years'], ['growing', 'Growing — 2 to 5 years'], ['established', 'Established — 5+ years']] },
     { k: 'sector', t: 'What is your main sector?', o: [['mfg', 'Manufacturing'], ['service', 'Services'], ['trade', 'Trading / retail'], ['agri', 'Food processing / agri / dairy'], ['textile', 'Textiles / garments'], ['startup', 'Tech or innovation startup']] },
     { k: 'state', t: 'Where is (or will be) the business?', o: [['Uttar Pradesh', 'Uttar Pradesh'], ['Gujarat', 'Gujarat'], ['Maharashtra', 'Maharashtra'], ['Other state / UT', 'Another state / UT']] },
-    { k: 'who', t: 'Does any of this apply to the main promoter?', multi: true, o: [['women', 'Woman entrepreneur'], ['sc-st', 'SC / ST'], ['youth', 'Aged 18–40'], ['ex-servicemen', 'Ex-serviceman'], ['divyang', 'Person with disability'], ['minority', 'Minority community'], ['none', 'None of these']] },
+    { k: 'who', t: 'Does any of this apply to the main promoter?', multi: true, o: [['women', 'Woman entrepreneur'], ['sc-st', 'SC / ST'], ['youth', 'Aged 18–40'], ['ex-servicemen', 'Ex-serviceman'], ['divyang', 'Person with disability'], ['minority', 'Minority community'], ['obc', 'OBC / SEBC'], ['none', 'None of these']] },
   ];
   var scopeOf = { 'Uttar Pradesh': 'up', 'Gujarat': 'gujarat', 'Maharashtra': 'maharashtra' };
   function match(ans) {
@@ -28,6 +28,7 @@
         if (!ok && sec === 'startup') ok = s.sector.indexOf('service') > -1 && s.need.indexOf('loan') > -1;
         if (!ok) return false;
       }
+      if (s.who.indexOf('general') > -1 && ans.who.some(function (w) { return w === 'sc-st' || w === 'obc'; })) return false;
       if (s.who.indexOf('all') === -1 && ans.who.length) { if (!s.who.some(function (w) { return ans.who.indexOf(w) > -1; })) return false; }
       else if (s.who.indexOf('all') === -1 && !ans.who.length && i >= 5) return false;
       var amtMin = { 5: 0, 25: 5, 100: 25, 1000: 100, 10000: 1000 }[amt] || 0;

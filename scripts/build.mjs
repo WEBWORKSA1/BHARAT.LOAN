@@ -125,7 +125,13 @@ const BLOCKS = {
   'video-topics': topicLinks,
   'schemes-grid': () => SCHEMES.map(schemeCard).join(''),
   'schemes-json': () => JSON.stringify({ schemes: SCHEMES.map(({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, url }) => ({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, url })) }).replace(/</g, '\\u003c'),
-  'state-schemes': (attrs) => SCHEMES.filter((s) => s.scope === attr(attrs, 'state')).map(schemeCard).join(''),
+  'state-schemes': (attrs) => { const g = attr(attrs, 'group'); return SCHEMES.filter((s) => s.scope === attr(attrs, 'state') && (!g || s.group === g)).map(schemeCard).join(''); },
+  'state-count': (attrs) => String(SCHEMES.filter((s) => s.scope === attr(attrs, 'state')).length),
+  'state-news': (attrs) => {
+    const st = attr(attrs, 'state'); const name = ((REG.states || []).find((x) => x.id === st) || {}).name || st;
+    const l = diverse(items.filter((x) => (x.tags || []).includes(st)), 6);
+    return l.length ? `<div class="block news-block" id="news"><h2>Latest ${esc(name)} funding news</h2>${newsList(l)}<p class="nb-note">Auto-refreshed ${esc(STAMP)} · headlines link to the original publishers.</p></div>` : '';
+  },
   'schemes-count': () => String(SCHEMES.length),
   'contests': () => (CONTESTS.contests || []).map((c) => `<article class="ccard" id="${esc(c.id)}"><div class="cc-st ${esc(c.status)}">${esc(c.statusLabel || c.status)}</div><h3>${esc(c.title)}</h3><p>${esc(c.summary)}</p><ul class="cc-facts"><li><b>Prize</b>${esc(c.prize)}</li><li><b>Who</b>${esc(c.who)}</li><li><b>Timeline</b>${esc(c.timeline)}</li></ul><a class="btn btn-primary" href="#enter" data-contest="${esc(c.title)}">Enter / register interest</a></article>`).join(''),
   'contest-options': () => (CONTESTS.contests || []).map((c) => `<option>${esc(c.title)}</option>`).join(''),

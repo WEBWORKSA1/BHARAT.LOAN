@@ -7,7 +7,7 @@
    "name": "Gujarat",
    "status": "live",
    "url": "/states/gujarat",
-   "tag": "India's most incentive-dense industrial state — capital subsidy, interest subvention and SGST benefits by taluka."
+   "tag": "Viksit Gujarat Industrial Policy 2026, SVBY self-employment loans, sector policies, community corporations and iKhedut — every funding route."
   },
   {
    "id": "up",
@@ -429,38 +429,42 @@
    "url": "/schemes/nsic-schemes"
   },
   {
-   "id": "aatmanirbhar-gujarat-msme",
-   "name": "Aatmanirbhar Gujarat (MSME)",
-   "full": "Aatmanirbhar Gujarat Scheme for Assistance to MSMEs",
    "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "viksit-gujarat-industrial-policy",
+   "name": "Viksit Gujarat Industrial Policy 2026",
+   "full": "Viksit Gujarat Industrial Policy 2026 (1 June 2026 – 31 May 2031)",
    "cat": "Subsidy",
    "tier": "S",
-   "quantum": "5–7% interest subsidy, 10–25% capital subsidy (micro mfg), 80–100% net SGST for 10 yrs",
+   "group": "industry",
+   "quantum": "Choose capital, 7% interest and power subsidy — up to 45% of investment for MSMEs, 15–50% for large units",
    "body": "Industries & Mines Dept, Gujarat",
    "need": [
     "subsidy",
     "loan",
+    "scale",
     "upgrade"
    ],
    "stage": [
+    "idea",
     "new",
     "growing",
     "established"
    ],
    "sector": [
     "mfg",
-    "service"
+    "textile",
+    "agri"
    ],
    "who": [
     "all",
     "women",
-    "youth"
+    "sc-st"
    ],
-   "maxLakh": 5000,
-   "reviewed": "2026-05-24",
+   "maxLakh": 100000,
    "official": "https://ic.gujarat.gov.in",
-   "q": "Aatmanirbhar Gujarat MSME",
-   "url": "/schemes/aatmanirbhar-gujarat-msme"
+   "q": "Gujarat industrial policy 2026",
+   "url": "/schemes/viksit-gujarat-industrial-policy"
   },
   {
    "id": "gujarat-textile-policy",
@@ -490,7 +494,637 @@
    "reviewed": "2026-05-24",
    "official": "https://ic.gujarat.gov.in",
    "q": "Gujarat textile policy",
-   "url": "/schemes/gujarat-textile-policy"
+   "url": "/schemes/gujarat-textile-policy",
+   "group": "industry"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "shri-vajpayee-bankable-yojana",
+   "name": "Shri Vajpayee Bankable Yojana",
+   "full": "Shri Vajpayee Bankable Yojana (self-employment)",
+   "cat": "Subsidy",
+   "tier": "S",
+   "group": "self",
+   "quantum": "Bank loan up to ₹25 lakh with 20–40% subsidy (max ₹3.75 lakh); no income limit",
+   "body": "Cottage & Rural Industries · DIC, Gujarat",
+   "need": [
+    "loan",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade"
+   ],
+   "who": [
+    "all",
+    "sc-st",
+    "women",
+    "ex-servicemen",
+    "divyang"
+   ],
+   "maxLakh": 25,
+   "official": "https://blp.gujarat.gov.in",
+   "q": "Vajpayee Bankable Yojana",
+   "url": "/schemes/shri-vajpayee-bankable-yojana"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "dattopant-thengadi-artisan-scheme",
+   "name": "Dattopant Thengadi Artisan Scheme",
+   "full": "Dattopant Thengadi Artisan Interest Subsidy Scheme",
+   "cat": "Credit",
+   "tier": "B",
+   "group": "self",
+   "quantum": "Loan up to ₹1 lakh for artisans — 20–25% margin subsidy + 7% interest subsidy for 3 years",
+   "body": "Industries & Mines Dept · DIC, Gujarat",
+   "need": [
+    "loan",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "mfg",
+    "textile",
+    "trade"
+   ],
+   "who": [
+    "all",
+    "women",
+    "sc-st",
+    "divyang"
+   ],
+   "maxLakh": 1,
+   "official": "https://imd.gujarat.gov.in",
+   "q": "Gujarat artisan loan scheme",
+   "url": "/schemes/dattopant-thengadi-artisan-scheme"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "ambedkar-udhyog-uday-gujarat",
+   "name": "Dr. Ambedkar Udhyog Uday Yojana",
+   "full": "Bharat Ratna Dr. Babasaheb Ambedkar Udhyog Uday Yojana",
+   "cat": "Subsidy",
+   "tier": "A",
+   "group": "community",
+   "quantum": "Capital subsidy up to 25% (max ₹35 lakh) + 6–8% interest subsidy for 5 yrs for SC/ST MSMEs",
+   "body": "Industries Commissionerate · DIC, Gujarat",
+   "need": [
+    "subsidy",
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "sc-st"
+   ],
+   "maxLakh": 1000,
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Ambedkar Udhyog Uday Yojana",
+   "url": "/schemes/ambedkar-udhyog-uday-gujarat"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "mukhyamantri-mahila-utkarsh-yojana",
+   "name": "Mukhyamantri Mahila Utkarsh Yojana",
+   "full": "Mukhyamantri Mahila Utkarsh Yojana (MMUY)",
+   "cat": "Credit",
+   "tier": "B",
+   "group": "self",
+   "quantum": "Interest-free loan up to ₹1 lakh per 10-member women’s group",
+   "body": "GLPC (rural) · GULM (urban), Gujarat",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg",
+    "agri"
+   ],
+   "who": [
+    "women"
+   ],
+   "maxLakh": 1,
+   "official": "https://mmuy.gujarat.gov.in",
+   "q": "Mahila Utkarsh Yojana",
+   "url": "/schemes/mukhyamantri-mahila-utkarsh-yojana"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "manav-kalyan-yojana",
+   "name": "Manav Kalyan Yojana",
+   "full": "Manav Kalyan & Manav Garima toolkit schemes",
+   "cat": "Grant",
+   "tier": "B",
+   "group": "self",
+   "quantum": "Free trade toolkit (e-voucher) + 5-day training with ₹500/day stipend",
+   "body": "Cottage & Rural Industries · SC Welfare, Gujarat",
+   "need": [
+    "subsidy",
+    "startup"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "service",
+    "trade",
+    "mfg"
+   ],
+   "who": [
+    "all",
+    "sc-st"
+   ],
+   "maxLakh": 1,
+   "official": "https://e-kutir.gujarat.gov.in",
+   "q": "Manav Kalyan Yojana",
+   "url": "/schemes/manav-kalyan-yojana"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-ssip-ihub-grants",
+   "name": "SSIP 2.0 & i-Hub Grants",
+   "full": "Student Startup & Innovation Policy 2.0 · i-Hub Startup Srujan Seed Support",
+   "cat": "Grant",
+   "tier": "A",
+   "group": "startup",
+   "quantum": "Up to ₹2.5 lakh prototype grant, ₹2.5–10 lakh seed (S4), testing & pilot grants up to ₹10 lakh",
+   "body": "Education Dept · i-Hub Gujarat",
+   "need": [
+    "startup",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "startup"
+   ],
+   "who": [
+    "all",
+    "youth"
+   ],
+   "maxLakh": 10,
+   "official": "https://www.ssipgujarat.in",
+   "q": "i-Hub Gujarat startup",
+   "url": "/schemes/gujarat-ssip-ihub-grants"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-it-ites-policy",
+   "name": "Gujarat IT/ITeS Policy 2022-27",
+   "full": "Gujarat IT/ITeS Policy 2022-27",
+   "cat": "Incentive",
+   "tier": "A",
+   "group": "industry",
+   "quantum": "25% CAPEX (max ₹50–200 Cr) + 15% OPEX for 5 yrs, hiring & EPF support",
+   "body": "Dept of Science & Technology, Gujarat",
+   "need": [
+    "subsidy",
+    "scale"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "service",
+    "startup"
+   ],
+   "who": [
+    "all",
+    "women"
+   ],
+   "maxLakh": 20000,
+   "official": "https://dst.gujarat.gov.in",
+   "q": "Gujarat IT policy",
+   "url": "/schemes/gujarat-it-ites-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-gcc-policy",
+   "name": "Gujarat GCC Policy 2025-30",
+   "full": "Gujarat Global Capability Centre Policy 2025-30",
+   "cat": "Incentive",
+   "tier": "A",
+   "group": "industry",
+   "quantum": "20–30% CAPEX (max ₹50–200 Cr) + 15% OPEX (max ₹20–40 Cr) for capability centres",
+   "body": "Dept of Science & Technology, Gujarat",
+   "need": [
+    "scale",
+    "subsidy"
+   ],
+   "stage": [
+    "new",
+    "established"
+   ],
+   "sector": [
+    "service"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 20000,
+   "official": "https://dst.gujarat.gov.in",
+   "q": "Gujarat GCC policy",
+   "url": "/schemes/gujarat-gcc-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-electronics-policy",
+   "name": "Gujarat Electronics Policy 2022-28",
+   "full": "Gujarat Electronics Policy 2022-28",
+   "cat": "Subsidy",
+   "tier": "A",
+   "group": "industry",
+   "quantum": "Up to 20% capital assistance + 7% interest subsidy + ₹1/unit power for ESDM units",
+   "body": "Gujarat State Electronics Mission",
+   "need": [
+    "subsidy",
+    "scale",
+    "loan"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 20000,
+   "official": "https://gsem.gujarat.gov.in",
+   "q": "Gujarat electronics policy",
+   "url": "/schemes/gujarat-electronics-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-semiconductor-policy",
+   "name": "Gujarat Semiconductor Policy 2022-27",
+   "full": "Gujarat Semiconductor & Display Manufacturing Policy 2022-27",
+   "cat": "Incentive",
+   "tier": "A",
+   "group": "industry",
+   "quantum": "40% top-up on central ISM capital aid, 75% land subsidy (Dholera), ₹2/unit power for 10 yrs",
+   "body": "Gujarat State Electronics Mission",
+   "need": [
+    "scale",
+    "subsidy"
+   ],
+   "stage": [
+    "new",
+    "established"
+   ],
+   "sector": [
+    "mfg"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 1000000,
+   "official": "https://gsem.gujarat.gov.in",
+   "q": "Gujarat semiconductor",
+   "url": "/schemes/gujarat-semiconductor-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-biotech-policy",
+   "name": "Gujarat Biotechnology Policy 2022-27",
+   "full": "Gujarat Biotechnology Policy 2022-27",
+   "cat": "Subsidy",
+   "tier": "A",
+   "group": "industry",
+   "quantum": "Up to 25% CAPEX (MSME max ₹40 Cr) + 15% OPEX up to ₹25 Cr/yr + 7% interest",
+   "body": "Gujarat State Biotechnology Mission",
+   "need": [
+    "subsidy",
+    "scale",
+    "loan"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "startup"
+   ],
+   "who": [
+    "all",
+    "women"
+   ],
+   "maxLakh": 20000,
+   "official": "https://btm.gujarat.gov.in",
+   "q": "Gujarat biotechnology policy",
+   "url": "/schemes/gujarat-biotech-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-spacetech-policy",
+   "name": "Gujarat SpaceTech Policy 2025-30",
+   "full": "Gujarat SpaceTech Policy 2025-30",
+   "cat": "Incentive",
+   "tier": "B",
+   "group": "industry",
+   "quantum": "25% of launch fees (max ₹5 Cr), 30% patent cost, 25% off test facilities + base policy incentives",
+   "body": "Gujarat State Electronics Mission",
+   "need": [
+    "subsidy",
+    "scale"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "startup"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 500,
+   "official": "https://dst.gujarat.gov.in",
+   "q": "Gujarat space policy",
+   "url": "/schemes/gujarat-spacetech-policy"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-agri-fisheries-subsidies",
+   "name": "Gujarat Agri & Fisheries Subsidies",
+   "full": "iKhedut agriculture, horticulture, animal husbandry & fisheries schemes",
+   "cat": "Subsidy",
+   "tier": "A",
+   "group": "agri",
+   "quantum": "148 iKhedut components; deep-sea vessel 50% (max ₹60 lakh); mother vessel 25% (max ₹12.5 Cr)",
+   "body": "Agriculture & Fisheries Depts, Gujarat",
+   "need": [
+    "subsidy",
+    "loan",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "agri"
+   ],
+   "who": [
+    "all",
+    "sc-st",
+    "women"
+   ],
+   "maxLakh": 1250,
+   "official": "https://ikhedut.gujarat.gov.in",
+   "q": "iKhedut Gujarat",
+   "url": "/schemes/gujarat-agri-fisheries-subsidies"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gueedc-self-employment-loan",
+   "name": "GUEEDC Self-Employment Loan",
+   "full": "Nana Vyavasay Mate Loan Yojana (unreserved category)",
+   "cat": "Credit",
+   "tier": "A",
+   "group": "community",
+   "quantum": "Loan up to ₹10 lakh at 5% (women 4%) for unreserved-category families earning ≤ ₹6 lakh",
+   "body": "Gujarat Unreserved Edu. & Economic Dev. Corp.",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg"
+   ],
+   "who": [
+    "all",
+    "women",
+    "youth",
+    "general"
+   ],
+   "maxLakh": 10,
+   "official": "https://gueedc.gujarat.gov.in",
+   "q": "Bin Anamat Nigam loan",
+   "url": "/schemes/gueedc-self-employment-loan"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gmfdc-term-loan",
+   "name": "GMFDC Term Loan",
+   "full": "Gujarat Minorities Finance & Development Corporation term loan",
+   "cat": "Credit",
+   "tier": "B",
+   "group": "community",
+   "quantum": "₹1–20 lakh concessional loans for minority entrepreneurs, 60 monthly EMIs",
+   "body": "Gujarat Minorities Finance & Dev. Corp.",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg",
+    "agri"
+   ],
+   "who": [
+    "minority"
+   ],
+   "maxLakh": 20,
+   "official": "https://sje.gujarat.gov.in",
+   "q": "Gujarat minority finance loan",
+   "url": "/schemes/gmfdc-term-loan"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gujarat-sc-st-self-employment-loans",
+   "name": "SC/ST Self-Employment Loans (Gujarat)",
+   "full": "GSCDC (NSFDC) loans · Manav Garima · ST 6% interest subsidy",
+   "cat": "Credit",
+   "tier": "B",
+   "group": "community",
+   "quantum": "SC loans at 1–5%, free toolkits, 6% interest subsidy on ST loans up to ₹5 lakh",
+   "body": "SC Dev. Corp. · Tribal Development Dept, Gujarat",
+   "need": [
+    "loan",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg",
+    "agri"
+   ],
+   "who": [
+    "sc-st"
+   ],
+   "maxLakh": 10,
+   "official": "https://esamajkalyan.gujarat.gov.in",
+   "q": "Gujarat Scheduled Caste loan scheme",
+   "url": "/schemes/gujarat-sc-st-self-employment-loans"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "gbcdc-obc-business-loans",
+   "name": "GBCDC Loans for OBC / SEBC",
+   "full": "Gujarat Backward Class Development Corporation loans (NBCFDC)",
+   "cat": "Credit",
+   "tier": "B",
+   "group": "community",
+   "quantum": "₹1.25 lakh micro-finance / ₹2 lakh for women at 5% p.a.; Swayam Saksham for professionals",
+   "body": "Gujarat Backward Class Dev. Corp.",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg"
+   ],
+   "who": [
+    "obc"
+   ],
+   "maxLakh": 2,
+   "official": "https://gbcdconline.gujarat.gov.in",
+   "q": "Gujarat backward class loan",
+   "url": "/schemes/gbcdc-obc-business-loans"
+  },
+  {
+   "scope": "gujarat",
+   "reviewed": "2026-11-25",
+   "id": "mahila-swavlamban-yojana-gujarat",
+   "name": "Mahila Swavlamban Yojana",
+   "full": "Mahila Swavlamban Yojana (Gujarat)",
+   "cat": "Subsidy",
+   "tier": "B",
+   "group": "self",
+   "quantum": "Loan up to ₹2 lakh with 15% subsidy (max ₹30,000) for BPL women",
+   "body": "Gujarat Women Economic Dev. Corp.",
+   "need": [
+    "loan",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "trade",
+    "service",
+    "mfg"
+   ],
+   "who": [
+    "women"
+   ],
+   "maxLakh": 2,
+   "official": "https://wcd.gujarat.gov.in",
+   "q": "Mahila Swavlamban Yojana Gujarat",
+   "url": "/schemes/mahila-swavlamban-yojana-gujarat"
+  },
+  {
+   "id": "aatmanirbhar-gujarat-msme",
+   "name": "Aatmanirbhar Gujarat (MSME) 2022",
+   "full": "Aatmanirbhar Gujarat Scheme for Assistance to MSMEs",
+   "scope": "gujarat",
+   "cat": "Subsidy",
+   "tier": "B",
+   "quantum": "2022 scheme — open only to covered/transition units; new units use the 2026 policy",
+   "body": "Industries & Mines Dept, Gujarat",
+   "need": [
+    "subsidy",
+    "loan",
+    "upgrade"
+   ],
+   "stage": [
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all",
+    "women",
+    "youth"
+   ],
+   "maxLakh": 5000,
+   "reviewed": "2026-11-25",
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Aatmanirbhar Gujarat MSME",
+   "url": "/schemes/aatmanirbhar-gujarat-msme",
+   "group": "industry"
   },
   {
    "id": "gujarat-large-industry-incentive",
@@ -498,8 +1132,8 @@
    "full": "Aatmanirbhar Gujarat Scheme for Large Industries & Thrust Sectors",
    "scope": "gujarat",
    "cat": "Subsidy",
-   "tier": "A",
-   "quantum": "80–100% net SGST reimbursement for 10 yrs + 7% interest subsidy for ₹50 Cr+ projects",
+   "tier": "B",
+   "quantum": "2022 SGST-linked scheme for ₹50 Cr+ projects — transition cases only; new projects use the 2026 policy",
    "body": "Industries & Mines Dept, Gujarat",
    "need": [
     "scale",
@@ -515,10 +1149,11 @@
     "all"
    ],
    "maxLakh": 100000,
-   "reviewed": "2026-05-24",
+   "reviewed": "2026-11-25",
    "official": "https://ic.gujarat.gov.in",
    "q": "Gujarat industrial policy incentive",
-   "url": "/schemes/gujarat-large-industry-incentive"
+   "url": "/schemes/gujarat-large-industry-incentive",
+   "group": "industry"
   },
   {
    "id": "gujarat-startup-scheme",
@@ -527,7 +1162,7 @@
    "scope": "gujarat",
    "cat": "Grant",
    "tier": "A",
-   "quantum": "₹20,000/month sustenance + seed support up to ₹30 lakh",
+   "quantum": "₹25,000/month sustenance (₹30,000 with a woman co-founder) + seed support up to ₹30 lakh",
    "body": "Industries Commissionerate, Gujarat",
    "need": [
     "startup",
@@ -545,10 +1180,11 @@
     "women"
    ],
    "maxLakh": 30,
-   "reviewed": "2026-05-24",
+   "reviewed": "2026-11-25",
    "official": "https://ic.gujarat.gov.in",
    "q": "Gujarat startup scheme",
-   "url": "/schemes/gujarat-startup-scheme"
+   "url": "/schemes/gujarat-startup-scheme",
+   "group": "startup"
   },
   {
    "id": "cm-yuva-up",

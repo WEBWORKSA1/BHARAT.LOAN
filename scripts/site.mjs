@@ -31,7 +31,7 @@ const dd = (label, href, items) =>
 export const NAV = {
   schemes: [
     ['All schemes', '/schemes/', 'Filter every central and state scheme'],
-    ['Gujarat', '/states/gujarat', 'Capital, interest & SGST incentives'],
+    ['Gujarat', '/states/gujarat', 'Viksit Gujarat 2026, SVBY + 20 more'],
     ['Uttar Pradesh', '/states/up', 'CM-YUVA, ODOP, CMYSY, UPIEPP'],
     ['Maharashtra', '/states/maharashtra', 'CMEGP, Annasaheb Patil, IIS Policy 2025'],
     ['ODOP districts (75)', '/odop/', 'UP district-by-district product loans'],
