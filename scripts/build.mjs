@@ -67,7 +67,17 @@ function newsList(list, opts = {}) {
   if (!list.length) return opts.empty || '';
   return `<ul class="news-list">${list.map((n) => `<li data-tags="${esc((n.tags || []).join(' '))}"><a href="${esc(safeUrl(n.url))}" target="_blank" rel="noopener nofollow">${esc(n.title)}</a><span class="nl-meta">${esc(n.source || '')}${n.date ? ' · ' + esc(fmtDate(n.date)) : ''}</span></li>`).join('')}</ul>`;
 }
-const newsFor = (id, n = 5) => items.filter((x) => (x.tags || []).includes(id)).slice(0, n);
+const words = (t) => new Set(String(t).toLowerCase().replace(/[^a-z0-9\u0900-\u097f ]+/g, ' ').split(/\s+/).filter((w) => w.length > 3));
+function diverse(list, n) {
+  const out = [];
+  for (const it of list) {
+    const w = words(it.title);
+    if (out.some((o) => { const ow = o._w; let inter = 0; w.forEach((x) => { if (ow.has(x)) inter++; }); return inter / Math.max(1, Math.min(w.size, ow.size)) > 0.5; })) continue;
+    out.push(Object.assign({}, it, { _w: w })); if (out.length >= n) break;
+  }
+  return out;
+}
+const newsFor = (id, n = 5) => diverse(items.filter((x) => (x.tags || []).includes(id)), n);
 
 function schemeCard(s) {
   const st = { central: 'Central', gujarat: 'Gujarat', up: 'Uttar Pradesh', maharashtra: 'Maharashtra' }[s.scope] || '';
@@ -93,7 +103,7 @@ const BLOCKS = {
     const s = SOTD;
     const sCard = s ? `<a class="sotd" href="${s.url}"><span class="k">Scheme of the day</span><b>${esc(s.name)}</b><span>${esc(s.quantum)}</span><span class="go">Read the guide →</span></a>` : '';
     const tCard = TIP ? `<div class="tipcard"><span class="k">Founder tip · ${esc(STAMP)}</span><p>${esc(TIP)}</p></div>` : '';
-    return `<div class="today-grid">${sCard}<div class="today-news"><div class="tn-h"><span class="live-dot"></span> Latest scheme news <a href="/updates">All updates →</a></div>${newsList(items.slice(0, 6), { empty: '<p class="muted">Today’s headlines are being refreshed. <a href="/updates">Open the updates page →</a></p>' })}</div>${tCard}</div>`;
+    return `<div class="today-grid">${sCard}<div class="today-news"><div class="tn-h"><span class="live-dot"></span> Latest scheme news <a href="/updates">All updates →</a></div>${newsList(diverse(items, 6), { empty: '<p class="muted">Today’s headlines are being refreshed. <a href="/updates">Open the updates page →</a></p>' })}</div>${tCard}</div>`;
   },
   'home-schemes': () => SCHEMES.filter((s) => s.scope === 'central').map(schemeCard).join(''),
   'home-states': () => (REG.states || []).map((st) => {
@@ -120,7 +130,7 @@ const BLOCKS = {
   'contest-options': () => (CONTESTS.contests || []).map((c) => `<option>${esc(c.title)}</option>`).join(''),
   'careers': () => (CAREERS.roles || []).map((r) => `<article class="jcard"><div class="j-top"><h3>${esc(r.title)}</h3><span class="j-type">${esc(r.type)}</span></div><p>${esc(r.summary)}</p><ul class="checks-sm">${(r.points || []).map((p) => `<li>${esc(p)}</li>`).join('')}</ul><p class="j-meta">${esc(r.location)} · ${esc(r.pay)}</p><a class="btn btn-ghost" href="#apply" data-role="${esc(r.title)}">Apply for this role</a></article>`).join(''),
   'career-options': () => (CAREERS.roles || []).map((r) => `<option>${esc(r.title)}</option>`).join(''),
-  'odop-news': () => { const l = items.filter((x) => (x.tags || []).includes('odop-up')).slice(0, 4); return l.length ? `<div class="block news-block"><h2>Latest ODOP news</h2>${newsList(l)}<p class="nb-note">Auto-refreshed ${esc(STAMP)} · headlines link to the original publishers.</p></div>` : ''; },
+  'odop-news': () => { const l = diverse(items.filter((x) => (x.tags || []).includes('odop-up')), 4); return l.length ? `<div class="block news-block"><h2>Latest ODOP news</h2>${newsList(l)}<p class="nb-note">Auto-refreshed ${esc(STAMP)} · headlines link to the original publishers.</p></div>` : ''; },
 };
 
 // ---------- head normalisation ----------

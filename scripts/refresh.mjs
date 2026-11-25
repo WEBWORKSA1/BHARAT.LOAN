@@ -51,7 +51,7 @@ const KW = {
 };
 const RELEVANT = /msme|scheme|yojana|subsid|loan|credit|startup|start-up|incentive|udyam|entrepreneur|mudra|pmegp|cgtmse|sidbi|odop|textile|policy|industr|export|manufactur|food processing|women|self-employment|guarantee/i;
 function tagsFor(title, seed) {
-  const t = new Set(seed || []);
+  const t = new Set((seed || []).filter((k) => !KW[k] || KW[k].some((r) => r.test(title))));
   for (const [k, res] of Object.entries(KW)) if (res.some((r) => r.test(title))) t.add(k);
   const s = REG.schemes.find((x) => t.has(x.id)); if (s && s.scope !== 'central') t.add(s.scope);
   return [...t];
@@ -67,7 +67,9 @@ async function news() {
   const fresh = [];
   for (const { q, seed } of queries) {
     try {
-      const xml = await get(gnews(q));
+      let xml;
+      try { xml = await get(gnews(q)); }
+      catch (e) { if (!/429|5\d\d/.test(e.message)) throw e; await new Promise((r) => setTimeout(r, 9000)); xml = await get(gnews(q)); }
       const list = parseRss(xml).slice(0, 12).map((x) => {
         // Google News appends " - Publisher" to titles
         let title = x.title, source = x.source;
@@ -76,7 +78,7 @@ async function news() {
       });
       fresh.push(...list); log.feeds.push({ q, n: list.length });
     } catch (e) { log.errors.push(`news "${q}": ${e.message}`); }
-    await new Promise((r) => setTimeout(r, 700));
+    await new Promise((r) => setTimeout(r, 2500));
   }
   for (const f of SRC.rss || []) {
     try {
@@ -87,8 +89,9 @@ async function news() {
   }
   const cutoff = Date.now() - MAX_AGE_DAYS * 864e5;
   const seen = new Map();
-  for (const it of [...fresh, ...prev]) {
-    if (!it.title || Date.parse(it.date) < cutoff) continue;
+  for (const raw of [...fresh, ...prev]) {
+    if (!raw.title || Date.parse(raw.date) < cutoff) continue;
+    const it = { ...raw, tags: tagsFor(raw.title, raw.tags) };
     if (!RELEVANT.test(it.title) && !(it.tags || []).some((t) => REG.schemes.some((s) => s.id === t))) continue;
     const k = norm(it.title).slice(0, 90);
     if (seen.has(k)) { const ex = seen.get(k); ex.tags = [...new Set([...(ex.tags || []), ...(it.tags || [])])]; continue; }
@@ -107,6 +110,7 @@ async function channelId(handle) {
 async function videos() {
   const prev = rj('data/videos.json', { items: [] });
   const VKW = /msme|scheme|yojana|loan|subsid|udyam|mudra|pmegp|cgtmse|startup|business|vyapar|udyog|entrepreneur|gst|pmfme|odop|stand[- ]?up|सब्सिडी|योजना|लोन|व्यापार|उद्योग/i;
+  const PROMO = /use code|coupon|discount|promo|offer ends|limited offer|course free|free course|\bcode:/i;
   const out = [];
   const key = process.env.YOUTUBE_API_KEY;
   if (key) {
@@ -124,12 +128,12 @@ async function videos() {
       const xml = await get(`https://www.youtube.com/feeds/videos.xml?channel_id=${id}`);
       const entries = (xml.match(/<entry>[\s\S]*?<\/entry>/g) || []).map((e) => ({
         id: (e.match(/<yt:videoId>([\w-]+)<\/yt:videoId>/) || [])[1], title: tag(e, 'title'), channel: ch.name || tag(xml, 'title'), date: tag(e, 'published'), topic: ch.topic || '',
-      })).filter((v) => v.id && VKW.test(v.title)).slice(0, ch.max || 6);
+      })).filter((v) => v.id && VKW.test(v.title) && !PROMO.test(v.title)).slice(0, ch.max || 6);
       out.push(...entries); log.feeds.push({ yt: ch.name || ch.handle, n: entries.length });
     } catch (e) { log.errors.push(`yt ${ch.name || ch.handle}: ${e.message}`); }
   }
   const seen = new Set(); const items = [];
-  for (const v of [...out, ...(prev.items || [])]) { if (!v.id || seen.has(v.id)) continue; seen.add(v.id); items.push(v); }
+  for (const v of [...out, ...(prev.items || [])]) { if (!v.id || seen.has(v.id) || PROMO.test(v.title || '')) continue; seen.add(v.id); items.push(v); }
   items.sort((a, b) => (b.date || '').localeCompare(a.date || ''));
   wj('data/videos.json', { updated: new Date().toISOString(), topics: SRC.videoQueries || [], items: items.slice(0, 48) });
   log.videos = items.length;
