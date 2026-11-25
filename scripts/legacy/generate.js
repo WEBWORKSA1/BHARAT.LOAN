@@ -1,11 +1,13 @@
 const fs = require('fs');
 const path = require('path');
 
-const ddata = JSON.parse(fs.readFileSync(path.join(__dirname, 'odop-districts.json'), 'utf8'));
-const OUT = path.join(__dirname, 'odop');
-if (!fs.existsSync(OUT)) fs.mkdirSync(OUT, { recursive: true });
+const data = JSON.parse(fs.readFileSync(path.join(__dirname, 'schemes-enriched.json'), 'utf8'));
+const OUT = path.join(__dirname, 'schemes');
+const STATEOUT = path.join(__dirname, 'states');
+[OUT, STATEOUT].forEach(d => { if (!fs.existsSync(d)) fs.mkdirSync(d, { recursive: true }); });
 
-// ---- Shared design tokens (identical to generate.js) ----
+const stateById = Object.fromEntries(data.states.map(s => [s.id, s]));
+
 const HEAD = (title, desc) => `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +41,6 @@ nav.main{display:flex;gap:30px;align-items:center}nav.main a{color:var(--ink-sof
 .stag{font-size:11px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:5px 11px;border-radius:100px}
 .stag.cat{color:var(--teal);background:var(--green-wash)}.stag.tier{color:var(--blue);background:var(--blue-wash)}.stag.body{color:var(--ink-soft);background:var(--wash)}
 .stag.state{color:var(--amber);background:var(--amber-wash);display:inline-flex;align-items:center}
-.stag.gi{color:var(--green);background:var(--green-wash)}
 .shead h1{font-family:'Fraunces',serif;font-size:clamp(28px,4vw,44px);font-weight:600;line-height:1.08;letter-spacing:-.02em;margin-bottom:12px}
 .shead .full{font-size:15px;color:var(--muted);margin-bottom:16px}
 .shead .lede{font-size:19px;color:var(--ink-soft);line-height:1.55;max-width:700px;font-weight:500}
@@ -47,6 +48,10 @@ nav.main{display:flex;gap:30px;align-items:center}nav.main a{color:var(--ink-sof
 .fact{background:var(--surface);padding:16px 18px}
 .fact .fl{font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:5px}
 .fact .fv{font-family:'Fraunces',serif;font-size:15.5px;font-weight:600;color:var(--ink);line-height:1.25}
+.verifybanner{background:var(--amber-wash);border:1px solid #f2d9a8;border-radius:11px;padding:14px 18px;margin:24px 0 0;display:flex;gap:12px;align-items:flex-start}
+.verifybanner svg{width:20px;height:20px;color:var(--amber);flex-shrink:0;margin-top:2px}
+.verifybanner p{font-size:13.5px;color:#8a5a14;line-height:1.5}
+.verifybanner strong{color:#6e4810}
 .layout{display:grid;grid-template-columns:1fr 320px;gap:46px;padding:36px 0 70px;align-items:start}
 .mininav{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:34px;padding-bottom:24px;border-bottom:1px solid var(--line)}
 .mininav a{font-size:13px;font-weight:600;color:var(--ink-soft);background:var(--wash);border:1px solid var(--line);padding:7px 13px;border-radius:100px;text-decoration:none;transition:all .15s}
@@ -94,14 +99,6 @@ ol.steps li::before{content:counter(s);flex-shrink:0;width:28px;height:28px;bord
 .cta-card button{width:100%;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:13px;font-weight:600;font-size:15px;font-family:inherit;cursor:pointer;box-shadow:0 6px 16px rgba(20,86,230,.25);transition:transform .15s}
 .cta-card button:hover{transform:translateY(-1px)}
 .cta-card .micro{font-size:11.5px;color:var(--muted);text-align:center;margin-top:11px}
-.dgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px;padding:8px 0 60px}
-.dcard{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;text-decoration:none;transition:all .18s;display:block}
-.dcard:hover{border-color:#c5d6f5;box-shadow:var(--shadow);transform:translateY(-2px)}
-.dcard .dc-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
-.dcard .dc-name{font-family:'Fraunces',serif;font-size:17px;font-weight:600;color:var(--ink)}
-.dcard .dc-gi{font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:var(--green-wash);padding:3px 7px;border-radius:100px}
-.dcard .dc-prod{font-size:13px;color:var(--ink-soft);line-height:1.4}
-.dcard .dc-cat{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-top:8px}
 .related{background:var(--wash);border-top:1px solid var(--line);padding:52px 0}
 .related h3{font-family:'Fraunces',serif;font-size:20px;font-weight:600;margin-bottom:20px}
 .rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
@@ -121,7 +118,11 @@ footer a{color:var(--blue);text-decoration:none}
 
 const CHECK = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>';
 const STAR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.6 2.3 7.4-6.3-4.6L5.7 21.4 8 14 2 9.4h7.6z"/></svg>';
-const STATEFLAG = '<span class="stateflag"><i class="a"></i><i class="b"></i><i class="c"></i></span>';
+const WARN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg>';
+const GJFLAG = '<span class="gjflag"><i class="a"></i><i class="b"></i><i class="c"></i></span>';
+
+const flagFor = (stateId) => (stateById[stateId] && stateById[stateId].flag) ? '<span class="stateflag"><i class="a"></i><i class="b"></i><i class="c"></i></span>' : '';
+const scopeLabel = (scope) => (scope !== 'central' && stateById[scope]) ? ' \u00b7 ' + stateById[scope].name : '';
 
 const NAVBAR = `<header><div class="wrap">
   <a href="/" class="brand"><div class="crest"><span>\u092d\u093e</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Advisory</small></div></a>
@@ -130,77 +131,73 @@ const NAVBAR = `<header><div class="wrap">
 const UTIL = `<div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Verified scheme reference \u00b7 BHARAT.LOAN</div><div><a href="/#engine">Check Your Eligibility \u2192</a></div></div></div>`;
 const FOOTER = `<footer><div class="wrap"><div class="fbrand"><b>BHARAT.LOAN</b></div><p style="margin:10px 0 18px;max-width:360px;line-height:1.6">Government scheme, subsidy and incentive advisory for Indian startups, MSMEs and industries. Advisory delivered by CONSULT.IN.</p><p class="disc">BHARAT.LOAN is an independent advisory service. We are not a government body and do not represent any ministry or agency. Scheme details are compiled from official sources and verified regularly; applicants should confirm current terms with the relevant authority. Subsidy and loan approvals are at the sole discretion of the respective government bodies and lending institutions. \u00a9 2026 BHARAT.LOAN.</p></div></footer>`;
 
-function leadScript(label) {
-  const safe = label.replace(/'/g, "\\'");
+function leadScript(scheme) {
   return `<script>
 document.getElementById('leadBtn').addEventListener('click',async function(){
   var n=document.getElementById('cn').value.trim(),p=document.getElementById('cp').value.trim();
   if(!n||!p){alert('Please add your name and phone so an advisor can reach you.');return;}
   this.textContent='Sending\u2026';this.disabled=true;
-  var lead={name:n,phone:p,email:document.getElementById('ce').value,scheme:'${safe}',_subject:'New BHARAT.LOAN lead (${safe}): '+n};
-  try{await fetch('https://formsubmit.co/ajax/webworksa1@gmail.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});}catch(e){}
+  var lead={name:n,phone:p,email:document.getElementById('ce').value,scheme:'${scheme}',_subject:'New BHARAT.LOAN lead (${scheme}): '+n};
+  try{await fetch('https://formsubmit.co/ajax/INBOX_HIDDEN',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(lead)});}catch(e){}
   document.querySelector('.cc-body').innerHTML='<p style="font-size:15px;color:var(--ink)"><strong>Thank you, '+n+'.</strong></p><p style="font-size:13.5px;color:var(--muted);margin-top:6px">Our advisory desk will reach out on '+p+' within one business day.</p>';
 });
 <\/script>`;
 }
 
-// "Related districts" = up to 3 other districts sharing the same craft category, else nearest in list.
-function relatedDistricts(current, all) {
-  const same = all.filter(d => d.slug !== current.slug && d.cat === current.cat);
-  let pool = same.slice(0, 3);
-  if (pool.length < 3) {
-    const idx = all.findIndex(d => d.slug === current.slug);
-    const extra = all.filter(d => d.slug !== current.slug && !pool.includes(d)).slice(0, 3 - pool.length);
-    pool = pool.concat(extra);
-  }
-  return pool.map(d => `<a class="rel-card" href="${d.slug}.html"><div class="rc-cat">ODOP \u00b7 ${d.cat}</div><div class="rc-name">${d.name}</div><div class="rc-q">${d.product}.</div></a>`).join('');
+function related(current, all) {
+  const same = all.filter(s => s.id !== current.id && s.scope === current.scope);
+  const pool = (same.length >= 3 ? same : all.filter(s => s.id !== current.id)).slice(0, 3);
+  return pool.map(s => `<a class="rel-card" href="${s.slug}.html"><div class="rc-cat">${s.cat}${scopeLabel(s.scope)}</div><div class="rc-name">${s.name}</div><div class="rc-q">${s.oneLiner}</div></a>`).join('');
 }
 
-function districtPage(d, all) {
-  const title = `ODOP ${d.name} \u2014 ${d.product} | Margin-Money Loan, Eligibility & How to Apply | BHARAT.LOAN`;
-  const desc = `ODOP loan and margin-money subsidy for ${d.name}'s designated product: ${d.product}. Up to \u20b96.25 lakh margin money. Eligibility, documents and how to apply, with on-the-ground advisory.`;
-  const giTag = d.gi ? `<span class="stag gi">GI-tagged</span>` : '';
+function schemePage(s, all) {
+  const isState = s.scope !== 'central';
+  const st = isState ? stateById[s.scope] : null;
+  const title = `${s.name} \u2014 ${s.full} | Eligibility, Subsidy & How to Apply | BHARAT.LOAN`;
+  const desc = `${s.oneLiner} Eligibility, documents, quantum and step-by-step guidance from BHARAT.LOAN.`;
+  const crumbScope = isState ? `<a href="../states/${s.scope}.html">${st.name}</a>` : `<a href="/#schemes">Schemes</a>`;
   return `${HEAD(title, desc)}
 <body>
 ${UTIL}
 ${NAVBAR}
 <div class="wrap">
-  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="../states/up.html">Uttar Pradesh</a> &nbsp;/&nbsp; <a href="index.html">ODOP Districts</a> &nbsp;/&nbsp; ${d.name}</div>
+  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; ${crumbScope} &nbsp;/&nbsp; ${s.name}</div>
   <div class="shead">
     <div class="stags">
-      <span class="stag cat">${d.cat}</span>
-      <span class="stag state">${STATEFLAG}Uttar Pradesh</span>
-      ${giTag}
+      <span class="stag cat">${s.cat}</span>
+      <span class="stag tier">Tier ${s.tier}</span>
+      ${isState ? `<span class="stag state">${flagFor(s.scope)}${st.name}</span>` : `<span class="stag body">Central</span>`}
     </div>
-    <h1>ODOP ${d.name}: ${d.product}</h1>
-    <div class="full">One District One Product \u00b7 ${d.name} district \u00b7 Directorate of Industries &amp; Enterprise Promotion, UP</div>
-    <p class="lede">${d.name}'s designated ODOP product is <strong>${d.product.toLowerCase()}</strong>. ${d.anchor}</p>
-    <div class="facts"><div class="fact"><div class="fl">District</div><div class="fv">${d.name}</div></div><div class="fact"><div class="fl">ODOP product</div><div class="fv">${d.product}</div></div><div class="fact"><div class="fl">Margin money</div><div class="fv">25% up to \u20b96.25L</div></div><div class="fact"><div class="fl">GI status</div><div class="fv">${d.gi ? 'GI-tagged' : 'Designated ODOP'}</div></div></div>
+    <h1>${s.name}</h1>
+    <div class="full">${s.full}${s.estd ? ` \u00b7 Est. ${s.estd}` : ''} \u00b7 ${s.body}</div>
+    <p class="lede">${s.oneLiner}</p>
+    <div class="facts">${s.facts.map(f => `<div class="fact"><div class="fl">${f[0]}</div><div class="fv">${f[1]}</div></div>`).join('')}</div>
+    ${s.verifyPending ? `<div class="verifybanner">${WARN}<p><strong>Figures pending verification.</strong> This is a ${st.name} state scheme \u2014 the exact rates, caps and taluka-category variations are being confirmed against the current government resolution by our advisory desk. Treat amounts marked * as indicative until verified.</p></div>` : ''}
   </div>
   <div class="layout">
     <div class="main-col">
       <div class="mininav">
-        <a href="#glance">At a glance</a><a href="#get">Margin money</a><a href="#who">Who it's for</a><a href="#elig">Eligibility</a><a href="#apply">How to apply</a><a href="#docs">Documents</a><a href="#faq">FAQ</a>
+        <a href="#glance">At a glance</a><a href="#get">What you get</a><a href="#who">Who it's for</a><a href="#elig">Eligibility</a><a href="#apply">How to apply</a><a href="#docs">Documents</a><a href="#faq">FAQ</a>
       </div>
-      <div class="atglance" id="glance">${STAR}<div><div class="ag-l">${d.name} ODOP at a glance</div><p>If you run or plan a unit making <strong>${d.product.toLowerCase()}</strong> in ${d.name} district, you qualify to apply for ODOP margin-money support of 25% of project cost, up to \u20b96.25 lakh. No educational-qualification bar; applicant must be 18+.</p></div></div>
+      <div class="atglance" id="glance">${STAR}<div><div class="ag-l">Quick eligibility read</div><p>${s.eligibleQuick}</p></div></div>
       <div class="quantum-card" id="get">
         <div class="q-label">What you can get</div>
-        <div class="q-main">Margin-money financial grant of 25% of project cost, up to \u20b96.25 lakh, for projects up to \u20b925 lakh \u2014 with higher tiered slabs for larger projects (up to \u20b950 lakh and \u20b9150 lakh per the scheme guidelines). The unit must make ${d.name}'s designated ODOP product: ${d.product.toLowerCase()}.</div>
-        <div class="q-note">ODOP was launched in 2018 by the Government of Uttar Pradesh to revive each district's indigenous product. The margin-money grant is routed through the lending bank and coordinates with the CM self-employment schemes (CMYSY / CM-YUVA) and Vishwakarma Shram Samman for the financing flow. It cannot be combined with PMEGP or another self-employment scheme for the same unit.</div>
+        <div class="q-main">${s.quantum}</div>
+        <div class="q-note">${s.guaranteeNote}</div>
       </div>
-      <div class="block" id="who"><h2>Who it's for</h2><p style="font-size:15px;color:var(--ink-soft);line-height:1.6">Entrepreneurs, artisans and micro-units in ${d.name} who manufacture, service or trade in the district's designated ODOP product \u2014 ${d.product.toLowerCase()}. ${d.anchor}</p></div>
-      <div class="block" id="elig"><h2>Eligibility</h2><ul class="checks"><li>${CHECK}<span>Applicant aged 18 or above (no educational-qualification requirement)</span></li><li>${CHECK}<span>Unit operates in ${d.name}'s designated ODOP product: ${d.product.toLowerCase()}</span></li><li>${CHECK}<span>Industry, service or business sector all eligible</span></li><li>${CHECK}<span>Not a defaulter of any bank, financial or government institution</span></li><li>${CHECK}<span>Not simultaneously availing PMEGP or another central/state self-employment scheme for the same unit</span></li></ul></div>
-      <div class="block" id="apply"><h2>How to apply in ${d.name}</h2><ol class="steps"><li>Confirm your unit makes ${d.name}'s designated ODOP product (${d.product.toLowerCase()})</li><li>Prepare a project report for the product</li><li>Apply through the ODOP margin-money channel via the ${d.name} District Industries Centre (often routed through CMYSY)</li><li>Bank appraises and sanctions; the margin-money grant is credited against the loan</li></ol></div>
-      <div class="block" id="docs"><h2>Documents you'll need</h2><div class="docs"><span class="doc">Aadhaar and KYC</span><span class="doc">Proof of ${d.name} residence / unit location</span><span class="doc">Project report in the district's ODOP product</span><span class="doc">Bank account details</span><span class="doc">Caste / category certificate (for enhanced slab, if applicable)</span></div></div>
-      <div class="block" id="faq"><h2>Frequently asked</h2><details class="faq"><summary>What is ${d.name}'s ODOP product?</summary><div class="fa">${d.name}'s designated One District One Product is ${d.product.toLowerCase()}. To qualify for ODOP-specific support your unit must operate in this product category.</div></details><details class="faq"><summary>How much margin money can I get in ${d.name}?</summary><div class="fa">Up to 25% of project cost capped at \u20b96.25 lakh for projects up to \u20b925 lakh, with tiered slabs above that. Category applicants may qualify for an enhanced rate.</div></details><details class="faq"><summary>Can I combine ODOP with PMEGP in ${d.name}?</summary><div class="fa">Generally not for the same unit \u2014 you can't double-dip across self-employment schemes. The right single route (ODOP vs CMYSY vs CM-YUVA vs PMEGP) depends on your project size and category. We model it for you.</div></details></div>
-      <div class="advisor-block"><div class="ab-label"><span class="d"></span> Where an advisor helps in ${d.name}</div><p>ODOP eligibility is entirely product-and-district specific. In ${d.name} the designated product is ${d.product.toLowerCase()}, and the most common mistakes are applying under the wrong product or picking the wrong scheme rail (ODOP vs CMYSY vs CM-YUVA vs PMEGP) for your project size. Our advisory desk confirms your eligibility, picks the rail that maximises margin money, and routes the file through the ${d.name} District Industries Centre.</p></div>
-      <p class="verify"><strong>Please verify before applying.</strong> ODOP designated products, margin-money slabs and eligibility are set by the ODOP Cell and revised periodically. Figures here are compiled from public sources and reviewed regularly \u2014 confirm ${d.name}'s current designated product and scheme terms with the District Industries Centre or our advisory desk before you act.</p>
+      <div class="block" id="who"><h2>Who it's for</h2><p style="font-size:15px;color:var(--ink-soft);line-height:1.6">${s.whoFor}</p></div>
+      <div class="block" id="elig"><h2>Eligibility</h2><ul class="checks">${s.eligibility.map(e => `<li>${CHECK}<span>${e}</span></li>`).join('')}</ul></div>
+      <div class="block" id="apply"><h2>How to apply</h2><ol class="steps">${s.howToApply.map(h => `<li>${h}</li>`).join('')}</ol></div>
+      <div class="block" id="docs"><h2>Documents you'll need</h2><div class="docs">${s.documents.map(d => `<span class="doc">${d}</span>`).join('')}</div></div>
+      <div class="block" id="faq"><h2>Frequently asked</h2>${s.faqs.map(f => `<details class="faq"><summary>${f[0]}</summary><div class="fa">${f[1]}</div></details>`).join('')}</div>
+      <div class="advisor-block"><div class="ab-label"><span class="d"></span> Where an advisor helps</div><p>${s.advisorAngle}</p></div>
+      <p class="verify"><strong>Please verify before applying.</strong> Scheme caps, subsidy rates, fees and eligibility are revised periodically by the governing body. Figures here are compiled from public sources and reviewed regularly \u2014 confirm current terms with the relevant authority or our advisory desk before you act.</p>
     </div>
     <aside class="aside">
       <div class="cta-card">
-        <div class="cc-top"><span class="badge"><span class="d"></span> Advisory Desk</span><h3>Want help with an ODOP loan in ${d.name}?</h3></div>
+        <div class="cc-top"><span class="badge"><span class="d"></span> Advisory Desk</span><h3>Want help claiming ${s.name}?</h3></div>
         <div class="cc-body">
-          <p>A 25-year finance professional will check your eligibility for ${d.name}'s ODOP product and handle the application end-to-end. Complimentary first assessment.</p>
+          <p>A 25-year finance professional will check your eligibility and handle the application end-to-end. Complimentary first assessment.</p>
           <input class="field" id="cn" type="text" placeholder="Your name">
           <input class="field" id="cp" type="tel" placeholder="Phone / WhatsApp">
           <input class="field" id="ce" type="email" placeholder="Email (optional)">
@@ -211,34 +208,60 @@ ${NAVBAR}
     </aside>
   </div>
 </div>
-<div class="related"><div class="wrap"><h3>Related ODOP districts</h3><div class="rel-grid">${relatedDistricts(d, all)}</div></div></div>
+<div class="related"><div class="wrap"><h3>Related schemes</h3><div class="rel-grid">${related(s, all)}</div></div></div>
 ${FOOTER}
-${leadScript('ODOP ' + d.name + ' \u2014 ' + d.product)}
+${leadScript(s.name)}
 </body>
 </html>`;
 }
 
-function hubPage(all) {
-  const title = 'ODOP Loans by District \u2014 All 75 UP Districts | One District One Product | BHARAT.LOAN';
-  const desc = 'ODOP margin-money loan guidance for all 75 Uttar Pradesh districts \u2014 find your district\u2019s designated product and how to claim up to \u20b96.25 lakh margin-money support.';
-  const cards = all.map(d => `<a class="dcard" href="${d.slug}.html"><div class="dc-top"><span class="dc-name">${d.name}</span>${d.gi?'<span class="dc-gi">GI</span>':''}</div><div class="dc-prod">${d.product}</div><div class="dc-cat">${d.cat}</div></a>`).join('');
+function statePage(state, all) {
+  const schemes = all.filter(s => s.scope === state.id);
+  const title = `${state.name} Government Schemes & Incentives | BHARAT.LOAN`;
+  const desc = `${state.name} state schemes, subsidies and incentives for business \u2014 ${state.tagline} Verified reference with on-the-ground advisory.`;
   return `${HEAD(title, desc)}
 <body>
 ${UTIL}
 ${NAVBAR}
 <div class="wrap">
-  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="../states/up.html">Uttar Pradesh</a> &nbsp;/&nbsp; ODOP Districts</div>
+  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; <a href="/#states">States</a> &nbsp;/&nbsp; ${state.name}</div>
   <div class="shead">
-    <div class="stags"><span class="stag state">${STATEFLAG}Uttar Pradesh</span><span class="stag body">All 75 districts</span></div>
-    <h1>ODOP loans by district</h1>
-    <p class="lede">Uttar Pradesh's One District One Product scheme designates one signature product for each of its 75 districts \u2014 and backs units making that product with margin-money support of up to \u20b96.25 lakh. Find your district below to see its designated product, eligibility and how to apply.</p>
+    <div class="stags"><span class="stag state">${flagFor(state.id)}${state.name}</span><span class="stag body">State coverage</span></div>
+    <h1>${state.name} schemes &amp; incentives</h1>
+    <p class="lede">${state.intro}</p>
+    ${schemes.some(s=>s.verifyPending) ? `<div class="verifybanner">${WARN}<p><strong>State figures pending verification.</strong> ${state.name} incentive rates and caps are set by the current government resolution and are being confirmed by our advisory desk. Amounts marked * are indicative until verified.</p></div>` : ''}
   </div>
-  <div class="dgrid">
-    ${cards}
+  <div style="padding:30px 0 24px"><h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:600">${state.name} schemes we cover</h2></div>
+  <div class="rel-grid" style="padding-bottom:30px">
+    ${schemes.map(s => `<a class="rel-card" href="../schemes/${s.slug}.html"><div class="rc-cat">${s.cat} \u00b7 Tier ${s.tier}</div><div class="rc-name">${s.name}</div><div class="rc-q">${s.oneLiner}</div></a>`).join('')}
   </div>
-  <div class="advisor-block" style="margin:0 0 60px">
-    <div class="ab-label"><span class="d"></span> Not sure which scheme fits your district?</div>
-    <p>ODOP overlaps with the CM self-employment schemes (CMYSY, CM-YUVA) and central programmes like PMEGP \u2014 and you can't stack them for the same unit. Our advisory desk confirms your district's designated product and picks the rail that maximises your margin money. <a href="/#engine" style="color:var(--blue);font-weight:600;text-decoration:none">Check your eligibility \u2192</a></p>
+  <div class="advisor-block" style="margin:20px 0 60px">
+    <div class="ab-label"><span class="d"></span> On the ground in ${state.name}</div>
+    <p>Our advisory desk works ${state.name} directly \u2014 confirming current resolution terms, navigating the District Industries Centre and nodal agencies, and structuring applications to land the best incentive tier. <a href="/#engine" style="color:var(--blue);font-weight:600;text-decoration:none">Check your eligibility \u2192</a></p>
+  </div>
+</div>
+${FOOTER}
+</body>
+</html>`;
+}
+
+function schemesIndex(all) {
+  const central = all.filter(s => s.scope === 'central');
+  const title = 'All Government Schemes \u2014 Central & State | BHARAT.LOAN';
+  return `${HEAD(title, 'Browse every major Indian central and state scheme \u2014 credit guarantees, capital subsidies, seed funds and tax incentives. Verified reference with advisory support.')}
+<body>
+${UTIL}
+${NAVBAR}
+<div class="wrap">
+  <div class="crumb"><a href="/">Home</a> &nbsp;/&nbsp; Schemes</div>
+  <div class="shead"><h1>Government schemes</h1><p class="lede">Every major central scheme in one verified reference. Select a scheme for eligibility, documents and how to apply \u2014 or check what you qualify for in 60 seconds.</p></div>
+  <div style="padding:28px 0 18px"><h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:600">Central government schemes</h2></div>
+  <div class="rel-grid" style="padding-bottom:40px">
+    ${central.map(s => `<a class="rel-card" href="${s.slug}.html"><div class="rc-cat">${s.cat} \u00b7 Tier ${s.tier}</div><div class="rc-name">${s.name}</div><div class="rc-q">${s.oneLiner}</div></a>`).join('')}
+  </div>
+  <div style="padding:8px 0 18px"><h2 style="font-family:'Fraunces',serif;font-size:22px;font-weight:600">State coverage</h2></div>
+  <div class="rel-grid" style="padding-bottom:60px">
+    ${data.states.map(st => `<a class="rel-card" href="${st.status==='live'?'../states/'+st.id+'.html':'#'}" ${st.status!=='live'?'style="opacity:.55;pointer-events:none"':''}><div class="rc-cat">${st.status==='live'?'Live':'Coming soon'}</div><div class="rc-name">${flagFor(st.id)}${st.name}</div><div class="rc-q">${st.tagline||'Coverage coming soon.'}</div></a>`).join('')}
   </div>
 </div>
 ${FOOTER}
@@ -247,9 +270,8 @@ ${FOOTER}
 }
 
 let n = 0;
-ddata.districts.forEach(d => {
-  fs.writeFileSync(path.join(OUT, `${d.slug}.html`), districtPage(d, ddata.districts));
-  n++;
-});
-fs.writeFileSync(path.join(OUT, 'index.html'), hubPage(ddata.districts));
-console.log('DONE \u2014 ' + n + ' ODOP district pages + 1 hub (odop/index.html)');
+data.schemes.forEach(s => { fs.writeFileSync(path.join(OUT, `${s.slug}.html`), schemePage(s, data.schemes)); n++; console.log('scheme: schemes/' + s.slug + '.html'); });
+data.states.filter(st => st.status === 'live').forEach(st => { fs.writeFileSync(path.join(STATEOUT, `${st.id}.html`), statePage(st, data.schemes)); console.log('state: states/' + st.id + '.html'); });
+fs.writeFileSync(path.join(OUT, 'index.html'), schemesIndex(data.schemes));
+console.log('index: schemes/index.html');
+console.log('DONE \u2014 ' + n + ' scheme pages + ' + data.states.filter(s=>s.status==='live').length + ' state page(s) + index');

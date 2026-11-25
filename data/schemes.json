@@ -1,0 +1,841 @@
+{
+ "version": 2,
+ "updated": "2026-11-25",
+ "states": [
+  {
+   "id": "gujarat",
+   "name": "Gujarat",
+   "status": "live",
+   "url": "/states/gujarat",
+   "tag": "India's most incentive-dense industrial state — capital subsidy, interest subvention and SGST benefits by taluka."
+  },
+  {
+   "id": "up",
+   "name": "Uttar Pradesh",
+   "status": "live",
+   "url": "/states/up",
+   "tag": "India's largest MSME base — ODOP across all 75 districts, 0% youth credit and a four-tier mega-investment policy."
+  },
+  {
+   "id": "maharashtra",
+   "name": "Maharashtra",
+   "status": "live",
+   "url": "/states/maharashtra",
+   "tag": "Industrial heartland — CMEGP subsidy, interest reimbursement and the new IIS Policy 2025 with zone-wise incentives."
+  }
+ ],
+ "schemes": [
+  {
+   "id": "cgtmse",
+   "name": "CGTMSE",
+   "full": "Credit Guarantee Fund Trust for Micro & Small Enterprises",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "S",
+   "quantum": "Collateral-free bank loans with a government guarantee, up to ₹10 crore per borrower",
+   "body": "Ministry of MSME + SIDBI",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 1000,
+   "reviewed": "2026-05-24",
+   "official": "https://www.cgtmse.in",
+   "q": "CGTMSE",
+   "url": "/schemes/cgtmse"
+  },
+  {
+   "id": "pmegp",
+   "name": "PMEGP",
+   "full": "Prime Minister's Employment Generation Programme",
+   "scope": "central",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "15–35% margin-money subsidy on new units — projects up to ₹50L (mfg) / ₹20L (service)",
+   "body": "KVIC · Ministry of MSME",
+   "need": [
+    "subsidy",
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "agri"
+   ],
+   "who": [
+    "all",
+    "sc-st",
+    "women",
+    "minority",
+    "ex-servicemen",
+    "divyang"
+   ],
+   "maxLakh": 50,
+   "reviewed": "2026-05-24",
+   "official": "https://www.kviconline.gov.in/pmegpeportal/",
+   "q": "PMEGP",
+   "url": "/schemes/pmegp"
+  },
+  {
+   "id": "mudra-yojana",
+   "name": "PM Mudra Yojana",
+   "full": "Pradhan Mantri Mudra Yojana",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "A",
+   "quantum": "Collateral-free micro-loans from ₹50,000 up to ₹20 lakh (Tarun Plus)",
+   "body": "MUDRA · banks, NBFCs, MFIs",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade",
+    "agri"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 20,
+   "reviewed": "2026-05-24",
+   "official": "https://www.mudra.org.in",
+   "q": "Mudra loan",
+   "url": "/schemes/mudra-yojana"
+  },
+  {
+   "id": "stand-up-india",
+   "name": "Stand-Up India",
+   "full": "Stand-Up India Scheme",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "A",
+   "quantum": "₹10 lakh – ₹1 crore composite loan for SC/ST and women founders, greenfield only",
+   "body": "Department of Financial Services · SIDBI",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade",
+    "agri"
+   ],
+   "who": [
+    "sc-st",
+    "women"
+   ],
+   "maxLakh": 100,
+   "reviewed": "2026-06-24",
+   "official": "https://www.standupmitra.in",
+   "q": "Stand-Up India scheme",
+   "url": "/schemes/stand-up-india"
+  },
+  {
+   "id": "startup-india-seed-fund",
+   "name": "Startup India Seed Fund",
+   "full": "Startup India Seed Fund Scheme (SISFS)",
+   "scope": "central",
+   "cat": "Grant",
+   "tier": "S",
+   "quantum": "Up to ₹20 lakh grant + up to ₹50 lakh convertible debt via incubators",
+   "body": "DPIIT",
+   "need": [
+    "startup",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "startup"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 70,
+   "reviewed": "2026-05-24",
+   "official": "https://seedfund.startupindia.gov.in",
+   "q": "Startup India Seed Fund",
+   "url": "/schemes/startup-india-seed-fund"
+  },
+  {
+   "id": "dpiit-startup-india",
+   "name": "DPIIT Recognition + 80-IAC",
+   "full": "Startup India Recognition and Section 80-IAC tax holiday",
+   "scope": "central",
+   "cat": "Tax",
+   "tier": "S",
+   "quantum": "Free recognition; 100% income-tax holiday for 3 of the first 10 years (80-IAC)",
+   "body": "DPIIT",
+   "need": [
+    "startup",
+    "tax"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "startup",
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 0,
+   "reviewed": "2026-05-24",
+   "official": "https://www.startupindia.gov.in",
+   "q": "DPIIT startup recognition",
+   "url": "/schemes/dpiit-startup-india"
+  },
+  {
+   "id": "pli",
+   "name": "PLI Scheme",
+   "full": "Production Linked Incentive Scheme (14 sectors)",
+   "scope": "central",
+   "cat": "Incentive",
+   "tier": "S",
+   "quantum": "4–10% cash incentive on incremental sales for 5–6 years across 14 sectors",
+   "body": "Multiple ministries",
+   "need": [
+    "scale",
+    "export"
+   ],
+   "stage": [
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "textile",
+    "agri"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 100000,
+   "reviewed": "2026-06-15",
+   "official": "https://www.investindia.gov.in",
+   "q": "PLI scheme",
+   "url": "/schemes/pli"
+  },
+  {
+   "id": "pmfme",
+   "name": "PMFME",
+   "full": "PM Formalisation of Micro Food Processing Enterprises",
+   "scope": "central",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "35% credit-linked capital subsidy up to ₹10 lakh per food unit, plus SHG/FPO grants",
+   "body": "Ministry of Food Processing Industries",
+   "need": [
+    "subsidy",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "agri"
+   ],
+   "who": [
+    "all",
+    "women"
+   ],
+   "maxLakh": 30,
+   "reviewed": "2026-06-15",
+   "official": "https://pmfme.mofpi.gov.in",
+   "q": "PMFME food processing",
+   "url": "/schemes/pmfme"
+  },
+  {
+   "id": "atufs",
+   "name": "ATUFS",
+   "full": "Amended Technology Upgradation Fund Scheme",
+   "scope": "central",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "10–15% capital subsidy on new benchmarked textile machinery (caps ₹20–30 Cr)",
+   "body": "Ministry of Textiles",
+   "need": [
+    "upgrade",
+    "subsidy"
+   ],
+   "stage": [
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "textile"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 3000,
+   "reviewed": "2026-06-15",
+   "official": "https://texmin.nic.in",
+   "q": "ATUFS textile",
+   "url": "/schemes/atufs"
+  },
+  {
+   "id": "clcss",
+   "name": "CLCSS",
+   "full": "Credit Linked Capital Subsidy Scheme",
+   "scope": "central",
+   "cat": "Subsidy",
+   "tier": "A",
+   "quantum": "15% capital subsidy on technology upgradation, investment up to ₹1 crore",
+   "body": "Ministry of MSME",
+   "need": [
+    "upgrade",
+    "subsidy"
+   ],
+   "stage": [
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 100,
+   "reviewed": "2026-05-24",
+   "official": "https://msme.gov.in",
+   "q": "CLCSS MSME technology upgradation",
+   "url": "/schemes/clcss"
+  },
+  {
+   "id": "msme-loan-59-minutes",
+   "name": "PSB Loans in 59 Minutes",
+   "full": "MSME Loan in 59 Minutes",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "B",
+   "quantum": "In-principle approval for loans up to ₹1 crore in about an hour",
+   "body": "SIDBI · public sector banks",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 100,
+   "reviewed": "2026-05-24",
+   "official": "https://www.psbloansin59minutes.com",
+   "q": "psbloansin59minutes",
+   "url": "/schemes/msme-loan-59-minutes"
+  },
+  {
+   "id": "sidbi-direct",
+   "name": "SIDBI Direct",
+   "full": "SIDBI direct and refinance lending",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "B",
+   "quantum": "Direct and refinance loans for MSME growth, machinery and working capital",
+   "body": "SIDBI",
+   "need": [
+    "loan",
+    "upgrade"
+   ],
+   "stage": [
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 2500,
+   "reviewed": "2026-05-24",
+   "official": "https://www.sidbi.in",
+   "q": "SIDBI MSME loan",
+   "url": "/schemes/sidbi-direct"
+  },
+  {
+   "id": "nsic-schemes",
+   "name": "NSIC Schemes",
+   "full": "NSIC support schemes (SPRS, raw material, credit facilitation)",
+   "scope": "central",
+   "cat": "Credit",
+   "tier": "B",
+   "quantum": "Govt-tender registration with EMD exemption, 90-day raw-material credit, bank credit facilitation",
+   "body": "National Small Industries Corporation",
+   "need": [
+    "loan",
+    "scale"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all",
+    "sc-st",
+    "women"
+   ],
+   "maxLakh": 0,
+   "reviewed": "2026-06-15",
+   "official": "https://www.nsic.co.in",
+   "q": "NSIC MSME",
+   "url": "/schemes/nsic-schemes"
+  },
+  {
+   "id": "aatmanirbhar-gujarat-msme",
+   "name": "Aatmanirbhar Gujarat (MSME)",
+   "full": "Aatmanirbhar Gujarat Scheme for Assistance to MSMEs",
+   "scope": "gujarat",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "5–7% interest subsidy, 10–25% capital subsidy (micro mfg), 80–100% net SGST for 10 yrs",
+   "body": "Industries & Mines Dept, Gujarat",
+   "need": [
+    "subsidy",
+    "loan",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all",
+    "women",
+    "youth"
+   ],
+   "maxLakh": 5000,
+   "reviewed": "2026-05-24",
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Aatmanirbhar Gujarat MSME",
+   "url": "/schemes/aatmanirbhar-gujarat-msme"
+  },
+  {
+   "id": "gujarat-textile-policy",
+   "name": "Gujarat Textile Policy 2024",
+   "full": "Gujarat Textile Policy 2024",
+   "scope": "gujarat",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "10–35% capital subsidy + 5–7% interest subsidy across the textile value chain",
+   "body": "Commissioner of Textiles, Gujarat",
+   "need": [
+    "subsidy",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "textile"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 10000,
+   "reviewed": "2026-05-24",
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Gujarat textile policy",
+   "url": "/schemes/gujarat-textile-policy"
+  },
+  {
+   "id": "gujarat-large-industry-incentive",
+   "name": "Gujarat Large Industry Incentive",
+   "full": "Aatmanirbhar Gujarat Scheme for Large Industries & Thrust Sectors",
+   "scope": "gujarat",
+   "cat": "Subsidy",
+   "tier": "A",
+   "quantum": "80–100% net SGST reimbursement for 10 yrs + 7% interest subsidy for ₹50 Cr+ projects",
+   "body": "Industries & Mines Dept, Gujarat",
+   "need": [
+    "scale",
+    "subsidy"
+   ],
+   "stage": [
+    "established"
+   ],
+   "sector": [
+    "mfg"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 100000,
+   "reviewed": "2026-05-24",
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Gujarat industrial policy incentive",
+   "url": "/schemes/gujarat-large-industry-incentive"
+  },
+  {
+   "id": "gujarat-startup-scheme",
+   "name": "Gujarat Startup Scheme",
+   "full": "Gujarat Scheme for Assistance to Startups / Innovation",
+   "scope": "gujarat",
+   "cat": "Grant",
+   "tier": "A",
+   "quantum": "₹20,000/month sustenance + seed support up to ₹30 lakh",
+   "body": "Industries Commissionerate, Gujarat",
+   "need": [
+    "startup",
+    "subsidy"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "startup"
+   ],
+   "who": [
+    "all",
+    "women"
+   ],
+   "maxLakh": 30,
+   "reviewed": "2026-05-24",
+   "official": "https://ic.gujarat.gov.in",
+   "q": "Gujarat startup scheme",
+   "url": "/schemes/gujarat-startup-scheme"
+  },
+  {
+   "id": "cm-yuva-up",
+   "name": "CM-YUVA",
+   "full": "Mukhyamantri Yuva Udyami Vikas Abhiyan",
+   "scope": "up",
+   "cat": "Credit",
+   "tier": "S",
+   "quantum": "0% interest, collateral-free loan up to ₹5 lakh for UP youth aged 21–40",
+   "body": "Directorate of Industries, UP",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade"
+   ],
+   "who": [
+    "youth"
+   ],
+   "maxLakh": 5,
+   "reviewed": "2026-05-24",
+   "official": "https://msme1connect.up.gov.in",
+   "q": "CM Yuva Udyami Uttar Pradesh",
+   "url": "/schemes/cm-yuva-up"
+  },
+  {
+   "id": "odop-up",
+   "name": "ODOP UP",
+   "full": "One District One Product — Financing & Margin-Money Scheme",
+   "scope": "up",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "25% margin money up to ₹6.25 lakh for your district's designated product",
+   "body": "ODOP Cell, UP",
+   "need": [
+    "subsidy",
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade",
+    "agri",
+    "textile"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 150,
+   "reviewed": "2026-05-24",
+   "official": "https://odopup.in",
+   "q": "ODOP Uttar Pradesh",
+   "url": "/schemes/odop-up"
+  },
+  {
+   "id": "cm-yuva-swarozgar-up",
+   "name": "CMYSY (UP)",
+   "full": "Mukhyamantri Yuva Swarozgar Yojana",
+   "scope": "up",
+   "cat": "Subsidy",
+   "tier": "A",
+   "quantum": "25% margin money — up to ₹6.25 lakh (industry) / ₹2.5 lakh (service)",
+   "body": "Directorate of Industries, UP",
+   "need": [
+    "subsidy",
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "youth"
+   ],
+   "maxLakh": 25,
+   "reviewed": "2026-05-24",
+   "official": "https://msme1connect.up.gov.in",
+   "q": "Mukhyamantri Yuva Swarozgar Yojana UP",
+   "url": "/schemes/cm-yuva-swarozgar-up"
+  },
+  {
+   "id": "upiepp-up",
+   "name": "UPIEPP 2022",
+   "full": "UP Industrial Investment & Employment Promotion Policy 2022",
+   "scope": "up",
+   "cat": "Subsidy",
+   "tier": "A",
+   "quantum": "Choose one: capital subsidy, net SGST reimbursement or PLI top-up (cap 200% of capital)",
+   "body": "Invest UP",
+   "need": [
+    "scale",
+    "subsidy"
+   ],
+   "stage": [
+    "established"
+   ],
+   "sector": [
+    "mfg"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 100000,
+   "reviewed": "2026-05-24",
+   "official": "https://invest.up.gov.in",
+   "q": "Invest UP industrial policy",
+   "url": "/schemes/upiepp-up"
+  },
+  {
+   "id": "up-msme-policy",
+   "name": "UP MSME Policy 2022",
+   "full": "Uttar Pradesh MSME Promotion Policy 2022",
+   "scope": "up",
+   "cat": "Subsidy",
+   "tier": "B",
+   "quantum": "Interest subsidy on park infra, 75% quality/patent reimbursement, stamp-duty exemption",
+   "body": "Directorate of MSME, UP",
+   "need": [
+    "subsidy",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 1000,
+   "reviewed": "2026-05-24",
+   "official": "https://msme1connect.up.gov.in",
+   "q": "UP MSME policy",
+   "url": "/schemes/up-msme-policy"
+  },
+  {
+   "id": "up-textile-policy",
+   "name": "UP Textile Policy 2022",
+   "full": "Uttar Pradesh Textile & Garmenting Policy 2022",
+   "scope": "up",
+   "cat": "Subsidy",
+   "tier": "B",
+   "quantum": "Fiscal incentives for new and expanding textile/garment units",
+   "body": "Directorate of Industries, UP",
+   "need": [
+    "subsidy",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "textile"
+   ],
+   "who": [
+    "all"
+   ],
+   "maxLakh": 10000,
+   "reviewed": "2026-05-24",
+   "official": "https://invest.up.gov.in",
+   "q": "UP textile policy",
+   "url": "/schemes/up-textile-policy"
+  },
+  {
+   "id": "cmegp-maharashtra",
+   "name": "CMEGP",
+   "full": "Chief Minister's Employment Generation Programme",
+   "scope": "maharashtra",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "15–35% subsidy on new units — projects up to ₹50 lakh (mfg) / ₹10 lakh (service)",
+   "body": "Directorate of Industries · DIC · KVIB, Maharashtra",
+   "need": [
+    "subsidy",
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "agri"
+   ],
+   "who": [
+    "all",
+    "sc-st",
+    "women",
+    "ex-servicemen",
+    "divyang"
+   ],
+   "maxLakh": 50,
+   "reviewed": "2026-11-25",
+   "official": "https://maha-cmegp.gov.in",
+   "q": "CMEGP Maharashtra",
+   "url": "/schemes/cmegp-maharashtra"
+  },
+  {
+   "id": "annasaheb-patil-maharashtra",
+   "name": "Annasaheb Patil Loan (IR-I / IR-II)",
+   "full": "Annasaheb Patil Arthik Magas Vikas Mahamandal — Interest Reimbursement",
+   "scope": "maharashtra",
+   "cat": "Credit",
+   "tier": "A",
+   "quantum": "Interest reimbursed up to 12% p.a. — loans up to ₹15 lakh (individual) / ₹50 lakh (group)",
+   "body": "Annasaheb Patil Arthik Magas Vikas Mahamandal",
+   "need": [
+    "loan"
+   ],
+   "stage": [
+    "idea",
+    "new",
+    "growing"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "trade",
+    "agri"
+   ],
+   "who": [
+    "youth",
+    "women"
+   ],
+   "maxLakh": 50,
+   "reviewed": "2026-11-25",
+   "official": "https://udyog.mahaswayam.gov.in",
+   "q": "Annasaheb Patil loan",
+   "url": "/schemes/annasaheb-patil-maharashtra"
+  },
+  {
+   "id": "maharashtra-iis-policy",
+   "name": "Maharashtra IIS Policy 2025",
+   "full": "Maharashtra Industries, Investment & Services Policy 2025",
+   "scope": "maharashtra",
+   "cat": "Subsidy",
+   "tier": "S",
+   "quantum": "SGST-linked investment subsidy (30–100% of FCI by zone), 20% capital subsidy for thrust MSMEs",
+   "body": "Industries Dept, Maharashtra",
+   "need": [
+    "subsidy",
+    "scale",
+    "upgrade"
+   ],
+   "stage": [
+    "new",
+    "growing",
+    "established"
+   ],
+   "sector": [
+    "mfg",
+    "service",
+    "textile"
+   ],
+   "who": [
+    "all",
+    "women",
+    "sc-st",
+    "divyang"
+   ],
+   "maxLakh": 100000,
+   "reviewed": "2026-11-25",
+   "official": "https://maitri.maharashtra.gov.in",
+   "q": "Maharashtra industrial policy 2025",
+   "url": "/schemes/maharashtra-iis-policy"
+  }
+ ]
+}

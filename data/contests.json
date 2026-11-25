@@ -1,0 +1,35 @@
+{
+ "_note": "Edit to launch, update or close contests. status: open | soon | closed. Prize text is shown exactly as written — set it once sponsors/prize money are confirmed.",
+ "contests": [
+  {
+   "id": "funding-story",
+   "title": "Founder Funding Story Challenge — Season 1",
+   "status": "soon",
+   "statusLabel": "Opening soon · register interest",
+   "summary": "Tell us how your business used (or tried to use) a government scheme — PMEGP, Mudra, CGTMSE, ODOP, CMEGP or any state scheme. The most useful, honest stories win and get featured so other founders learn from them.",
+   "prize": "Cash prizes + featured founder profile — prize pool announced at launch",
+   "who": "Indian founders, MSME owners and self-employed professionals (18+)",
+   "timeline": "Entries open soon · results announced on this page"
+  },
+  {
+   "id": "scheme-quiz",
+   "title": "Scheme Smart Quiz — Monthly",
+   "status": "soon",
+   "statusLabel": "Opening soon · register interest",
+   "summary": "A 10-question skill quiz on government business schemes, eligibility and documents. Highest score in the shortest time wins; ties are broken by time taken.",
+   "prize": "Monthly winner prizes — announced with each round",
+   "who": "Students, founders, CA/CS/MBA aspirants and finance professionals (18+)",
+   "timeline": "Monthly rounds"
+  },
+  {
+   "id": "district-ambassador",
+   "title": "District Champion Challenge",
+   "status": "soon",
+   "statusLabel": "Opening soon · register interest",
+   "summary": "Help MSMEs in your district discover schemes they qualify for. Champions who bring verified, consenting businesses to a free assessment earn rewards and a featured profile.",
+   "prize": "Rewards per verified referral + quarterly top-champion prize",
+   "who": "Students, CSC operators, CAs, bank-mitras and community leaders (18+)",
+   "timeline": "Rolling, quarterly leaderboard"
+  }
+ ]
+}

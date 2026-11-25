@@ -1,0 +1,45 @@
+{
+ "_note": "Edit to open/close roles. Applications arrive in the advisory inbox via the form on /careers.",
+ "roles": [
+  {
+   "title": "Scheme Research Writer (English / Hindi)",
+   "type": "Freelance · Remote",
+   "summary": "Turn government notifications, GRs and guidelines into clear, accurate scheme guides that founders can act on.",
+   "points": ["Read and summarise official scheme documents", "Write plain-language guides with eligibility, documents and steps", "Keep pages updated when limits or rules change"],
+   "location": "Remote, India",
+   "pay": "Per article / monthly retainer"
+  },
+  {
+   "title": "Loan & Subsidy Advisor (Regional)",
+   "type": "Partner · Commission",
+   "summary": "Work with MSMEs in your region to prepare project reports and scheme applications, and liaise with banks and DICs.",
+   "points": ["Experience with MSME credit, banking or DIC processes", "Strong in UP, Gujarat or Maharashtra (more states soon)", "Project report and documentation skills"],
+   "location": "UP · Gujarat · Maharashtra",
+   "pay": "Success-based commission + retainer for top performers"
+  },
+  {
+   "title": "Video Creator — Scheme Explainers",
+   "type": "Freelance · Remote",
+   "summary": "Script and record short Hindi/English explainers on schemes, eligibility and how to apply, for YouTube and social.",
+   "points": ["Comfortable on camera or as a voice-over artist", "Basic editing (CapCut, Premiere or similar)", "Accuracy first — every claim checked against official sources"],
+   "location": "Remote, India",
+   "pay": "Per video"
+  },
+  {
+   "title": "Campus & District Ambassador",
+   "type": "Part-time · Volunteer + rewards",
+   "summary": "Spread awareness of free government schemes among students, founders and small businesses in your city or campus.",
+   "points": ["Run awareness sessions and social posts", "Refer businesses to a free assessment (with their consent)", "Earn rewards, certificates and recommendation letters"],
+   "location": "Any Indian city or campus",
+   "pay": "Rewards + certificate"
+  },
+  {
+   "title": "Partnerships & Growth Associate",
+   "type": "Contract · Remote",
+   "summary": "Build partnerships with CAs, incubators, industry associations and lenders, and grow the site's reach.",
+   "points": ["B2B outreach and relationship building", "Comfort with sponsorship and lead-partner deals", "Bonus: experience in fintech, MSME or media sales"],
+   "location": "Remote, India",
+   "pay": "Retainer + performance bonus"
+  }
+ ]
+}

@@ -1,29 +1,43 @@
 # BHARAT.LOAN
 
-Publisher / lead-gen front-end for Indian government business schemes, subsidies and incentives. Feeds qualified leads to the advisory desk (CONSULT.IN).
+Independent, self-updating guide to Indian government business schemes, subsidies and incentives — with a lead-generation funnel to an advisory desk, AdSense monetisation, donations, contests and careers.
 
-## Architecture
+Static HTML on Vercel (Framework preset **Other**, no build step on Vercel). All automation runs in GitHub Actions.
 
-- **Static HTML** — no build step required to view. Hosted on GitHub Pages.
-- **`index.html`** — homepage: hero, 4-step eligibility engine, central scheme cards, state selector, process, lead capture. All lead forms POST to FormSubmit (`webworksa1@gmail.com`).
-- **`schemes/`** — one page per scheme (central + state), plus `schemes/index.html` (full directory).
-- **`states/`** — one landing page per state (currently `gujarat.html`). The homepage state-selector links here.
-- **`schemes-enriched.json`** — single source of truth for all scheme + state data.
-- **`generate.js`** — Node generator. Reads the JSON, regenerates every scheme page, every live state page, and the schemes index.
+## How it updates itself
 
-## Regenerate / add a state or scheme
+`.github/workflows/daily-refresh.yml` runs twice a day (05:47 and 17:47 IST), on demand, and whenever `scripts/` or the editable data files change:
 
-1. Edit `schemes-enriched.json` (add a scheme object with `scope: "<stateid>"`, or add a state to the `states` array and flip its `status` to `"live"`).
-2. Run:
+1. `scripts/refresh.mjs` pulls fresh scheme news (Google News RSS per scheme + PIB) and explainer videos (YouTube channel RSS, or the YouTube Data API if a `YOUTUBE_API_KEY` repository secret is set) into `data/updates.json` and `data/videos.json`.
+2. `scripts/build.mjs` bakes the shared header/footer into every page, fills the dynamic blocks (`<!--bl:NAME--> … <!--/bl:NAME-->`), and regenerates `sitemap.xml`, `feed.xml`, `robots.txt`, `ads.txt` and `data/search-index.json`. It fails the run if the inbox address is exposed anywhere, if an old AdSense ID appears, or if a page lacks the sponsorship top bar.
+3. The workflow commits the result; Vercel redeploys automatically.
 
-   ```
-   node generate.js
-   ```
+Every source is optional — a failing feed is logged in `data/refresh-log.json` and skipped.
 
-3. Commit the regenerated `schemes/` and `states/` files. No other code changes are needed to add a state — it is pure data entry.
+## Files you edit
 
-## Pending before hard launch
+| File | What it controls |
+|---|---|
+| `partials.js` (CONFIG block at the top) | GA4 ID, Clarity ID, WhatsApp number, optional AdSense ad-unit slot IDs, optional FormSubmit alias, donation links (UPI / PayPal / Buy Me a Coffee / Razorpay), social links |
+| `data/schemes.json` | Scheme registry used by the homepage, directory, Funding Matcher, search and per-scheme news |
+| `data/contests.json` | Contests shown on `/contests` |
+| `data/careers.json` | Open roles on `/careers` |
+| `data/tips.json` | Daily founder tip on the homepage |
+| `scripts/sources.json` | News queries, RSS feeds, YouTube channels and video topics |
+| `scripts/site.mjs` | Header, footer, navigation, copyright line |
 
-- **FormSubmit activation** — the first form submission triggers a one-time confirmation email to `webworksa1@gmail.com` that must be clicked before leads flow.
-- **Gujarat figures** — all Gujarat scheme quanta are marked `verifyPending` and asterisked. Confirm exact rates/caps/taluka variations against the current government resolution before relying on the numbers.
-- **CGTMSE ceiling** — sources disagree on the current cap; the page carries a verify caveat. Confirm the live ceiling.
+Edit any of these in the GitHub web editor; the next workflow run rebuilds the site.
+
+## Leads
+
+All forms post through `BL.send()` in `partials.js` to FormSubmit. The inbox address is never written in page source. The first live submission triggers a one-time FormSubmit activation email — confirm it once. After activation, paste the random alias FormSubmit gives you into `CONFIG.FORM_ALIAS` for maximum privacy.
+
+## Monetisation checklist
+
+- AdSense loader + `google-adsense-account` meta on every indexable page; `ads.txt` generated.
+- Auto Ads: enable in AdSense → Ads → By site. Manual units: create in AdSense and paste slot IDs into `CONFIG.AD_SLOTS`.
+- EEA/UK consent: enable Google’s CMP in AdSense → Privacy & messaging.
+
+## Legacy
+
+`scripts/legacy/` holds the original generators. Do not run them — they predate the current pages and would overwrite them.

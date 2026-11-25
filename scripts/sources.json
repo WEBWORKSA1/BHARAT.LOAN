@@ -1,0 +1,29 @@
+{
+ "_note": "Edit freely. newsQueries = extra Google News searches; rss = extra RSS feeds (filtered to business-scheme headlines); youtubeChannels = channels whose new uploads are filtered by scheme keywords (use either a channel id 'UC…' or a @handle); videoQueries = topics used when a YOUTUBE_API_KEY repository secret is set.",
+ "newsQueries": [
+  "MSME scheme India",
+  "government loan scheme small business India",
+  "MSME subsidy India",
+  "startup scheme India government",
+  "women entrepreneur loan scheme India",
+  "Udyam registration MSME",
+  "credit guarantee scheme MSME"
+ ],
+ "rss": [
+  { "name": "PIB (Press Information Bureau)", "url": "https://pib.gov.in/RssMain.aspx?ModId=6&Lang=1&Regid=3", "tags": ["central"] }
+ ],
+ "youtubeChannels": [
+  { "name": "PIB India", "id": "UCGn6a5SI8SNlj7WylmPD6GQ", "max": 6, "topic": "Official updates" },
+  { "name": "MSME Helpline", "handle": "@msmehelpline", "max": 8, "topic": "Scheme explainers" }
+ ],
+ "videoQueries": [
+  ["PMEGP loan — how to apply", "PMEGP loan apply online"],
+  ["Mudra loan explained", "Mudra loan kaise le"],
+  ["CGTMSE collateral-free loan", "CGTMSE loan without collateral"],
+  ["Udyam registration step by step", "Udyam registration online"],
+  ["Stand-Up India loan", "Stand Up India loan apply"],
+  ["PMFME food processing subsidy", "PMFME scheme apply online"],
+  ["CM-YUVA UP interest-free loan", "CM Yuva Udyami yojana apply"],
+  ["CMEGP Maharashtra", "CMEGP Maharashtra apply online"]
+ ]
+}

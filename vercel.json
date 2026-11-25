@@ -2,13 +2,33 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/acquisition", "destination": "/advertise", "permanent": true },
+    { "source": "/acquisition.html", "destination": "/advertise", "permanent": true },
+    { "source": "/apply", "destination": "/get-funding", "permanent": false },
+    { "source": "/eligibility", "destination": "/get-funding", "permanent": false },
+    { "source": "/donate", "destination": "/support", "permanent": false },
+    { "source": "/sponsor", "destination": "https://web.works/contact", "permanent": false },
+    { "source": "/news", "destination": "/updates", "permanent": false },
+    { "source": "/states", "destination": "/#states", "permanent": false }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Content-Type-Options", "value": "nosniff" },
-        { "key": "X-Frame-Options", "value": "SAMEORIGIN" }
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
       ]
+    },
+    {
+      "source": "/data/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=900, stale-while-revalidate=3600" }]
+    },
+    {
+      "source": "/(partials.js|styles.css|assets/(.*))",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }]
     }
   ]
 }
