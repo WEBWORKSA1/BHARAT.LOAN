@@ -1,0 +1,118 @@
+{
+ "started": "2026-11-25T16:01:53.498Z",
+ "feeds": [
+  {
+   "q": "CGTMSE",
+   "n": 11
+  },
+  {
+   "q": "Stand-Up India scheme",
+   "n": 12
+  },
+  {
+   "q": "Startup India Seed Fund",
+   "n": 12
+  },
+  {
+   "q": "PLI scheme",
+   "n": 12
+  },
+  {
+   "q": "PMFME food processing",
+   "n": 9
+  },
+  {
+   "q": "ATUFS textile",
+   "n": 0
+  },
+  {
+   "q": "CLCSS MSME technology upgradation",
+   "n": 0
+  },
+  {
+   "q": "psbloansin59minutes",
+   "n": 0
+  },
+  {
+   "q": "SIDBI MSME loan",
+   "n": 10
+  },
+  {
+   "q": "NSIC MSME",
+   "n": 6
+  },
+  {
+   "q": "Gujarat textile policy",
+   "n": 12
+  },
+  {
+   "q": "Gujarat industrial policy incentive",
+   "n": 12
+  },
+  {
+   "q": "ODOP Uttar Pradesh",
+   "n": 12
+  },
+  {
+   "q": "Mukhyamantri Yuva Swarozgar Yojana UP",
+   "n": 2
+  },
+  {
+   "q": "UP MSME policy",
+   "n": 12
+  },
+  {
+   "q": "UP textile policy",
+   "n": 12
+  },
+  {
+   "q": "CMEGP Maharashtra",
+   "n": 0
+  },
+  {
+   "q": "Annasaheb Patil loan",
+   "n": 0
+  },
+  {
+   "q": "MSME scheme India",
+   "n": 12
+  },
+  {
+   "q": "government loan scheme small business India",
+   "n": 12
+  },
+  {
+   "q": "Udyam registration MSME",
+   "n": 12
+  },
+  {
+   "q": "credit guarantee scheme MSME",
+   "n": 12
+  },
+  {
+   "yt": "PIB India",
+   "n": 0
+  },
+  {
+   "yt": "MSME Helpline",
+   "n": 8
+  }
+ ],
+ "errors": [
+  "news \"PMEGP\": HTTP 429",
+  "news \"Mudra loan\": HTTP 429",
+  "news \"DPIIT startup recognition\": HTTP 429",
+  "news \"Aatmanirbhar Gujarat MSME\": HTTP 429",
+  "news \"Gujarat startup scheme\": HTTP 429",
+  "news \"CM Yuva Udyami Uttar Pradesh\": HTTP 429",
+  "news \"Invest UP industrial policy\": HTTP 429",
+  "news \"Maharashtra industrial policy 2025\": HTTP 429",
+  "news \"MSME subsidy India\": HTTP 429",
+  "news \"startup scheme India government\": HTTP 429",
+  "news \"women entrepreneur loan scheme India\": HTTP 429",
+  "rss PIB (Press Information Bureau): HTTP 403"
+ ],
+ "news": 161,
+ "videos": 8,
+ "finished": "2026-11-25T16:02:31.844Z"
+}
