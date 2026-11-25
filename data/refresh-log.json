@@ -1,9 +1,9 @@
 {
- "started": "2026-11-25T16:29:15.485Z",
+ "started": "2026-11-25T16:32:24.616Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 11
+   "n": 12
   },
   {
    "q": "PMEGP",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 9
+   "n": 8
   },
   {
    "q": "ATUFS textile",
@@ -47,11 +47,11 @@
   },
   {
    "q": "SIDBI MSME loan",
-   "n": 9
+   "n": 10
   },
   {
    "q": "NSIC MSME",
-   "n": 5
+   "n": 6
   },
   {
    "q": "Aatmanirbhar Gujarat MSME",
@@ -145,7 +145,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 259,
+ "news": 260,
  "videos": 6,
- "finished": "2026-11-25T16:30:50.865Z"
+ "finished": "2026-11-25T16:33:59.448Z"
 }
