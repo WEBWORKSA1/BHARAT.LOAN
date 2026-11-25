@@ -1,9 +1,9 @@
 {
- "started": "2026-11-25T16:32:24.616Z",
+ "started": "2026-11-25T17:34:11.449Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 12
+   "n": 11
   },
   {
    "q": "PMEGP",
@@ -51,15 +51,91 @@
   },
   {
    "q": "NSIC MSME",
-   "n": 6
+   "n": 5
   },
   {
-   "q": "Aatmanirbhar Gujarat MSME",
-   "n": 0
+   "q": "Gujarat industrial policy 2026",
+   "n": 12
   },
   {
    "q": "Gujarat textile policy",
    "n": 12
+  },
+  {
+   "q": "Vajpayee Bankable Yojana",
+   "n": 0
+  },
+  {
+   "q": "Gujarat artisan loan scheme",
+   "n": 1
+  },
+  {
+   "q": "Ambedkar Udhyog Uday Yojana",
+   "n": 0
+  },
+  {
+   "q": "Mahila Utkarsh Yojana",
+   "n": 0
+  },
+  {
+   "q": "Manav Kalyan Yojana",
+   "n": 0
+  },
+  {
+   "q": "i-Hub Gujarat startup",
+   "n": 5
+  },
+  {
+   "q": "Gujarat IT policy",
+   "n": 12
+  },
+  {
+   "q": "Gujarat GCC policy",
+   "n": 1
+  },
+  {
+   "q": "Gujarat electronics policy",
+   "n": 6
+  },
+  {
+   "q": "Gujarat semiconductor",
+   "n": 12
+  },
+  {
+   "q": "Gujarat biotechnology policy",
+   "n": 4
+  },
+  {
+   "q": "Gujarat space policy",
+   "n": 9
+  },
+  {
+   "q": "iKhedut Gujarat",
+   "n": 0
+  },
+  {
+   "q": "Bin Anamat Nigam loan",
+   "n": 0
+  },
+  {
+   "q": "Gujarat minority finance loan",
+   "n": 1
+  },
+  {
+   "q": "Gujarat Scheduled Caste loan scheme",
+   "n": 2
+  },
+  {
+   "q": "Gujarat backward class loan",
+   "n": 1
+  },
+  {
+   "q": "Mahila Swavlamban Yojana Gujarat",
+   "n": 0
+  },
+  {
+   "q": "Aatmanirbhar Gujarat MSME",
+   "n": 0
   },
   {
    "q": "Gujarat industrial policy incentive",
@@ -145,7 +221,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 260,
+ "news": 289,
  "videos": 6,
- "finished": "2026-11-25T16:33:59.448Z"
+ "finished": "2026-11-25T17:36:36.715Z"
 }
