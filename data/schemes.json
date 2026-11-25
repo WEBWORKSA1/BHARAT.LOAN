@@ -245,7 +245,8 @@
    "reviewed": "2026-06-15",
    "official": "https://www.investindia.gov.in",
    "q": "PLI scheme",
-   "url": "/schemes/pli"
+   "url": "/schemes/pli",
+   "minLakh": 1000
   },
   {
    "id": "pmfme",
@@ -759,7 +760,8 @@
    "maxLakh": 20000,
    "official": "https://dst.gujarat.gov.in",
    "q": "Gujarat GCC policy",
-   "url": "/schemes/gujarat-gcc-policy"
+   "url": "/schemes/gujarat-gcc-policy",
+   "minLakh": 500
   },
   {
    "scope": "gujarat",
@@ -821,7 +823,8 @@
    "maxLakh": 1000000,
    "official": "https://gsem.gujarat.gov.in",
    "q": "Gujarat semiconductor",
-   "url": "/schemes/gujarat-semiconductor-policy"
+   "url": "/schemes/gujarat-semiconductor-policy",
+   "minLakh": 100000
   },
   {
    "scope": "gujarat",
@@ -1153,7 +1156,8 @@
    "official": "https://ic.gujarat.gov.in",
    "q": "Gujarat industrial policy incentive",
    "url": "/schemes/gujarat-large-industry-incentive",
-   "group": "industry"
+   "group": "industry",
+   "minLakh": 5000
   },
   {
    "id": "gujarat-startup-scheme",
@@ -1306,7 +1310,8 @@
    "reviewed": "2026-05-24",
    "official": "https://invest.up.gov.in",
    "q": "Invest UP industrial policy",
-   "url": "/schemes/upiepp-up"
+   "url": "/schemes/upiepp-up",
+   "minLakh": 1000
   },
   {
    "id": "up-msme-policy",

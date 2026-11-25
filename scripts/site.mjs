@@ -58,9 +58,9 @@ export function header({ stamp }) {
 <div class="topbar" role="note"><div class="wrap"><a href="${SITE.sponsorUrl}" target="_blank" rel="noopener" data-bl-ev="sponsor_topbar">Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership <span aria-hidden="true">→</span></a></div></div>
 <div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Independent guide · Not a government website<span class="hide-sm"> · Updated daily · ${esc(stamp)}</span></div><div class="util-r"><button type="button" class="lang-btn" data-bl-lang aria-haspopup="true">${I.globe}<span>English / हिंदी</span></button><a href="/get-funding" class="util-cta">Free eligibility check →</a></div></div></div>
 <header class="site-hd"><div class="wrap">
-<a href="/" class="brand" aria-label="BHARAT.LOAN home"><div class="crest"><span>भा</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Guide</small></div></a>
+<a href="/" class="brand" aria-label="BHARAT.LOAN home"><div class="crest"><span>भा</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; subsidy guide</small></div></a>
 <nav class="main" aria-label="Main">${dd('Schemes', '/schemes/', NAV.schemes)}${dd('Tools', '/get-funding', NAV.tools)}<a href="/updates" class="nav-live"><span class="live-dot"></span>Updates</a><a href="/guides/">Guides</a><a href="/videos">Videos</a>${dd('More', '/advertise', NAV.more)}</nav>
-<div class="hd-actions"><button type="button" class="icon-btn" data-bl-search aria-label="Search schemes">${I.search}</button><a href="/get-funding" class="cta-sm">Get Funding</a><button type="button" class="icon-btn menu-btn" data-bl-menu aria-label="Open menu" aria-expanded="false">${I.menu}</button></div>
+<div class="hd-actions"><button type="button" class="search-pill" data-bl-search aria-label="Search schemes">${I.search}<span>Search schemes</span><kbd>/</kbd></button><a href="/get-funding" class="cta-sm">Get funding</a><button type="button" class="icon-btn menu-btn" data-bl-menu aria-label="Open menu" aria-expanded="false">${I.menu}</button></div>
 </div>
 <div class="mnav" id="mnav" hidden><div class="wrap">
 <div class="mnav-grp"><b>Schemes</b>${NAV.schemes.map(([t, h]) => `<a href="${h}">${t}</a>`).join('')}</div>

@@ -82,7 +82,7 @@ const newsFor = (id, n = 5) => diverse(items.filter((x) => (x.tags || []).includ
 
 function schemeCard(s) {
   const st = { central: 'Central', gujarat: 'Gujarat', up: 'Uttar Pradesh', maharashtra: 'Maharashtra' }[s.scope] || '';
-  return `<a class="card" href="${s.url}" data-cat="${esc(s.cat)}" data-scope="${esc(s.scope)}" data-tier="${esc(s.tier)}"><div class="tierflag">TIER ${esc(s.tier)}</div><div class="type">${esc(s.cat)} · ${esc(st)}</div><h4>${esc(s.name)}</h4><div class="full">${esc(s.full)}</div><div class="quantum">${esc(s.quantum)}</div><div class="body-tag">${esc(s.body)}</div><div class="card-link">View scheme →</div></a>`;
+  return `<a class="card" href="${s.url}" data-cat="${esc(s.cat)}" data-scope="${esc(s.scope)}" data-tier="${esc(s.tier)}"><div class="tierflag">Tier ${esc(s.tier)}</div><div class="type">${esc(s.cat)} · ${esc(st)}</div><h4>${esc(s.name)}</h4><div class="full">${esc(s.full)}</div><div class="quantum">${esc(s.quantum)}</div><div class="body-tag">${esc(s.body)}</div><div class="card-link">View scheme →</div></a>`;
 }
 
 function videoCard(v) {
@@ -109,7 +109,7 @@ const BLOCKS = {
   'home-schemes': () => SCHEMES.filter((s) => s.scope === 'central').map(schemeCard).join(''),
   'home-states': () => (REG.states || []).map((st) => {
     const n = SCHEMES.filter((s) => s.scope === st.id).length;
-    return `<a class="card" href="${st.url}"><div class="tierflag live">LIVE</div><div class="type">${n} state schemes${st.id === 'up' ? ' + 75 ODOP districts' : ''}</div><h4>${esc(st.name)}</h4><div class="full">${esc(st.tag)}</div><div class="card-link">Explore ${esc(st.name)} →</div></a>`;
+    return `<a class="card" href="${st.url}"><div class="tierflag live">Live</div><div class="type">${n} state schemes${st.id === 'up' ? ' + 75 ODOP districts' : ''}</div><h4>${esc(st.name)}</h4><div class="full">${esc(st.tag)}</div><div class="card-link">Explore ${esc(st.name)} →</div></a>`;
   }).join(''),
   'home-videos': () => (VID.items || []).length ? `<div class="vgrid">${VID.items.slice(0, 3).map(videoCard).join('')}</div>` : topicLinks(),
   'counts': () => `<div><b>${SCHEMES.length}</b><small>Schemes mapped &amp; reviewed</small></div><div><b>${(REG.states || []).length} + 75</b><small>States live + UP ODOP districts</small></div><div><b>Daily</b><small>News &amp; updates refresh</small></div>`,
@@ -124,7 +124,7 @@ const BLOCKS = {
   'videos': () => (VID.items || []).length ? `<div class="vgrid">${VID.items.slice(0, 24).map(videoCard).join('')}</div>` : '<p class="muted">New explainer videos are pulled in automatically on each refresh. Meanwhile, start with the topics below.</p>',
   'video-topics': topicLinks,
   'schemes-grid': () => SCHEMES.map(schemeCard).join(''),
-  'schemes-json': () => JSON.stringify({ schemes: SCHEMES.map(({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, url }) => ({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, url })) }).replace(/</g, '\\u003c'),
+  'schemes-json': () => JSON.stringify({ schemes: SCHEMES.map(({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, minLakh, url }) => ({ id, name, scope, cat, tier, quantum, need, stage, sector, who, maxLakh, minLakh, url })) }).replace(/</g, '\\u003c'),
   'state-schemes': (attrs) => { const g = attr(attrs, 'group'); return SCHEMES.filter((s) => s.scope === attr(attrs, 'state') && (!g || s.group === g)).map(schemeCard).join(''); },
   'state-count': (attrs) => String(SCHEMES.filter((s) => s.scope === attr(attrs, 'state')).length),
   'state-news': (attrs) => {
@@ -147,7 +147,12 @@ function normalizeHead(html, file) {
   // remove every existing AdSense loader + verification meta, re-add a single canonical one
   html = html.replace(/<script[^>]*pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js[^>]*><\/script>\s*/g, '');
   html = html.replace(/<meta name="google-adsense-account"[^>]*>\s*/g, '');
-  const add = [];
+  // fonts: self-hosted Geist (assets/fonts) replaces Google Fonts on every page
+  html = html.replace(/<link rel="preconnect" href="https:\/\/fonts\.(googleapis|gstatic)\.com"[^>]*>\s*/g, '');
+  html = html.replace(/<link[^>]*href="https:\/\/fonts\.googleapis\.com\/css2[^"]*"[^>]*>\s*/g, '');
+  html = html.replace(/<link rel="preload" href="\/assets\/fonts\/[^"]*"[^>]*>\s*/g, '');
+  html = html.replace(/<meta name="theme-color"[^>]*>\s*/g, '');
+  const add = ['<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>', '<meta name="theme-color" content="#4f46e5">'];
   if (!/classList\.add\('js'\)/.test(html)) add.push("<script>document.documentElement.classList.add('js')</script>");
   add.push(`<meta name="google-adsense-account" content="${SITE.adsenseClient}">`);
   if (!noAds) add.push(`<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${SITE.adsenseClient}" crossorigin="anonymous"></script>`);
@@ -155,7 +160,6 @@ function normalizeHead(html, file) {
   if (!/name="twitter:image"/.test(html) && !isNoindex) add.push(`<meta name="twitter:image" content="${SITE.origin}/og-image.svg">`);
   if (!/rel="icon"/.test(html)) add.push('<link rel="icon" type="image/svg+xml" href="/favicon.svg">');
   if (!/rel="apple-touch-icon"/.test(html)) add.push('<link rel="apple-touch-icon" href="/favicon.svg">');
-  if (!/name="theme-color"/.test(html)) add.push('<meta name="theme-color" content="#1456e6">');
   if (!/rel="manifest"/.test(html)) add.push('<link rel="manifest" href="/site.webmanifest">');
   if (!/application\/rss\+xml/.test(html)) add.push(`<link rel="alternate" type="application/rss+xml" title="BHARAT.LOAN updates" href="${SITE.origin}/feed.xml">`);
   if (!/href="\/styles\.css"/.test(html)) add.push('<link rel="stylesheet" href="/styles.css">');
@@ -170,6 +174,7 @@ function normalizeHead(html, file) {
 
 // ---------- body transforms ----------
 function transformBody(html, file) {
+  html = html.replace(/font-family:\s*'?Fraunces'?,\s*serif/g, 'font-family:var(--display)');
   // old publisher IDs anywhere -> current
   html = html.replace(OLD_PUB, SITE.adsenseClient);
   // manual <ins> ad units without slot IDs -> lightweight placeholders handled by partials.js

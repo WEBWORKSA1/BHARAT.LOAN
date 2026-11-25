@@ -19,9 +19,6 @@
 <link rel="apple-touch-icon" href="/favicon.svg">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"Government Subsidy Estimator for Indian Business","applicationCategory":"FinanceApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"INR"},"description":"Free tool to estimate the total Indian government subsidy a business qualifies for across PMEGP, CLCSS, ODOP, Aatmanirbhar Gujarat and other central and state schemes, with anti-double-dipping rules applied.","url":"https://bharat.loan/subsidy-estimator","publisher":{"@type":"Organization","name":"BHARAT.LOAN","url":"https://bharat.loan/"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Are these subsidy estimates guaranteed?","acceptedAnswer":{"@type":"Answer","text":"No. These are indicative estimates based on scheme rules as currently published. Actual subsidy approval depends on document verification, budget availability with the disbursing agency, project viability assessment by the lending bank, and category-specific guidelines that change from time to time. Always confirm with the relevant authority before acting."}},{"@type":"Question","name":"Can I claim multiple subsidies for the same project?","acceptedAnswer":{"@type":"Answer","text":"Some can stack, some cannot. PMEGP and CLCSS cannot be combined for the same unit. PMEGP and ODOP UP cannot be combined for the same unit. State-level capital subsidy and central CLCSS can sometimes stack. The estimator applies the main anti-double-dipping rules; an advisor confirms the legal maximum stack for your specific case."}},{"@type":"Question","name":"How is the PMEGP subsidy disbursed?","acceptedAnswer":{"@type":"Answer","text":"PMEGP releases the margin-money subsidy as a grant adjusted against the bank loan after a lock-in period of three years, provided the unit remains operational and EDP training is completed. The bank initially disburses the full loan; the subsidy reduces the outstanding after lock-in."}},{"@type":"Question","name":"Does CLCSS apply to my industry?","acceptedAnswer":{"@type":"Answer","text":"CLCSS applies to 51 notified manufacturing sub-sectors including bio-tech, drugs, food processing, textiles, glass and ceramics, plastics, leather and footwear, and many engineering categories. It is upgrade-only — the subsidy is on plant and machinery for technology upgrade, not new units. Check the latest 51-sector list on the Ministry of MSME site."}},{"@type":"Question","name":"How long does subsidy approval take?","acceptedAnswer":{"@type":"Answer","text":"Timelines vary by scheme and state. PMEGP typically 45 to 120 days from application to in-principle approval, plus the three-year lock-in for subsidy adjustment. CLCSS 90 to 180 days. State capital subsidies often 60 to 180 days from production start. Realistic plan: budget 6 to 12 months from project filing to subsidy actually adjusted."}},{"@type":"Question","name":"What documents do I need to claim these subsidies?","acceptedAnswer":{"@type":"Answer","text":"Typical core set: Udyam registration, GST registration, PAN, Aadhaar of all promoters, project report with technical and financial details, bank loan sanction letter, land or premises proof, NOCs as applicable, EDP training certificate for PMEGP, and category proof certificates where claiming special-category benefits. Scheme-specific docs are detailed on each scheme page on this site."}}]}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles.css">
 <style>
 .wrap{max-width:1180px}
@@ -32,18 +29,18 @@
 .ch-left{position:sticky;top:92px}
 .ch-left .crumb{padding:0 0 18px;font-size:13px;color:var(--muted)}
 .ch-left .crumb a{color:var(--blue);text-decoration:none}
-.ch-left h1{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px;color:var(--ink)}
+.ch-left h1{font-family:var(--display);font-weight:600;font-size:clamp(32px,4.2vw,50px);line-height:1.05;letter-spacing:-.02em;margin-bottom:18px;color:var(--ink)}
 .ch-left h1 em{font-style:italic;color:var(--teal)}
 .ch-left .lede{font-size:17px;line-height:1.55;color:var(--ink-soft);margin-bottom:24px;max-width:460px}
 .ch-trust{display:flex;gap:28px;flex-wrap:wrap;margin-bottom:24px}
-.ch-trust div b{font-family:'Fraunces',serif;font-size:23px;font-weight:600;color:var(--ink);display:block;line-height:1}
+.ch-trust div b{font-family:var(--display);font-size:23px;font-weight:600;color:var(--ink);display:block;line-height:1}
 .ch-trust div small{font-size:12.5px;color:var(--muted);font-weight:500}
 .ch-emi-link{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--blue);font-weight:600;text-decoration:none;border:1px solid var(--line);background:var(--surface);border-radius:8px;padding:9px 14px;transition:all .15s}
 .ch-emi-link:hover{border-color:var(--blue);box-shadow:var(--shadow)}
 .calc-card{background:linear-gradient(165deg,var(--ink),#13314c);border-radius:20px;box-shadow:var(--shadow-lg);position:relative;overflow:hidden;padding:34px 36px 36px;color:#fff}
 .calc-card::after{content:"";position:absolute;right:-80px;top:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(14,157,138,.28),transparent 70%);pointer-events:none}
 .calc-card::before{content:"";position:absolute;left:-60px;bottom:-60px;width:260px;height:260px;background:radial-gradient(circle,rgba(20,86,230,.2),transparent 70%);pointer-events:none}
-.calc-card h2{font-family:'Fraunces',serif;font-size:22px;font-weight:600;margin-bottom:22px;position:relative;color:#fff}
+.calc-card h2{font-family:var(--display);font-size:22px;font-weight:600;margin-bottom:22px;position:relative;color:#fff}
 .calc-row{position:relative;margin-bottom:18px}
 .calc-row .crow-label,.calc-grid2 label{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:#aebfd2;font-weight:500;margin-bottom:0}
 .calc-row .crow-label strong{color:#fff;font-weight:600}
@@ -67,11 +64,11 @@
 .ct-opt:hover:not(.active){color:#fff}
 .calc-out{position:relative;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:24px;margin-top:24px;display:grid;grid-template-columns:1.4fr 1fr;gap:24px;align-items:center}
 .calc-out .co-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:6px}
-.calc-out .co-emi{font-family:'Fraunces',serif;font-size:42px;font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em}
+.calc-out .co-emi{font-family:var(--display);font-size:42px;font-weight:600;color:#fff;line-height:1;letter-spacing:-.02em}
 .calc-out .co-emi-sub{font-size:12.5px;color:#aebfd2;margin-top:6px}
 .co-rt{display:flex;flex-direction:column;gap:12px;border-left:1px solid rgba(255,255,255,.12);padding-left:24px}
 .co-rt .co-secondary small{display:block;font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:#8298ad;font-weight:700;margin-bottom:3px}
-.co-rt .co-secondary b{font-family:'Fraunces',serif;font-size:18px;color:#fff;font-weight:600;line-height:1}
+.co-rt .co-secondary b{font-family:var(--display);font-size:18px;color:#fff;font-weight:600;line-height:1}
 .calc-foot{margin-top:18px;display:flex;gap:11px;flex-wrap:wrap;align-items:center}
 .calc-foot .cf-cta{flex:1;min-width:200px;background:var(--blue);color:#fff;border:none;border-radius:10px;padding:14px;font-weight:600;font-size:14.5px;font-family:inherit;cursor:pointer;text-decoration:none;text-align:center;box-shadow:0 6px 16px rgba(20,86,230,.3);transition:transform .15s}
 .calc-foot .cf-cta:hover{transform:translateY(-1px)}
@@ -81,16 +78,16 @@
 .breakdown-band .sec-head{max-width:880px;margin:0 auto 36px;padding:0 32px}
 .breakdown-band .kicker{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--teal);font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
 .breakdown-band .kicker .bar{width:26px;height:2px;background:var(--teal);border-radius:2px}
-.breakdown-band h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.1;letter-spacing:-.015em;margin-bottom:13px;color:var(--ink)}
+.breakdown-band h2{font-family:var(--display);font-size:clamp(26px,3vw,34px);font-weight:600;line-height:1.1;letter-spacing:-.015em;margin-bottom:13px;color:var(--ink)}
 .breakdown-band .sec-head>p{font-size:16px;color:var(--muted);line-height:1.55}
 .breakdown-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:880px;margin:0 auto;padding:0 32px}
 .scheme-result{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:22px 24px;display:grid;grid-template-columns:170px 1fr 110px;gap:22px;align-items:center;transition:all .2s;text-decoration:none;color:inherit}
 .scheme-result:hover{border-color:#c5d6f5;box-shadow:var(--shadow);transform:translateY(-1px)}
 .scheme-result.conflict{background:linear-gradient(180deg,var(--amber-wash),var(--surface));border-color:#f2d9a8}
-.scheme-result .sr-amount{font-family:'Fraunces',serif;font-size:30px;font-weight:600;color:var(--teal);line-height:1;letter-spacing:-.015em}
+.scheme-result .sr-amount{font-family:var(--display);font-size:30px;font-weight:600;color:var(--teal);line-height:1;letter-spacing:-.015em}
 .scheme-result.conflict .sr-amount{color:#8a5a14}
 .scheme-result .sr-amount small{display:block;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-top:4px;font-family:'Plus Jakarta Sans',sans-serif}
-.scheme-result .sr-meta h3{font-family:'Fraunces',serif;font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px}
+.scheme-result .sr-meta h3{font-family:var(--display);font-size:18px;font-weight:600;color:var(--ink);margin-bottom:4px}
 .scheme-result .sr-meta p{font-size:14px;color:var(--ink-soft);line-height:1.5;margin-bottom:5px}
 .scheme-result .sr-meta .sr-cav{font-size:12px;color:var(--muted);line-height:1.4;font-style:italic}
 .scheme-result .sr-link{font-size:13px;font-weight:600;color:var(--blue);text-align:right;display:flex;flex-direction:column;gap:6px;align-items:flex-end}
@@ -98,22 +95,22 @@
 .scheme-result .sr-link .sr-flag{font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);background:var(--amber-wash);border-radius:5px;padding:3px 7px;font-weight:700}
 .scheme-result .sr-link .sr-flag.included{color:var(--green);background:var(--green-wash)}
 .no-match{background:var(--wash);border:1px dashed var(--line);border-radius:var(--r);padding:32px 28px;text-align:center;max-width:880px;margin:0 auto;color:var(--muted);font-size:15px}
-.no-match strong{color:var(--ink);font-weight:600;display:block;font-family:'Fraunces',serif;font-size:18px;margin-bottom:6px}
+.no-match strong{color:var(--ink);font-weight:600;display:block;font-family:var(--display);font-size:18px;margin-bottom:6px}
 .stacking-note{max-width:880px;margin:24px auto 0;padding:18px 22px;background:var(--blue-wash);border:1px solid #d7e3ff;border-left:3px solid var(--blue);border-radius:11px;font-size:13.5px;color:var(--ink-soft);line-height:1.55}
 .stacking-note strong{color:var(--blue-deep)}
 .explain{background:var(--wash);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:60px 0}
 .explain .ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;max-width:1040px;margin:0 auto;padding:0 32px}
-.explain h2{font-family:'Fraunces',serif;font-size:24px;font-weight:600;line-height:1.15;margin-bottom:14px;color:var(--ink)}
+.explain h2{font-family:var(--display);font-size:24px;font-weight:600;line-height:1.15;margin-bottom:14px;color:var(--ink)}
 .explain p{font-size:15px;color:var(--ink-soft);line-height:1.65;margin-bottom:12px}
 .explain .ex-eg{background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:14px 18px;font-size:13.5px;color:var(--ink-soft);line-height:1.6}
 .explain .ex-eg b{color:var(--ink)}
 .faq-band{padding:60px 0}
 .faq-band .wrap{max-width:820px;padding:0 32px}
-.faq-band h2{font-family:'Fraunces',serif;font-size:28px;font-weight:600;line-height:1.1;margin-bottom:26px;color:var(--ink)}
+.faq-band h2{font-family:var(--display);font-size:28px;font-weight:600;line-height:1.1;margin-bottom:26px;color:var(--ink)}
 .final{background:linear-gradient(165deg,var(--ink),#13314c);color:#fff;text-align:center;position:relative;overflow:hidden;padding:60px 0}
 .final::before{content:"";position:absolute;inset:0;background:radial-gradient(700px 300px at 50% 0%,rgba(14,157,138,.25),transparent 65%);pointer-events:none}
 .final .wrap{position:relative}
-.final h2{font-family:'Fraunces',serif;font-size:clamp(26px,3vw,36px);font-weight:600;margin-bottom:14px;line-height:1.1}
+.final h2{font-family:var(--display);font-size:clamp(26px,3vw,36px);font-weight:600;margin-bottom:14px;line-height:1.1}
 .final p{font-size:17px;color:#aebfd2;max-width:540px;margin:0 auto 26px}
 .final .btn{padding:15px 26px;border-radius:11px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;background:var(--teal);color:#fff;box-shadow:0 8px 22px rgba(14,157,138,.32);transition:transform .15s,box-shadow .2s}
 .final .btn:hover{transform:translateY(-2px);box-shadow:0 14px 32px rgba(14,157,138,.4)}
@@ -133,10 +130,11 @@
   .explain .ex-grid{grid-template-columns:1fr;gap:28px;padding:0 22px}
 }
 </style>
-<meta name="theme-color" content="#1456e6">
 <link rel="manifest" href="/site.webmanifest">
 <link rel="alternate" type="application/rss+xml" title="BHARAT.LOAN updates" href="https://bharat.loan/feed.xml">
 <script>document.documentElement.classList.add('js')</script>
+<link rel="preload" href="/assets/fonts/Geist-Variable.woff2" as="font" type="font/woff2" crossorigin>
+<meta name="theme-color" content="#4f46e5">
 <meta name="google-adsense-account" content="ca-pub-6620975821265271">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6620975821265271" crossorigin="anonymous"></script>
 </head>
@@ -146,9 +144,9 @@
 <div class="topbar" role="note"><div class="wrap"><a href="https://web.works/contact" target="_blank" rel="noopener" data-bl-ev="sponsor_topbar">Contact, if you are interested in this website / domain name / Sponsorship / Advertisement / Partnership <span aria-hidden="true">→</span></a></div></div>
 <div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Independent guide · Not a government website<span class="hide-sm"> · Updated daily · 25 Nov 2026</span></div><div class="util-r"><button type="button" class="lang-btn" data-bl-lang aria-haspopup="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"/></svg><span>English / हिंदी</span></button><a href="/get-funding" class="util-cta">Free eligibility check →</a></div></div></div>
 <header class="site-hd"><div class="wrap">
-<a href="/" class="brand" aria-label="BHARAT.LOAN home"><div class="crest"><span>भा</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Guide</small></div></a>
+<a href="/" class="brand" aria-label="BHARAT.LOAN home"><div class="crest"><span>भा</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; subsidy guide</small></div></a>
 <nav class="main" aria-label="Main"><div class="nav-dd"><a href="/schemes/" class="nav-dd-trigger">Schemes <span class="caret">▾</span></a><div class="nav-dd-menu"><a href="/schemes/">All schemes<small>Filter every central and state scheme</small></a><a href="/states/gujarat">Gujarat<small>Viksit Gujarat 2026, SVBY + 20 more</small></a><a href="/states/up">Uttar Pradesh<small>CM-YUVA, ODOP, CMYSY, UPIEPP</small></a><a href="/states/maharashtra">Maharashtra<small>CMEGP, Annasaheb Patil, IIS Policy 2025</small></a><a href="/odop/">ODOP districts (75)<small>UP district-by-district product loans</small></a></div></div><div class="nav-dd"><a href="/get-funding" class="nav-dd-trigger">Tools <span class="caret">▾</span></a><div class="nav-dd-menu"><a href="/get-funding">Funding Matcher<small>Find every scheme you qualify for</small></a><a href="/emi-calculator">EMI Calculator<small>Monthly EMI + subsidy impact</small></a><a href="/subsidy-estimator">Subsidy Estimator<small>How much govt money you qualify for</small></a><a href="/compare-schemes">Compare Schemes<small>CGTMSE vs PMEGP vs Mudra and more</small></a></div></div><a href="/updates" class="nav-live"><span class="live-dot"></span>Updates</a><a href="/guides/">Guides</a><a href="/videos">Videos</a><div class="nav-dd"><a href="/advertise" class="nav-dd-trigger">More <span class="caret">▾</span></a><div class="nav-dd-menu"><a href="/contests">Contests & prizes<small>Compete, win, get featured</small></a><a href="/careers">Careers<small>Join the team or the talent pool</small></a><a href="/support">Support us<small>Back independent scheme research</small></a><a href="/advertise">Advertise & partner<small>Sponsorships, placements, leads</small></a><a href="/resources">Official portals<small>Direct links to government sites</small></a><a href="/about">About</a><a href="/contact">Contact</a></div></div></nav>
-<div class="hd-actions"><button type="button" class="icon-btn" data-bl-search aria-label="Search schemes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></button><a href="/get-funding" class="cta-sm">Get Funding</a><button type="button" class="icon-btn menu-btn" data-bl-menu aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
+<div class="hd-actions"><button type="button" class="search-pill" data-bl-search aria-label="Search schemes"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><span>Search schemes</span><kbd>/</kbd></button><a href="/get-funding" class="cta-sm">Get funding</a><button type="button" class="icon-btn menu-btn" data-bl-menu aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div>
 </div>
 <div class="mnav" id="mnav" hidden><div class="wrap">
 <div class="mnav-grp"><b>Schemes</b><a href="/schemes/">All schemes</a><a href="/states/gujarat">Gujarat</a><a href="/states/up">Uttar Pradesh</a><a href="/states/maharashtra">Maharashtra</a><a href="/odop/">ODOP districts (75)</a></div>
