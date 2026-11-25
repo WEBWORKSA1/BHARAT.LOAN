@@ -1,25 +1,17 @@
 {
-  "url": "https://api.github.com/repos/WEBWORKSA1/BHARAT.LOAN/pages",
+ "site": "http://bharat.loan/",
+ "status": "built",
+ "build_type": "legacy",
+ "source": {
+  "branch": "main",
+  "path": "/"
+ },
+ "cname": "bharat.loan",
+ "https_enforced": false,
+ "latest_build": {
   "status": "built",
-  "cname": "bharat.loan",
-  "custom_404": true,
-  "html_url": "http://bharat.loan/",
-  "build_type": "legacy",
-  "source": {
-    "branch": "main",
-    "path": "/"
-  },
-  "public": true,
-  "protected_domain_state": null,
-  "pending_domain_unverified_at": null,
-  "https_certificate": {
-    "state": "approved",
-    "description": "The certificate has been approved.",
-    "domains": [
-      "bharat.loan",
-      "www.bharat.loan"
-    ],
-    "expires_at": "2027-02-23"
-  },
-  "https_enforced": false
+  "commit": "3cb072e2e7ed8a47271682f136df0355ef92f7bf",
+  "created_at": "2026-11-25T16:29:04Z",
+  "error": null
+ }
 }

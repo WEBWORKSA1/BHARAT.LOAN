@@ -1,9 +1,9 @@
 {
- "started": "2026-11-25T16:26:35.013Z",
+ "started": "2026-11-25T16:29:15.485Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 12
+   "n": 11
   },
   {
    "q": "PMEGP",
@@ -47,11 +47,11 @@
   },
   {
    "q": "SIDBI MSME loan",
-   "n": 10
+   "n": 9
   },
   {
    "q": "NSIC MSME",
-   "n": 6
+   "n": 5
   },
   {
    "q": "Aatmanirbhar Gujarat MSME",
@@ -71,7 +71,7 @@
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
-   "n": 8
+   "n": 7
   },
   {
    "q": "ODOP Uttar Pradesh",
@@ -145,7 +145,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 250,
+ "news": 259,
  "videos": 6,
- "finished": "2026-11-25T16:28:09.293Z"
+ "finished": "2026-11-25T16:30:50.865Z"
 }
