@@ -1,5 +1,5 @@
 {
- "started": "2026-11-25T17:34:11.449Z",
+ "started": "2026-11-25T17:56:53.030Z",
  "feeds": [
   {
    "q": "CGTMSE",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 8
+   "n": 9
   },
   {
    "q": "ATUFS textile",
@@ -47,7 +47,7 @@
   },
   {
    "q": "SIDBI MSME loan",
-   "n": 10
+   "n": 9
   },
   {
    "q": "NSIC MSME",
@@ -83,7 +83,7 @@
   },
   {
    "q": "i-Hub Gujarat startup",
-   "n": 5
+   "n": 6
   },
   {
    "q": "Gujarat IT policy",
@@ -103,11 +103,11 @@
   },
   {
    "q": "Gujarat biotechnology policy",
-   "n": 4
+   "n": 2
   },
   {
    "q": "Gujarat space policy",
-   "n": 9
+   "n": 8
   },
   {
    "q": "iKhedut Gujarat",
@@ -143,7 +143,7 @@
   },
   {
    "q": "Gujarat startup scheme",
-   "n": 11
+   "n": 12
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
@@ -221,7 +221,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 289,
+ "news": 295,
  "videos": 6,
- "finished": "2026-11-25T17:36:36.715Z"
+ "finished": "2026-11-25T17:59:20.396Z"
 }
