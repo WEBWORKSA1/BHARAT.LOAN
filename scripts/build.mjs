@@ -47,7 +47,8 @@ function walk(dir, out = []) {
   }
   return out;
 }
-const urlOf = (f) => { let u = '/' + f.replace(/\.html$/, ''); if (u.endsWith('/index')) u = u.slice(0, -6) || '/'; return u === '' ? '/' : u; };
+// GitHub Pages: /about -> about.html, /schemes/ -> schemes/index.html (directories always end with "/")
+const urlOf = (f) => { let u = '/' + f.replace(/\.html$/, ''); if (u.endsWith('/index')) u = u.slice(0, -5); return u || '/'; };
 function block(html, name, content) {
   const re = new RegExp(`<!--bl:${name}(\\s[^>]*)?-->[\\s\\S]*?<!--/bl:${name}-->`, 'g');
   if (!re.test(html)) return html;
@@ -153,9 +154,11 @@ function normalizeHead(html, file) {
   if (!/application\/rss\+xml/.test(html)) add.push(`<link rel="alternate" type="application/rss+xml" title="BHARAT.LOAN updates" href="${SITE.origin}/feed.xml">`);
   if (!/href="\/styles\.css"/.test(html)) add.push('<link rel="stylesheet" href="/styles.css">');
   html = html.replace(/<\/head>/, add.join('\n') + '\n</head>');
-  // canonical: no trailing slash on directory indexes (vercel trailingSlash:false)
-  html = html.replace(/(<link rel="canonical" href="https:\/\/bharat\.loan\/[^"]+?)\/"/g, '$1"');
-  html = html.replace(/(<meta property="og:url" content="https:\/\/bharat\.loan\/[^"]+?)\/"/g, '$1"');
+  // canonical + og:url: directory indexes carry a trailing slash (GitHub Pages redirects /dir -> /dir/)
+  if (/(^|\/)index\.html$/.test(file) && file !== 'index.html') {
+    const u = SITE.origin + urlOf(file);
+    html = html.replace(/(<link rel="canonical" href=")[^"]*(")/, `$1${u}$2`).replace(/(<meta property="og:url" content=")[^"]*(")/, `$1${u}$2`);
+  }
   return html;
 }
 
@@ -198,14 +201,16 @@ function transformBody(html, file) {
   // shorter titles for ODOP district pages
   html = html.replace(/(<title>ODOP [^<|]+?) \| Margin-Money Loan, Eligibility &amp; How to Apply \| BHARAT\.LOAN<\/title>/, '$1 | ODOP Loan | BHARAT.LOAN</title>');
   html = html.replace(/(<title>ODOP [^<|]+?) \| Margin-Money Loan, Eligibility & How to Apply \| BHARAT\.LOAN<\/title>/, '$1 | ODOP Loan | BHARAT.LOAN</title>');
+  // structured-data URLs for directory indexes
+  html = html.replace(/"https:\/\/bharat\.loan\/(schemes|odop|guides)"/g, '"https://bharat.loan/$1/"');
   // internal .html links -> clean absolute URLs (avoids 308 hops under cleanUrls)
   html = html.replace(/href="((?!https?:|\/\/|mailto:|tel:|#|javascript:)[^"]+?)\.html(#[^"]*)?"/g, (mm, h, hash = '') => {
     const abs = h.startsWith('/') ? h : path.posix.normalize(path.posix.join('/' + path.posix.dirname(file), h));
-    let u = abs.replace(/\/index$/, '') || '/';
+    let u = abs.replace(/\/index$/, '/') || '/';
     return `href="${u}${hash}"`;
   });
   // internal links that 308-redirect under cleanUrls/trailingSlash:false
-  html = html.replace(/href="\/schemes\/"/g, 'href="/schemes"').replace(/href="\/odop\/"/g, 'href="/odop"').replace(/href="\/acquisition\.html"/g, 'href="/advertise"');
+  html = html.replace(/href="\/(schemes|odop|guides)"/g, 'href="/$1/"').replace(/href="\/(schemes|odop|guides)([?#][^"]*)"/g, 'href="/$1/$2"').replace(/href="\/acquisition(\.html)?"/g, 'href="/advertise"');
   return html;
 }
 
@@ -248,8 +253,8 @@ wr('data/lastmod.json', JSON.stringify(lm, null, 0));
 // ---------- sitemap / search index / feed ----------
 const meta = (h, re) => ((h.match(re) || [])[1] || '').replace(/\s+/g, ' ').trim();
 const indexable = pages.filter((p) => !/<meta name="robots" content="noindex/i.test(p.html) && p.f !== '404.html');
-const prio = (u) => (u === '/' ? '1.0' : /^\/(get-funding|schemes|states\/|updates)/.test(u) ? '0.9' : /^\/schemes\//.test(u) ? '0.85' : /^\/odop\//.test(u) ? '0.7' : '0.6');
-const sm = indexable.map((p) => { const u = urlOf(p.f); return `  <url><loc>${SITE.origin}${u === '/' ? '/' : u}</loc><lastmod>${lm[p.f].d}</lastmod><changefreq>${/^\/(updates|videos)?$/.test(u) || /^\/(schemes|odop)\//.test(u) ? 'daily' : 'weekly'}</changefreq><priority>${prio(u)}</priority></url>`; }).sort();
+const prio = (u) => (u === '/' ? '1.0' : /^\/(get-funding|schemes\/$|states\/|updates)/.test(u) ? '0.9' : /^\/schemes\//.test(u) ? '0.85' : /^\/odop\//.test(u) ? '0.7' : '0.6');
+const sm = indexable.map((p) => { const u = urlOf(p.f); return `  <url><loc>${SITE.origin}${u === '/' ? '/' : u}</loc><lastmod>${lm[p.f].d}</lastmod><changefreq>${/^\/(updates|videos)?$/.test(u) || /^\/(schemes|odop)\/./.test(u) ? 'daily' : 'weekly'}</changefreq><priority>${prio(u)}</priority></url>`; }).sort();
 wr('sitemap.xml', `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sm.join('\n')}\n</urlset>\n`);
 
 const kind = (u) => (u.startsWith('/schemes/') ? 'Scheme' : u.startsWith('/odop/') ? 'ODOP district' : u.startsWith('/states/') ? 'State' : u.startsWith('/guides/') ? 'Guide' : 'Page');
@@ -272,7 +277,7 @@ wr('data/build.json', JSON.stringify({ built: now.toISOString(), date: TODAY, st
 
 // ---------- guardrails ----------
 const problems = [];
-const deployable = walk('.').filter((f) => !/^(README\.md|\.vercelignore|\.gitignore)$/.test(f));
+const deployable = walk('.').filter((f) => !/^(README\.md|\.gitignore|data\/pages-status\.json)$/.test(f));
 for (const f of deployable) {
   if (!/\.(html|js|json|xml|txt|css|svg|webmanifest|md)$/.test(f)) continue;
   const s = rd(f, '');
@@ -282,7 +287,7 @@ for (const f of deployable) {
 }
 for (const p of pages) {
   const h = rd(p.f);
-  if (p.f !== '404.html' && !/class="topbar"/.test(h)) problems.push(`no sponsorship top bar: ${p.f}`);
+  if (p.f !== '404.html' && !/data-redirect/.test(h) && !/class="topbar"/.test(h)) problems.push(`no sponsorship top bar: ${p.f}`);
   if (/document\.getElementById\('leadBtn'\)/.test(h)) problems.push(`inline lead script left in ${p.f}`);
   if (/formsubmit\.co/.test(h)) problems.push(`direct form endpoint in ${p.f}`);
 }

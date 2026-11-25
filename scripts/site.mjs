@@ -30,11 +30,11 @@ const dd = (label, href, items) =>
 
 export const NAV = {
   schemes: [
-    ['All schemes', '/schemes', 'Filter every central and state scheme'],
+    ['All schemes', '/schemes/', 'Filter every central and state scheme'],
     ['Gujarat', '/states/gujarat', 'Capital, interest & SGST incentives'],
     ['Uttar Pradesh', '/states/up', 'CM-YUVA, ODOP, CMYSY, UPIEPP'],
     ['Maharashtra', '/states/maharashtra', 'CMEGP, Annasaheb Patil, IIS Policy 2025'],
-    ['ODOP districts (75)', '/odop', 'UP district-by-district product loans'],
+    ['ODOP districts (75)', '/odop/', 'UP district-by-district product loans'],
   ],
   tools: [
     ['Funding Matcher', '/get-funding', 'Find every scheme you qualify for'],
@@ -59,13 +59,13 @@ export function header({ stamp }) {
 <div class="util"><div class="wrap"><div class="gov"><span class="dot"></span> Independent guide · Not a government website<span class="hide-sm"> · Updated daily · ${esc(stamp)}</span></div><div class="util-r"><button type="button" class="lang-btn" data-bl-lang aria-haspopup="true">${I.globe}<span>English / हिंदी</span></button><a href="/get-funding" class="util-cta">Free eligibility check →</a></div></div></div>
 <header class="site-hd"><div class="wrap">
 <a href="/" class="brand" aria-label="BHARAT.LOAN home"><div class="crest"><span>भा</span></div><div class="brand-tx"><b>BHARAT.LOAN</b><small>Scheme &amp; Subsidy Guide</small></div></a>
-<nav class="main" aria-label="Main">${dd('Schemes', '/schemes', NAV.schemes)}${dd('Tools', '/get-funding', NAV.tools)}<a href="/updates" class="nav-live"><span class="live-dot"></span>Updates</a><a href="/guides">Guides</a><a href="/videos">Videos</a>${dd('More', '/advertise', NAV.more)}</nav>
+<nav class="main" aria-label="Main">${dd('Schemes', '/schemes/', NAV.schemes)}${dd('Tools', '/get-funding', NAV.tools)}<a href="/updates" class="nav-live"><span class="live-dot"></span>Updates</a><a href="/guides/">Guides</a><a href="/videos">Videos</a>${dd('More', '/advertise', NAV.more)}</nav>
 <div class="hd-actions"><button type="button" class="icon-btn" data-bl-search aria-label="Search schemes">${I.search}</button><a href="/get-funding" class="cta-sm">Get Funding</a><button type="button" class="icon-btn menu-btn" data-bl-menu aria-label="Open menu" aria-expanded="false">${I.menu}</button></div>
 </div>
 <div class="mnav" id="mnav" hidden><div class="wrap">
 <div class="mnav-grp"><b>Schemes</b>${NAV.schemes.map(([t, h]) => `<a href="${h}">${t}</a>`).join('')}</div>
 <div class="mnav-grp"><b>Tools</b>${NAV.tools.map(([t, h]) => `<a href="${h}">${t}</a>`).join('')}</div>
-<div class="mnav-grp"><b>Read &amp; watch</b><a href="/updates">Daily updates</a><a href="/guides">Guides</a><a href="/videos">Videos</a><a href="/resources">Official portals</a></div>
+<div class="mnav-grp"><b>Read &amp; watch</b><a href="/updates">Daily updates</a><a href="/guides/">Guides</a><a href="/videos">Videos</a><a href="/resources">Official portals</a></div>
 <div class="mnav-grp"><b>Community</b>${NAV.more.map(([t, h]) => `<a href="${h}">${t}</a>`).join('')}</div>
 </div></div>
 </header>`;
@@ -78,8 +78,8 @@ export function footer({ stamp, year }) {
 <footer class="site-ft"><div class="wrap">
 <div class="ft-grid">
 <div class="fcol fbrand"><b class="fb-name">BHARAT.LOAN</b><p>An independent, continuously updated guide to Indian government business schemes, subsidies and incentives — with advisory support for founders and MSMEs.</p><div class="fraud">${I.shield}<span><strong>Fraud alert:</strong> government schemes are free to apply. Never pay anyone who “guarantees” a loan or subsidy approval. Apply only on official portals — see our <a href="/resources">official links</a>.</span></div></div>
-${col('Schemes', [['All schemes', '/schemes'], ['Gujarat', '/states/gujarat'], ['Uttar Pradesh', '/states/up'], ['Maharashtra', '/states/maharashtra'], ['ODOP districts', '/odop'], ['Official portals', '/resources']])}
-${col('Tools &amp; content', [['Funding Matcher', '/get-funding'], ['EMI Calculator', '/emi-calculator'], ['Subsidy Estimator', '/subsidy-estimator'], ['Compare Schemes', '/compare-schemes'], ['Daily updates', '/updates'], ['Guides', '/guides'], ['Videos', '/videos'], ['Search', '/search']])}
+${col('Schemes', [['All schemes', '/schemes/'], ['Gujarat', '/states/gujarat'], ['Uttar Pradesh', '/states/up'], ['Maharashtra', '/states/maharashtra'], ['ODOP districts', '/odop/'], ['Official portals', '/resources']])}
+${col('Tools &amp; content', [['Funding Matcher', '/get-funding'], ['EMI Calculator', '/emi-calculator'], ['Subsidy Estimator', '/subsidy-estimator'], ['Compare Schemes', '/compare-schemes'], ['Daily updates', '/updates'], ['Guides', '/guides/'], ['Videos', '/videos'], ['Search', '/search']])}
 ${col('Company', [['About', '/about'], ['Contact', '/contact'], ['Careers', '/careers'], ['Contests', '/contests'], ['Support us', '/support'], ['Advertise &amp; partner', '/advertise'], ['Editorial policy', '/editorial-policy']])}
 ${col('Legal', [['Privacy policy', '/privacy'], ['Terms of service', '/terms'], ['Disclaimer', '/disclaimer'], ['Cookie policy', '/cookie-policy'], ['Copyright &amp; trademarks', '/copyright'], ['Sitemap', '/sitemap.xml'], ['RSS feed', '/feed.xml']])}
 </div>
