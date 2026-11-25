@@ -45,9 +45,9 @@ const KW = {
   clcss: [/clcss/i, /credit linked capital subsidy/i], 'msme-loan-59-minutes': [/59 minutes/i], 'sidbi-direct': [/sidbi/i], 'nsic-schemes': [/\bnsic\b/i],
   'aatmanirbhar-gujarat-msme': [/aatmanirbhar gujarat/i], 'gujarat-textile-policy': [/gujarat.{0,30}textile/i], 'gujarat-large-industry-incentive': [/gujarat.{0,40}(industrial policy|incentive)/i], 'gujarat-startup-scheme': [/gujarat.{0,30}start ?up/i],
   'cm-yuva-up': [/cm[- ]?yuva/i, /yuva udyami/i], 'odop-up': [/\bodop\b/i, /one district one product/i], 'cm-yuva-swarozgar-up': [/yuva swarozgar/i],
-  'upiepp-up': [/invest up/i, /up.{0,20}industrial (investment|policy)/i], 'up-msme-policy': [/(uttar pradesh|\bup\b).{0,25}msme/i], 'up-textile-policy': [/(uttar pradesh|\bup\b).{0,25}textile/i],
+  'upiepp-up': [/\bInvest UP\b/, /\b(UP|Uttar Pradesh)\b.{0,20}[Ii]ndustrial ([Ii]nvestment|[Pp]olicy)/], 'up-msme-policy': [/\b(UP|Uttar Pradesh)\b.{0,25}(MSME|msme|Msme)/], 'up-textile-policy': [/\b(UP|Uttar Pradesh)\b.{0,25}[Tt]extile/],
   'cmegp-maharashtra': [/cmegp/i, /chief minister.{0,10}employment generation/i], 'annasaheb-patil-maharashtra': [/annasaheb patil/i], 'maharashtra-iis-policy': [/maharashtra.{0,40}(industr|investment).{0,20}polic/i],
-  msme: [/\bmsme/i, /small business/i, /udyam/i], startup: [/start ?up/i], gujarat: [/gujarat/i], up: [/uttar pradesh|\bu\.?p\.? govt|lucknow|yogi/i], maharashtra: [/maharashtra|mumbai|pune/i], credit: [/loan|credit|lending|bank/i], subsidy: [/subsid|incentive|grant/i],
+  msme: [/\bmsme/i, /small business/i, /udyam/i], startup: [/start ?up/i], gujarat: [/gujarat/i], up: [/Uttar Pradesh|\bUP\b|\bU\.P\.|Lucknow|Yogi/], maharashtra: [/maharashtra|mumbai|pune/i], credit: [/loan|credit|lending|bank/i], subsidy: [/subsid|incentive|grant/i],
 };
 const RELEVANT = /msme|scheme|yojana|subsid|loan|credit|startup|start-up|incentive|udyam|entrepreneur|mudra|pmegp|cgtmse|sidbi|odop|textile|policy|industr|export|manufactur|food processing|women|self-employment|guarantee/i;
 function tagsFor(title, seed) {
