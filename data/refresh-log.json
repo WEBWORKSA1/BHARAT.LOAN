@@ -1,9 +1,9 @@
 {
- "started": "2026-11-25T17:56:53.030Z",
+ "started": "2026-11-26T08:18:55.077Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 11
+   "n": 12
   },
   {
    "q": "PMEGP",
@@ -23,7 +23,7 @@
   },
   {
    "q": "DPIIT startup recognition",
-   "n": 10
+   "n": 9
   },
   {
    "q": "PLI scheme",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 9
+   "n": 8
   },
   {
    "q": "ATUFS textile",
@@ -47,11 +47,11 @@
   },
   {
    "q": "SIDBI MSME loan",
-   "n": 9
+   "n": 10
   },
   {
    "q": "NSIC MSME",
-   "n": 5
+   "n": 6
   },
   {
    "q": "Gujarat industrial policy 2026",
@@ -83,7 +83,7 @@
   },
   {
    "q": "i-Hub Gujarat startup",
-   "n": 6
+   "n": 7
   },
   {
    "q": "Gujarat IT policy",
@@ -91,11 +91,11 @@
   },
   {
    "q": "Gujarat GCC policy",
-   "n": 1
+   "n": 4
   },
   {
    "q": "Gujarat electronics policy",
-   "n": 6
+   "n": 7
   },
   {
    "q": "Gujarat semiconductor",
@@ -103,11 +103,11 @@
   },
   {
    "q": "Gujarat biotechnology policy",
-   "n": 2
+   "n": 4
   },
   {
    "q": "Gujarat space policy",
-   "n": 8
+   "n": 9
   },
   {
    "q": "iKhedut Gujarat",
@@ -221,7 +221,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 295,
+ "news": 321,
  "videos": 6,
- "finished": "2026-11-25T17:59:20.396Z"
+ "finished": "2026-11-26T08:21:31.247Z"
 }
