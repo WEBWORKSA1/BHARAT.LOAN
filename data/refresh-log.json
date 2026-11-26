@@ -1,5 +1,5 @@
 {
- "started": "2026-11-26T08:18:55.077Z",
+ "started": "2026-11-26T21:32:44.007Z",
  "feeds": [
   {
    "q": "CGTMSE",
@@ -23,7 +23,7 @@
   },
   {
    "q": "DPIIT startup recognition",
-   "n": 9
+   "n": 10
   },
   {
    "q": "PLI scheme",
@@ -31,11 +31,11 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 8
+   "n": 7
   },
   {
    "q": "ATUFS textile",
-   "n": 0
+   "n": 1
   },
   {
    "q": "CLCSS MSME technology upgradation",
@@ -83,7 +83,7 @@
   },
   {
    "q": "i-Hub Gujarat startup",
-   "n": 7
+   "n": 8
   },
   {
    "q": "Gujarat IT policy",
@@ -95,7 +95,7 @@
   },
   {
    "q": "Gujarat electronics policy",
-   "n": 7
+   "n": 6
   },
   {
    "q": "Gujarat semiconductor",
@@ -107,7 +107,7 @@
   },
   {
    "q": "Gujarat space policy",
-   "n": 9
+   "n": 10
   },
   {
    "q": "iKhedut Gujarat",
@@ -123,11 +123,11 @@
   },
   {
    "q": "Gujarat Scheduled Caste loan scheme",
-   "n": 2
+   "n": 1
   },
   {
    "q": "Gujarat backward class loan",
-   "n": 1
+   "n": 2
   },
   {
    "q": "Mahila Swavlamban Yojana Gujarat",
@@ -147,7 +147,7 @@
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
-   "n": 7
+   "n": 9
   },
   {
    "q": "ODOP Uttar Pradesh",
@@ -221,7 +221,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 321,
+ "news": 344,
  "videos": 6,
- "finished": "2026-11-26T08:21:31.247Z"
+ "finished": "2026-11-26T21:35:08.705Z"
 }
