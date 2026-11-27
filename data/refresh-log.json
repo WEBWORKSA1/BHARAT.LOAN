@@ -1,9 +1,9 @@
 {
- "started": "2026-11-26T21:32:44.007Z",
+ "started": "2026-11-27T08:34:49.766Z",
  "feeds": [
   {
    "q": "CGTMSE",
-   "n": 12
+   "n": 11
   },
   {
    "q": "PMEGP",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 7
+   "n": 8
   },
   {
    "q": "ATUFS textile",
@@ -51,7 +51,7 @@
   },
   {
    "q": "NSIC MSME",
-   "n": 6
+   "n": 5
   },
   {
    "q": "Gujarat industrial policy 2026",
@@ -83,7 +83,7 @@
   },
   {
    "q": "i-Hub Gujarat startup",
-   "n": 8
+   "n": 6
   },
   {
    "q": "Gujarat IT policy",
@@ -91,11 +91,11 @@
   },
   {
    "q": "Gujarat GCC policy",
-   "n": 4
+   "n": 5
   },
   {
    "q": "Gujarat electronics policy",
-   "n": 6
+   "n": 5
   },
   {
    "q": "Gujarat semiconductor",
@@ -103,11 +103,11 @@
   },
   {
    "q": "Gujarat biotechnology policy",
-   "n": 4
+   "n": 2
   },
   {
    "q": "Gujarat space policy",
-   "n": 10
+   "n": 11
   },
   {
    "q": "iKhedut Gujarat",
@@ -143,11 +143,11 @@
   },
   {
    "q": "Gujarat startup scheme",
-   "n": 12
+   "n": 11
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
-   "n": 9
+   "n": 8
   },
   {
    "q": "ODOP Uttar Pradesh",
@@ -221,7 +221,7 @@
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403"
  ],
- "news": 344,
+ "news": 362,
  "videos": 6,
- "finished": "2026-11-26T21:35:08.705Z"
+ "finished": "2026-11-27T08:37:24.544Z"
 }
