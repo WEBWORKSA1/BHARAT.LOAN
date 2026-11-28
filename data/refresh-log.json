@@ -1,5 +1,5 @@
 {
- "started": "2026-11-27T21:18:00.255Z",
+ "started": "2026-11-28T07:50:18.159Z",
  "feeds": [
   {
    "q": "CGTMSE",
@@ -31,7 +31,7 @@
   },
   {
    "q": "PMFME food processing",
-   "n": 7
+   "n": 8
   },
   {
    "q": "ATUFS textile",
@@ -59,7 +59,7 @@
   },
   {
    "q": "Gujarat textile policy",
-   "n": 12
+   "n": 11
   },
   {
    "q": "Vajpayee Bankable Yojana",
@@ -95,7 +95,7 @@
   },
   {
    "q": "Gujarat electronics policy",
-   "n": 6
+   "n": 5
   },
   {
    "q": "Gujarat semiconductor",
@@ -103,11 +103,11 @@
   },
   {
    "q": "Gujarat biotechnology policy",
-   "n": 5
+   "n": 3
   },
   {
    "q": "Gujarat space policy",
-   "n": 12
+   "n": 9
   },
   {
    "q": "iKhedut Gujarat",
@@ -147,7 +147,7 @@
   },
   {
    "q": "CM Yuva Udyami Uttar Pradesh",
-   "n": 8
+   "n": 9
   },
   {
    "q": "ODOP Uttar Pradesh",
@@ -208,14 +208,17 @@
   {
    "q": "credit guarantee scheme MSME",
    "n": 12
+  },
+  {
+   "yt": "PIB India",
+   "n": 0
   }
  ],
  "errors": [
   "rss PIB (Press Information Bureau): HTTP 403",
-  "yt PIB India: HTTP 503",
   "yt MSME Helpline: HTTP 503"
  ],
- "news": 381,
+ "news": 397,
  "videos": 6,
- "finished": "2026-11-27T21:20:27.825Z"
+ "finished": "2026-11-28T07:52:43.936Z"
 }
